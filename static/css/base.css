@@ -21,8 +21,7 @@ body {
     top: 90%;
     left: 10%;
     width: 80%;
-    background-color: #E0EEEE;
-    /*background-color: #F1F1F1;*/
+    background-color: #F1F1F1;
     z-index: 1;
     text-align: center;
     overflow-x: hidden;
@@ -36,7 +35,7 @@ body {
 }*/
 
 #header {
-    background-color: #BCD7DB;
+    background-color: #D1D1D1;
     margin-bottom: 10%;
 }
 
