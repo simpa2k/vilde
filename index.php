@@ -21,7 +21,7 @@
         
             <div class="section" id="shows">
                 <h1 class="section-heading">Shows</h1>
-                    <img src="static/images/thumbnails/IMG_0002.jpg">
+                    <img src="static/images/thumbnails/IMG_0002.JPG">
                     <p class="section-text">
                         Enligt den vanligaste myten är spöken människor som dött, och som av någon anledning hemsöker en plats,
                         exempelvis sin dödsplats, kyrkor, på kyrkogårdar, på galgbackar, där de bodde, eller,
@@ -42,7 +42,7 @@
             </div>
             <div class="section" id="about">
                 <h1 class="section-heading">About</h1>
-                    <img src="static/images/thumbnails/IMG_0003.jpg">
+                    <img src="static/images/thumbnails/IMG_0003.JPG">
                     <p class="section-text">
                         Enligt den vanligaste myten är spöken människor som dött, och som av någon anledning hemsöker en plats,
                         exempelvis sin dödsplats, kyrkor, på kyrkogårdar, på galgbackar, där de bodde, eller,
@@ -63,7 +63,7 @@
             </div>
             <div class="section" id="musikochfilm">
                 <h1 class="section-heading">Musik och film</h1>
-                    <img src="static/images/thumbnails/IMG_0014.jpg">
+                    <img src="static/images/thumbnails/IMG_0014.JPG">
                     <p class="section-text">
                         Enligt den vanligaste myten är spöken människor som dött, och som av någon anledning hemsöker en plats,
                         exempelvis sin dödsplats, kyrkor, på kyrkogårdar, på galgbackar, där de bodde, eller,
@@ -87,7 +87,7 @@
             </div>
             <div class="section" id="kontakt">
                 <h1 class="section-heading">Kontakt</h1>
-                    <img src="static/images/thumbnails/IMG_0015.jpg">
+                    <img src="static/images/thumbnails/IMG_0015.JPG">
                     <p class="section-text">
                         Enligt den vanligaste myten är spöken människor som dött, och som av någon anledning hemsöker en plats,
                         exempelvis sin dödsplats, kyrkor, på kyrkogårdar, på galgbackar, där de bodde, eller,
