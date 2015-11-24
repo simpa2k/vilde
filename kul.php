@@ -1,3 +1,12 @@
+<?php
+require_once 'core/init.php';
+
+header('Content-Type: text/html; charset=utf-8');
+header("Content-Security-Policy: script-src 'self'");
+header('Strict-Transport-Security: max-age=3600');
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>

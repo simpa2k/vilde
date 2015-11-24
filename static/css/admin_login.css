@@ -1,0 +1,82 @@
+@viewport {
+    zoom: 0.3;
+    width: extend-to-zoom;
+}
+
+@-ms-viewport {
+    zoom: 0.3;
+    width: extend-to-zoom;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+/* Mobile first! */
+#background {
+    background: rgba( 0, 0, 0, 0 ) 
+                url(https://www.spoketikoket.com/static/images/backgroundimages/spoketbackgroundsmall.jpg) no-repeat 50% 0 / cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* For devices bigger than an iPhone 4s, might need to up this minimum a bit */
+@media (min-width: 641px) {
+    #background {
+        background: rgba( 0, 0, 0, 0 ) 
+                    url(https://www.spoketikoket.com/static/images/backgroundimages/spoketbackground.jpg) no-repeat 50% 0 / cover;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+}
+
+#main {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    left: 25%;
+    top: 10%;
+    background-color: #123848;
+    z-index: 1;
+    text-align: center;
+    overflow-x: hidden;
+    /*border: 2px solid #D1D1D1;*/
+    /*border: 2px solid #123848;*/
+    opacity: 0.7;
+    border-radius: 2px;
+}
+
+form {
+    width: 50%;
+    height: 25%;
+    margin-left: 25%;
+    margin-top: 15%;
+    color: #F1F1F1;
+    font-size: 24pt;
+    font-weight: bold;
+}
+
+/*label {
+    display: block;
+    padding-top: 5%;
+}*/
+
+#username, #password {
+    width: 100%;
+    height: 25px;
+    border: none;
+    border-radius: 2px;
+}
+
+#submit {
+    height: 25px;
+    border: none;
+    border-radius: 0px;
+}

@@ -1,0 +1,10 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^register$      ./register.php
+RewriteRule ^adminlogin$    ./admin_login.php
+RewriteRule ^kul$           ./kul.php
+RewriteRule ^fullSite(.*)$  ./index.php
