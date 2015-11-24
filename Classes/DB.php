@@ -139,6 +139,40 @@ class DB {
         return false;
     }
     
+    public function sortArrayByDate($array) {
+        
+        //Sorting the entries recorded in the database,
+        //so they can be displayed in the correct order regardless of when they were entered
+        for($i = 1; $i < count($array); $i++) {
+            //Storing current entry
+            $entry = $array[$i];
+                                    
+            //Storing date of current entry
+            $date = $array[$i]->{'date'};
+                                    
+            //Storing $i in separate variable $j for manipulation
+            $j = $i;
+                                    
+            //As long as $j is greater than zero (index of the first entry) and the date of the entry in the previous iteration
+            //is less than that of the current entry
+            while($j > 0 && $array[$j - 1]->{'date'} < $date) {
+                                        
+                //The entry at the index of the current iteration is assigned the value of the previous iteration
+                $array[$j] = $array[$j - 1];
+                                        
+                //$j is decremented in order to move "left" in the array
+                $j -= 1;
+            }
+                                    
+            //When there are no longer any entries with earlier dates,
+            //place the stored entry at the position we are currently in
+            $array[$j] = $entry;
+        }
+        
+        return $array;
+    
+    }
+    
     public function results() {
         return $this->_results;
     }

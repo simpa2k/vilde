@@ -17,38 +17,14 @@ $counter = 0;
 
 $about = $db->get('admin_main_page', array('type', '=', 'about'))->first();
 
-$kontaktRubrik = $db->get('admin_main_page', array('type', '=', 'kontakt_rubrik'))->first();
-$kontaktMail = $db->get('admin_main_page', array('type', '=', 'kontakt_mail'))->first();
-$kontaktTelSE = $db->get('admin_main_page', array('type', '=', 'kontakt_tel_se'))->first();
-$kontaktTelDK = $db->get('admin_main_page', array('type', '=', 'kontakt_tel_dk'))->first();
+$kontaktRubrik = $db->get('admin_main_page', array('type', '=', 'kontaktRubrik'))->first();
+$kontaktMail = $db->get('admin_main_page', array('type', '=', 'kontaktMail'))->first();
+$kontaktTelSE = $db->get('admin_main_page', array('type', '=', 'kontaktTelSE'))->first();
+$kontaktTelDK = $db->get('admin_main_page', array('type', '=', 'kontaktTelDK'))->first();
 
 $years = array();
 
-//Sorting the gigs recorded in the database, so they can be displayed in the correct order regardless of when they were entered
-for($i = 1; $i < count($allGigs); $i++) {
-    //Storing current entry
-    $entry = $allGigs[$i];
-                                
-    //Storing date of current entry
-    $date = $allGigs[$i]->{'date'};
-                                
-    //Storing $i in separate variable $j for manipulation
-    $j = $i;
-                                
-    //As long as $j is greater than zero (index of the first entry) and the date of the entry in the previous iteration
-    //is less than that of the current entry
-    while($j > 0 && $allGigs[$j - 1]->{'date'} < $date) {
-                                    
-        //The entry at the index of the current iteration is assigned the value of the previous iteration
-        $allGigs[$j] = $allGigs[$j - 1];
-                                    
-        //$j is decremented in order to move "left" in the array
-        $j -= 1;
-    }
-                                
-    //When there are no longer any entries with earlier dates, place the stored entry at the position we are currently in
-    $allGigs[$j] = $entry;
-}
+$allGigs = $db->sortArrayByDate($allGigs);
 
 //Make a list of every year with associated entries
 foreach($allGigs as $gig) {
@@ -87,23 +63,9 @@ foreach($allGigs as $gig) {
             <div class="section" id="shows">
                 <p class="section-heading">KONSERTER</p>
                     <?php 
-                        //Echoing out the next upcoming gig and removing it from the $allGigs array
-                        //if($allGigs[0]->{'date'} > $currentDate) {
-                            
-                        /*$dateAndLocation = $allGigs[0]->{'dateAndLocation'};
-                        $dateAndLocation = explode(',', $dateAndLocation);
-                            
-                        echo '<p id="current-gig">' . $dateAndLocation[0] . ', ' . $allGigs[0]->{'address'} . ', ' . $dateAndLocation[1] . ' ' . $allGigs[0]->{'additionalInfo'} . '</p>';
-                        if($allGigs[0]->{'ticket_link'}) {
-                            echo '<a class="small-small-heading" href="' . $gig->{'ticket_link'} . '">Klicka här för att köpa biljetter!</a></p>';    
-                        }
-                        unset($allGigs[0]);*/
-                    
-                        /* Displaying the the unplayed gigs, the next upcoming gig (first in the array) being displayed
-                        /* differently, and removing them from the array.
-                        */
+                        
                         foreach($allGigs as $index => $gig) {
-                                
+                            
                             $dateAndLocation = $gig->{'dateAndLocation'};
                             $dateAndLocation = explode(',', $dateAndLocation);
                                 
@@ -113,11 +75,14 @@ foreach($allGigs as $gig) {
                             //info once it had been played.
                             if( ($gig->{'date'} > $currentDate) && ($counter == 0) ) {
                                 
-                                echo '<p id="current-gig">' . $dateAndLocation[0] . ', ' . $allGigs[0]->{'address'} . ', ' . $dateAndLocation[1] . ' ' . $allGigs[0]->{'additionalInfo'} . '</p>';
+                                echo '<p id="current-gig">' . $dateAndLocation[0] .
+                                ', ' . $allGigs[0]->{'address'} . ', ' . $dateAndLocation[1] .
+                                ' ' . $allGigs[0]->{'additionalInfo'} . '</p>';
                                 
-                                if($allGigs[0]->{'ticket_link'}) {
+                                if($allGigs[0]->{'ticketLink'}) {
                                 
-                                    echo '<a class="small-small-heading" href="' . $gig->{'ticket_link'} . '">Klicka här för att köpa biljetter!</a></p>';    
+                                    echo '<a class="small-small-heading" href="' . $gig->{'ticketLink'} .
+                                    '">Klicka här för att köpa biljetter!</a></p>';    
                                 }
                                 
                                 unset($allGigs[$index]);
@@ -127,14 +92,14 @@ foreach($allGigs as $gig) {
                                 //If there are no upcoming gigs
                                 echo '<p id="current-gig">Vi har tyvärr inga konserter inplanerade just nu, men fortsätt att hålla utkik här!</p>';  
                               
-                              unset($allGigs[$index]);
                                 
                             } else if ( $gig->{'date'} > $currentDate && ($counter > 0) ) {
                                 //All the rest of the gigs that are yet to be played
                                 echo '<p class="upcoming-gig">' . $dateAndLocation . '</p>';
                                     
-                                if($gig->{'ticket_link'}) {
-                                    echo '<a class="small-small-heading" href="' . $gig->{'ticket_link'} . '">Klicka här för att köpa biljetter!</a></p>';    
+                                if($gig->{'ticketLink'}) {
+                                    echo '<a class="small-small-heading" href="' . $gig->{'ticketLink'} .
+                                    '">Klicka här för att köpa biljetter!</a></p>';    
                                 }
                                 
                                 unset($allGigs[$index]);
