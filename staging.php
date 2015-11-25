@@ -17,6 +17,7 @@ $counter = 0;
 
 $about = $db->get('admin_main_page', array('type', '=', 'about'))->first();
 
+$noGigs = $db->get('admin_main_page', array('type', '=', 'noGigs'))->first();
 $kontaktRubrik = $db->get('admin_main_page', array('type', '=', 'kontaktRubrik'))->first();
 $kontaktMail = $db->get('admin_main_page', array('type', '=', 'kontaktMail'))->first();
 $kontaktTelSE = $db->get('admin_main_page', array('type', '=', 'kontaktTelSE'))->first();
@@ -90,7 +91,7 @@ foreach($allGigs as $gig) {
                             } else if ( ($gig->{'date'} < $currentDate) && ($counter == 0) ) {
                                 
                                 //If there are no upcoming gigs
-                                echo '<p id="current-gig">Vi har tyvärr inga konserter inplanerade just nu, men fortsätt att hålla utkik här!</p>';  
+                                echo '<p id="current-gig">' . $noGigs->content . '</p>';  
                               
                                 
                             } else if ( $gig->{'date'} > $currentDate && ($counter > 0) ) {
