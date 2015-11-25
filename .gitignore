@@ -1,3 +1,7 @@
 .DS_Store
 spoketikoket.komodoproject
+<<<<<<< HEAD
 core/
+=======
+core/init.php
+>>>>>>> d64e1ff7b384d9c6b3fbad5adffae17bfc06c7b7
