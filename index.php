@@ -46,6 +46,7 @@ $kontakt = $db->get('admin_main_page', array('type', '=', 'kontakt'))->first();
                     <p class="small-heading" id="dropdown-menu-button">Här har vi spelat tidigare &raquo;</p>
                         <h5 class="dropdown-menu-item">2015</h5>
                         <p class="dropdown-menu-item">16 Oktober - Oceanen, Göteborg</p>
+                        <p class="dropdown-menu-item">25 Juli - Festival Decimal, Nyköping</p>
                         <p class="dropdown-menu-item">15 Maj - Stallet, Stockholm</p>
                         <p class="dropdown-menu-item">27 Mars - Teaterhögskolan Göteborg</p>
             </div>
@@ -62,6 +63,21 @@ $kontakt = $db->get('admin_main_page', array('type', '=', 'kontakt'))->first();
                         <br/>
                         <br/>
                         Musikerna är tio och instrumenten tjugo! Musiken är lounge/rave-folk och bandet är Spöket i Köket!
+                    </p>
+                    
+                    <br/>
+                    
+                <p class="small-heading">Spöket i köket är:</p>
+                    <p class="large text">
+                        Clara Tesch - fiol<br/>
+                        Mads Kj&#248ller-Henningsen - flöjter, vevlira, sång<br/>
+                        Emma Engström - piano<br/>
+                        Erik Bengtsson - bas<br/>
+                        Troels Strange Lorentzen - dragspel<br/>
+                        Nisse Blomster - gitarr, mandolin, stomp, sång<br/>
+                        Albin Lagg - trumpet<br/>
+                        Erik Wennerberg - trombon<br/>Henrik Büller - barytonsax, altsax<br/>
+                        Erik Larsson - tenorsax, klarinett
                     </p>
             </div>
                 

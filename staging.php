@@ -133,6 +133,19 @@ foreach($allGigs as $gig) {
                 <p class="section-heading">OM SPÖKET</p>
                     <a href="static/images/about.jpg"><img src="static/images/about.jpg"></a>
                     <?php echo '<p class="large-text">' . $about->content . '</p>' ;?>
+                    
+                    <p class="small-heading">Spöket i köket är:</p>
+                    <p class="large text">
+                        Clara Tesch - fiol<br/>
+                        Mads Kj&#248ller-Henningsen - flöjter, vevlira, sång<br/>
+                        Emma Engström - piano<br/>
+                        Erik Bengtsson - bas<br/>
+                        Troels Strange Lorentzen - dragspel<br/>
+                        Nisse Blomster - gitarr, mandolin, stomp, sång<br/>
+                        Albin Lagg - trumpet<br/>
+                        Erik Wennerberg - trombon<br/>Henrik Büller - barytonsax, altsax<br/>
+                        Erik Larsson - tenorsax, klarinett
+                    </p>
             </div>
                 
             <div class="section" id="musikochfilm">
