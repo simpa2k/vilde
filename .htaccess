@@ -6,12 +6,12 @@ RewriteCond %{SCRIPT_FILENAME} !-f
 
 RewriteRule ^register$      ./register.php
 RewriteRule ^adminlogin$    ./admin_login.php
-<<<<<<< HEAD
+
 RewriteRule ^admin$         ./admin.php
 RewriteRule ^kul$           ./kul.php
 RewriteRule ^fullSite$      ./fullSite.php
 RewriteRule ^gallery$       ./gallery.php
-=======
+
 RewriteRule ^kul$           ./kul.php
 RewriteRule ^fullSite(.*)$  ./index.php
->>>>>>> f349563f178b5f5dc3b656beb8aa59f008fa5b2a
+
