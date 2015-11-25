@@ -39,7 +39,9 @@ $kontakt = $db->get('admin_main_page', array('type', '=', 'kontakt'))->first();
             
             <div class="section" id="shows">
                 <p class="section-heading">KONSERTER</p>
-                    <p id="current-gig">Vi har tyvärr inga konserter inplanerade just nu, men fortsätt att hålla utkik här!</p>
+                    <p id="current-gig">29 Februari - Koordinaten, Oxelösund<br/>(Mer info kommer)</p>
+                    <p class="upcoming-gig">23 Mars - ROD, Danmark</p>
+                    <p class="large-text">Lång sommarturné planeras!</p>
                     <!--<a class="small-heading" href="http://oceanen.com/2015/09/21/16-10-spoket-i-koket/">Klicka här för att köpa biljetter!</a></p>-->
                     <!--<a href="static/images/IMG_3054.JPG"><img class="large-thumbnail" src="static/images/thumbnails/IMG_3054_small.jpg"></a>-->
                     <br/>
