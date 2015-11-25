@@ -3,10 +3,10 @@ session_start();
 
 $GLOBALS['config'] = array(
     'mysql' => array(
-        'host'      => 'spoketikoket.com.mysql',
-        'username'  => 'spoketikoket_co',
-        'password'  => 'Udp6RYmy',
-        'db'        => 'spoketikoket_co'
+        'host'      => '127.0.0.1',
+        'username'  => 'root',
+        'password'  => 'm432LzR33PQsaH',
+        'db'        => 'spoketikoket'
     ),
     'session' => array(
         'session_name' => 'user',

@@ -7,3 +7,5 @@
 6. Anfanger på delrubriker!
 7. Gör bakgrundsbilden mindre
 8. Gör mailadressen spamsäker
+9. Det går inte att utf-8-koda databaskopplingen i DB-klassen. Tog bort den men det fanns väl en anledning till att den hamnade där från början?
+10. Måste finnas funktion som automatiskt flyttar spelade spelningar från nästa spelning till tidigare spelningar
