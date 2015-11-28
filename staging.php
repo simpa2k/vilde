@@ -215,9 +215,9 @@ foreach($allGigs as $gig) {
             <div class="section" id="kontakt">
                 <p class="section-heading">KONTAKT</p>
                     <p class="small-heading"><?php echo $kontaktRubrik->content; ?></p>
-                        <p>Mail: <?php echo $kontaktMail->content; ?></p>
-                        <p>Tel SE: <?php echo $kontaktTelSE->content; ?></p>
-                        <p>Tel DK: <?php echo $kontaktTelDK->content; ?></p>
+                        <p><?php echo $kontaktMail->content; ?></p>
+                        <p><?php echo $kontaktTelSE->content; ?></p>
+                        <p><?php echo $kontaktTelDK->content; ?></p>
             </div>
             
             <div id="footer">
