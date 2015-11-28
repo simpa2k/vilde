@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200, 300, 400, 600');
+@import url('https://fonts.googleapis.com/css?family=Oswald:300, 400, 700');
+
+@viewport {
+    zoom: 0.3;
+    width: extend-to-zoom;
+}
+
+@-ms-viewport {
+    zoom: 0.3;
+    width: extend-to-zoom;
+}
+
+body {
+    font-family: "Oswald", "Source Sans Pro", sans-serif;
+    font-weight: 300;
+}
+
+/* Mobile first! */
+#background {
+    background: rgba( 0, 0, 0, 0 ) 
+                url(https://www.spoketikoket.com/static/images/backgroundimages/spoketbackgroundsmall.jpg) no-repeat 50% 0 / cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+#main {
+    position: absolute;
+    top: 90%;
+    /*left: 10%;*/
+    width: 100%;
+    background-color: #DFDBC3;
+    z-index: 1;
+    text-align: center;
+    overflow-x: visible;
+    border-radius: 2px;
+}
+
+/* Preventing the embedded youtube player from getting wider than the #main div */
+#main iframe {
+    width: 100%;
+    box-shadow: 1px 1px 5px #919292;
+}
+
+.heading {
+    display: inline-block;
+    width: 17%;
+    font-size: 14pt;
+    color: #D0D7DA;
+    transition: all .5s ease;
+}
+
+/* For devices bigger than an iPhone 4s, might need to up this minimum a bit, check samsung device widths */
+@media (min-width: 641px) {
+    #background {
+        background: rgba( 0, 0, 0, 0 ) 
+                    url(https://www.spoketikoket.com/static/images/backgroundimages/backgroundLogo.jpg) no-repeat 50% 0 / cover;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+    
+    #main {
+        position: absolute;
+        top: 90%;
+        left: 0%;
+        width: 100%;
+        /*background-color: #F5F5F5;*/
+        background-color: #DFDBC3;
+        z-index: 1;
+        text-align: center;
+        overflow-x: hidden;
+        border-radius: 2px;
+    }
+
+    .heading {
+        display: inline-block;
+        width: 15%;
+        font-size: 14pt;
+        /*margin-bottom: 10%;*/
+        color: #D0D7DA;
+        /*font-weight: bold;*/
+        transition: all .5s ease;
+    }
+    /*Resetting the width of the embedded youtube player, as per the width specified in the original iframe*/
+    #main iframe {
+        width: 560px;
+    }
+    
+    #album-container {
+        display: inline-block;
+        opacity: 0.7;
+        margin-right: 1%;
+        cursor: pointer;
+    }
+    
+    #album-container:hover {
+       transition: all .5s ease-in-out;
+        -webkit-transition: all .5s ease-in-out;
+        opacity: 1;
+    }
+    
+    .soundcloud-div {
+        height: 332px;
+        display: inline-block;
+    }
+    
+    .soundcloud-div iframe {
+        display: block;
+    }
+}
+
+textarea {
+    font-family: inherit;
+    width: 100%;
+    height: 50%;
+    
+}
+
+.small-textarea {
+    width: 60%;
+    height: 10%;
+}
+
+#header {
+    background-color: #123848;
+    margin-bottom: 10%;
+}
+
+
+
+.heading-link {
+    display: inline-block;
+    width: 15%;
+    color: #D0D7DA;
+    font-weight: bold;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+.heading:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.heading-link:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+#main a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.section {
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    margin-bottom: 5%;
+    background-color: #DFDBC3;
+    text-align: left;
+    line-height: 1.3;
+    /*border-top: 2px solid #123848;*/
+    padding-left: 1%;
+}
+
+#about {
+    clear: right;
+}
+
+.section img {
+    /*float: right;*/
+    width: 100%;
+    height: 100%;
+    /*margin-right: 1%;*/
+    opacity: 1;
+    /*border: 2px ridge #123848;*/
+    box-shadow: 1px 1px 5px #464849;
+}
+
+.thumbnail {
+    width: 256px !important;
+    height: 100%;
+    box-shadow: 1px 1px 5px #464849;
+}
+
+.medium-thumbnail {
+    width: 540px !important;
+    height: 360px !important;
+    box-shadow: 1px 1px 5px #464849;
+}
+
+.large-thumbnail {
+    width: 640px !important;
+    height: 480px !important;
+    box-shadow: 1px 1px 5px #464849;
+    float: right;
+    top: 0;
+}
+
+#album-thumbnail {
+    width: 256px;
+    height: 171px;
+    border: none;
+    box-shadow: 1px 1px 5px #464849;
+}
+
+.section-heading {
+    width: 60%;
+    color: #123848;
+    font-size: 28pt;
+    font-weight: medium;
+    border-top: 2px solid #123848;
+    padding-top: 1%;
+}
+
+#current-gig {
+    font-size: 20pt;
+    width: 40%;
+}
+
+.upcoming-gig {
+    font-size: 18pt
+}
+
+.small-heading {
+    font-size: 16pt;
+    font-weight: 300;
+}
+
+.small-small-heading {
+    font-size: 14pt;
+    font-weight: 300;
+}
+
+#dropdown-menu-button {
+    cursor: pointer;
+    width: 25%;
+}
+
+#dropdown-menu-button:hover {
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.large-text {
+    font-size: 14pt;
+}
+
+#footer {
+    width: 100%;
+    height 15%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #123848;
+    font-size: 7pt;
+}
+
+#footer p {
+    height: 100%;
+    margin-bottom: 0;
+    color: #D0D7DA;
+}
+
+#not-visible, #visible {
+    display: none;
+}
+
+#to-top {
+    position: fixed;
+    z-index: 2;
+    bottom: 2%;
+    right: 1%;
+    color: #F1F1F1;
+    background-color: #123848;
+    padding: 0% 1% 0% 1%;
+    opacity: 0.0;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    /* to prevent cursor being displayed as text marker when element is hidden: */
+    cursor: default;
+}
+
+#visible:checked + #to-top {
+    opacity: 0.7;
+}
+
+#visible:checked + #to-top:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    opacity: .9;
+}
