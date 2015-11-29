@@ -189,7 +189,7 @@ If($user->isLoggedIn()) {
                         
                         ; ?>
                         
-                        <form action="" method="post">
+                        <form id="gig-form" action="" method="post">
                             <p class="large-text">Lägg till ett nytt gig!</p>
                             Datum för giget:
                             <br/>

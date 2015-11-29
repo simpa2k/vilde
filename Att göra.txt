@@ -7,5 +7,6 @@
 6. Anfanger på delrubriker!
 7. Gör bakgrundsbilden mindre
 8. Gör mailadressen spamsäker
-9. Det går inte att utf-8-koda databaskopplingen i DB-klassen. Tog bort den men det fanns väl en anledning till att den hamnade där från början?
-10. Måste finnas funktion som automatiskt flyttar spelade spelningar från nästa spelning till tidigare spelningar
+9. Se till att gigdatum bara behöver skrivas in på ett ställe
+10. Skriv någon slags parser som kan omvandla \n till <br\> så att man faktiskt kan formattera innehåll lite grann. Borde inte
+    vara så komplicerat, eftersom databasen i sig lagrar newlines.
