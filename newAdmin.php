@@ -42,10 +42,25 @@ If($user->isLoggedIn()) {
             }
         }
         
-        foreach($_POST as $item_id => $item ) {
-            $db->update('admin_main_page', $item_id, array(
-                'content' => Input::get($item_id)
-            ));
+        if($_POST) {
+            foreach($_POST as $item_id => $item ) {
+                if(is_numeric($item_id)) {
+                    $db->update('admin_main_page', $item_id, array(
+                    'content' => Input::get($item_id)
+                ));
+                }
+            }
+            
+            $fields = array(
+                    'id'               => NULL,
+                    'date'             => $_POST['date'],
+                    'ticketLink'       => $_POST['ticketLink'],
+                    'dateAndLocation'  => $_POST['dateAndLocation'],
+                    'address'          => $_POST['address'],
+                    'additionalInfo'   => $_POST['additionalInfo']
+                );
+                    
+            $db->insert('konserter', $fields);
         }
     }
     
@@ -83,9 +98,7 @@ If($user->isLoggedIn()) {
             $years[] = $year;
         }
     }
-    
-    
-    
+
     ?>
     
     <!DOCTYPE html>
@@ -173,9 +186,24 @@ If($user->isLoggedIn()) {
                                     }
                                 }
                             }
+                        
                         ; ?>
-                    
-                    
+                        
+                        <form action="" method="post">
+                            Lägg till ett nytt gig!
+                            <br/>
+                            Datum för giget: <input type="text" name="date">
+                            <br/>
+                            Länk till biljettköp: <input type="text" name="ticketLink">
+                            <br/>
+                            Datum och plats: <input type="text" name="dateAndLocation">
+                            <br/>
+                            Adress: <input type="text" name="address">
+                            <br/>
+                            Ytterligare information: <input type="text" name="additionalInfo">
+                            <br/>
+                            <input type="submit">
+                        </form>            
                 </div>
                 
                 <div class="section" id="about">
