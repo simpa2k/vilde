@@ -190,19 +190,28 @@ If($user->isLoggedIn()) {
                         ; ?>
                         
                         <form action="" method="post">
-                            Lägg till ett nytt gig!
+                            <p class="large-text">Lägg till ett nytt gig!</p>
+                            Datum för giget:
                             <br/>
-                            Datum för giget: <input type="text" name="date">
+                            <input type="text" name="date">
                             <br/>
-                            Länk till biljettköp: <input type="text" name="ticketLink">
+                            Länk till biljettköp:
                             <br/>
-                            Datum och plats: <input type="text" name="dateAndLocation">
+                            <input type="text" name="ticketLink">
                             <br/>
-                            Adress: <input type="text" name="address">
+                            Datum och plats:
                             <br/>
-                            Ytterligare information: <input type="text" name="additionalInfo">
+                            <input type="text" name="dateAndLocation">
                             <br/>
-                            <input type="submit">
+                            Adress:
+                            <br/>
+                            <input type="text" name="address">
+                            <br/>
+                            Ytterligare information:
+                            <br/>
+                            <input type="text" name="additionalInfo">
+                            <br/>
+                            <input type="submit" value="Lägg till gig">
                         </form>            
                 </div>
                 
