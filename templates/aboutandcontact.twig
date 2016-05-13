@@ -1,0 +1,55 @@
+<div id="about-and-contact-section">
+	<div class="container-fluid">
+		<div class="row">
+			<div id="about" class="box col-xs-6">
+				<h1>Om Vilde</h1>
+				{% for paragraph in description %}
+					{% if paragraph.dropcap != null %}
+						<div class="drop-cap-container"><p class="drop-cap">{{ paragraph.dropcap }}</p></div>
+					{% endif %}
+					<p>{{  paragraph.paragraph }}</p>
+				{% endfor %}
+			</div>
+
+			<div id="contact" class="box col-xs-6">
+				<div class="row">
+					<div class="col-xs-12">
+						<h1>Bokning och press:</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3">
+						<p><span class="red">Mail</span>:</p> 
+					</div>
+					<div class="col-xs-9">
+						<p>{{ contact.mail }}</p>
+
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-3">
+						<p><span class="red">Telefon</span>:</p>
+					</div>
+					<div class="col-xs-9">
+						
+						{% for contactperson in contact.contactpersons%}
+							<div class="row">
+							
+								<div class="col-xs-7">
+									<p>{{ contactperson.name }}</p> 
+								</div>
+								<div class="col-xs-5">
+									<p>{{ contactperson.phonenumber }}</p>
+								</div>
+								
+							</div>
+						{% endfor %}
+						
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,356 @@
+@import url(https://fonts.googleapis.com/css?family=Quicksand:300,700&subset=latin-ext,latin);
+
+@white: #eaeaea;
+@red: #f44843;
+@light-grey: #bfbfbf;
+@dark-grey: #333333;
+@black: #262626;
+@transparent-black: rgba(38, 38, 38, 0.9);
+
+@screen-height: 100vh;
+@half-screen-height: @screen-height / 2;
+@double-screen-height: @screen-height * 2;
+
+.red {
+
+	color: @red;
+
+}
+
+body {
+
+	font-family: "Quicksand" !important;
+
+}
+
+#background {
+	position: fixed;
+        background: rgba( 0, 0, 0, 0 ) 
+                    url(../images/vildebackgroundlogo_medium.jpg) no-repeat 50% 0 / cover;
+	background-size: cover;
+	width: 100%;
+	height: @screen-height; 
+	top: 0;
+	left: 0;
+	z-index: 0;
+}
+
+#main {
+	
+	position: absolute;
+	top: @screen-height;
+	z-index: 1;
+	background-color: #ffffff;
+
+}
+
+#navbar {
+
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	background-color: @transparent-black;
+	padding: 0.5% 0.5% 0.5% 0.5%;
+	color: @red;
+
+	.heading {
+
+		cursor: pointer;
+		transition: all .2s ease-in-out;
+        font-size: 11pt;
+
+	}
+
+	.heading:hover {
+
+		transform: scale(1.05);
+
+	}
+
+	#social-media-section {
+
+		padding-top: 0.5%;
+
+	}
+
+}
+
+.box {
+
+	padding: 5% 5% 5% 5% !important;
+
+}
+
+#quote {
+
+	height: @screen-height * 0.3;
+	background-color: @black;
+	color: @red;
+	overflow-y: auto;
+
+	blockquote {
+
+		border: none !important;
+
+		p {
+
+			font-size: 12pt;
+
+		}
+
+		footer {
+
+			float: right;
+
+		}
+
+
+	}
+
+	blockquote::before {
+		
+		content:'"';
+		font-size: 34pt;
+		font-weight: bold;
+		float: left;
+		margin-right: 2%;
+		line-height: 50%;
+
+	}
+
+}
+
+#news {
+	
+	height: @screen-height * 0.7; 
+	background-color: @light-grey;
+	overflow-y: auto;
+	font-size: 12pt;
+	
+}
+
+#gigs {
+
+	background-color: @white;
+	height: @screen-height;
+	overflow-y: auto;
+
+	#gigs-container {
+
+		overflow-y: auto;
+
+	}
+
+	#gigs-container:hover > .gig {
+
+		transform: scale(0.95);
+
+	}
+
+
+	.gig {
+		
+		margin: 2% 2% 0 2%;
+		width: 90%;
+		transition: all .2s ease-in-out;
+		font-size: 16pt;
+
+		.gig-text {
+
+			border: 1px solid @light-grey;
+			border-right: none;
+			border-top-left-radius: 2px;
+			border-bottom-left-radius: 2px;
+			padding: 2% 2% 1% 2%;
+
+		}
+
+		.gig-button {
+			
+			border: 1px solid @black;
+			border-top-right-radius: 2px;
+			border-bottom-right-radius: 2px;
+			background-color: @black;
+			color: @red;
+			padding: 2% 2% 1% 2%;
+			
+		}
+
+	}
+
+	.gig:hover {
+
+		cursor: pointer;
+
+	}
+
+	#gigs-container:hover > .gig:hover {
+		
+		transform: scale(1.0);
+
+	}
+
+	.gig .hidden {
+
+		display: none;
+
+	}
+
+	.gig .expanded {
+
+		height: 80%;
+
+	}
+
+}
+
+#members {
+
+	background-image: url(../images/allatre.jpg);
+	background-size: cover;
+
+	.member {
+
+		height: @screen-height * 0.6;
+		transition: all .2s ease-in-out;
+		color: @white;
+		position: relative;
+
+		.member-info {
+
+			position: absolute;
+			bottom: 0;
+
+			.instrument, .lastname {
+
+				display: none;
+
+			}
+
+		}
+
+		#sunniva {
+			
+
+		}
+
+		#nisse {
+
+		//	background-image: url(images/nisse.jpg); 
+		}
+
+		#erik {
+			
+		//	background-image: url(images/erik.jpg); 
+			
+		}
+
+	}
+
+	.member:hover {
+
+		background-color: rgba(38, 38, 38, 0.5);
+
+		.instrument, .lastname {
+			
+			display: initial;
+
+		}
+
+	}
+
+}
+
+#about-and-contact-section {
+
+	color: @black;
+
+}
+
+#about {
+
+	height:	@screen-height; 
+	font-size: 14pt;
+	background-color: @white;
+	overflow-y: auto;
+
+	.drop-cap-container {
+
+	    float: left;
+	    padding: 0 5px 0 5px;
+	    margin-right: 2px;
+
+	}
+
+	.drop-cap {
+
+	    font-size: 60pt;
+	    color: #f44843;
+	    display: inline;
+	    float: left;
+	    top: 0;
+	    line-height: 65px;
+
+	}
+
+}
+
+#contact {
+	
+	height:	@screen-height; 
+	background-color: @white + #111;
+	font-size: 16pt;
+
+}
+
+#youtube {
+
+	background-color: @light-grey;
+	height: @double-screen-height;
+	overflow-y: auto;
+
+}
+
+#soundcloud {
+	
+	background-color: @black;
+	height: @double-screen-height;
+	color: @red;
+
+/*	.high-iframe {
+
+		height: @half-screen-height;
+		width: 39%;
+		margin: 0 5% 0 5%;
+
+	}
+
+	.wide-iframe {
+		
+		width: 89%;
+		margin: 2% 5% 0 5%;
+
+	}*/
+
+	iframe:nth-child(4) {
+
+		height: @screen-height * 0.25;
+
+	}
+}
+
+iframe {
+
+	width: 80%;
+	height: @half-screen-height;
+	margin: 2% 10% 0 10%;
+
+}
+
+#footer {
+
+    padding-top: 1%;
+
+}
+
+

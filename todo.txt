@@ -1,0 +1,2 @@
+* GigHandlern formaterar gigens datum, detta borde egentligen vara en frontendsyssla. Borde inte hela frontenden
+  skrivas i JavaScript?

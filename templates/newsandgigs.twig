@@ -1,0 +1,44 @@
+<div id="news-and-gigs-section">
+	<div class="container-fluid">
+
+		<div class="row">
+
+			<div class="col-xs-4">
+				<div class="row">
+
+					<div id="news" class="box col-xs-12">
+						<h1>Nyheter</h1>
+						{% for newsItem in news %}
+							<p><span class="red">{{ newsItem.date }}</span> - {{ newsItem.content }}</p>
+						{% endfor %}
+					</div>
+
+				</div>
+				<div class="row">
+					<div id="quote" class="box col-xs-12">
+						<blockquote>
+							<p>{{ quote.review }}</p>
+							<footer>{{ quote.info }}</footer>
+						</blockquote>
+					</div>
+				</div>
+			</div>
+
+			<div id="gigs" class="box col-xs-8">
+				<h1 class="text-center">Kommande konserter</h1>
+					<div id="gigs-container">
+						{% for gig in gigs %}
+							<div class="gig row">
+								<div class="gig-text col-xs-9">
+									<p class="text-center">{{ gig.date }} - <span class="red">{{ gig.venue_name }}</span>, {{ gig.city }}</p>
+								</div>
+								<div class="gig-button col-xs-3"><p class="text-center">Mer info</p></div>
+							</div>
+						{% endfor %}
+					</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>

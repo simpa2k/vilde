@@ -1,0 +1,205 @@
+@import url(https://fonts.googleapis.com/css?family=Quicksand:300,700&subset=latin-ext,latin);
+.red {
+  color: #f44843;
+}
+body {
+  font-family: "Quicksand" !important;
+}
+#background {
+  position: fixed;
+  background: rgba(0, 0, 0, 0) url(../images/vildebackgroundlogo_medium.jpg) no-repeat 50% 0 / cover;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+#main {
+  position: absolute;
+  top: 100vh;
+  z-index: 1;
+  background-color: #ffffff;
+}
+#navbar {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(38, 38, 38, 0.9);
+  padding: 0.5% 0.5% 0.5% 0.5%;
+  color: #f44843;
+}
+#navbar .heading {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 11pt;
+}
+#navbar .heading:hover {
+  transform: scale(1.05);
+}
+#navbar #social-media-section {
+  padding-top: 0.5%;
+}
+.box {
+  padding: 5% 5% 5% 5% !important;
+}
+#quote {
+  height: 30vh;
+  background-color: #262626;
+  color: #f44843;
+  overflow-y: auto;
+}
+#quote blockquote {
+  border: none !important;
+}
+#quote blockquote p {
+  font-size: 12pt;
+}
+#quote blockquote footer {
+  float: right;
+}
+#quote blockquote::before {
+  content: '"';
+  font-size: 34pt;
+  font-weight: bold;
+  float: left;
+  margin-right: 2%;
+  line-height: 50%;
+}
+#news {
+  height: 70vh;
+  background-color: #bfbfbf;
+  overflow-y: auto;
+  font-size: 12pt;
+}
+#gigs {
+  background-color: #eaeaea;
+  height: 100vh;
+  overflow-y: auto;
+}
+#gigs #gigs-container {
+  overflow-y: auto;
+}
+#gigs #gigs-container:hover > .gig {
+  transform: scale(0.95);
+}
+#gigs .gig {
+  margin: 2% 2% 0 2%;
+  width: 90%;
+  transition: all 0.2s ease-in-out;
+  font-size: 16pt;
+}
+#gigs .gig .gig-text {
+  border: 1px solid #bfbfbf;
+  border-right: none;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  padding: 2% 2% 1% 2%;
+}
+#gigs .gig .gig-button {
+  border: 1px solid #262626;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background-color: #262626;
+  color: #f44843;
+  padding: 2% 2% 1% 2%;
+}
+#gigs .gig:hover {
+  cursor: pointer;
+}
+#gigs #gigs-container:hover > .gig:hover {
+  transform: scale(1);
+}
+#gigs .gig .hidden {
+  display: none;
+}
+#gigs .gig .expanded {
+  height: 80%;
+}
+#members {
+  background-image: url(../images/allatre.jpg);
+  background-size: cover;
+}
+#members .member {
+  height: 60vh;
+  transition: all 0.2s ease-in-out;
+  color: #eaeaea;
+  position: relative;
+}
+#members .member .member-info {
+  position: absolute;
+  bottom: 0;
+}
+#members .member .member-info .instrument,
+#members .member .member-info .lastname {
+  display: none;
+}
+#members .member:hover {
+  background-color: rgba(38, 38, 38, 0.5);
+}
+#members .member:hover .instrument,
+#members .member:hover .lastname {
+  display: initial;
+}
+#about-and-contact-section {
+  color: #262626;
+}
+#about {
+  height: 100vh;
+  font-size: 14pt;
+  background-color: #eaeaea;
+  overflow-y: auto;
+}
+#about .drop-cap-container {
+  float: left;
+  padding: 0 5px 0 5px;
+  margin-right: 2px;
+}
+#about .drop-cap {
+  font-size: 60pt;
+  color: #f44843;
+  display: inline;
+  float: left;
+  top: 0;
+  line-height: 65px;
+}
+#contact {
+  height: 100vh;
+  background-color: #fbfbfb;
+  font-size: 16pt;
+}
+#youtube {
+  background-color: #bfbfbf;
+  height: 200vh;
+  overflow-y: auto;
+}
+#soundcloud {
+  background-color: #262626;
+  height: 200vh;
+  color: #f44843;
+  /*	.high-iframe {
+
+		height: @half-screen-height;
+		width: 39%;
+		margin: 0 5% 0 5%;
+
+	}
+
+	.wide-iframe {
+		
+		width: 89%;
+		margin: 2% 5% 0 5%;
+
+	}*/
+}
+#soundcloud iframe:nth-child(4) {
+  height: 25vh;
+}
+iframe {
+  width: 80%;
+  height: 50vh;
+  margin: 2% 10% 0 10%;
+}
+#footer {
+  padding-top: 1%;
+}
