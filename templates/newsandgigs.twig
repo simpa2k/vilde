@@ -14,14 +14,6 @@
 					</div>
 
 				</div>
-				<div class="row">
-					<div id="quote" class="box col-xs-12">
-						<blockquote>
-							<p>{{ quote.review }}</p>
-							<footer>{{ quote.info }}</footer>
-						</blockquote>
-					</div>
-				</div>
 			</div>
 
 			<div id="gigs" class="box col-xs-8">
@@ -30,9 +22,12 @@
 						{% for gig in gigs %}
 							<div class="gig row">
 								<div class="gig-text col-xs-9">
-									<p class="text-center">{{ gig.date }} - <span class="red">{{ gig.venue_name }}</span>, {{ gig.city }}</p>
+									<p class="text-center">{{ gig.date }} - <span class="orange-brown">{{ gig.venue_name }}</span>, {{ gig.city }}</p>
 								</div>
 								<div class="gig-button col-xs-3"><p class="text-center">Mer info</p></div>
+								<div class="additional-info">
+									<p class="text-center">{{ gig.price }}</p>
+								</div>
 							</div>
 						{% endfor %}
 					</div>

@@ -20,7 +20,10 @@ echo $twig->render('main.twig', array(
 		
 		"news"	=> $model->getNews(),
 		
-		"quote" => $model->getQuote(),
+		"quotes" => array(
+			0 => $model->getQuote(6),
+			1 => $model->getQuote(7)
+		),
 		
 		"gigs" => $gigsToBePlayed,
 

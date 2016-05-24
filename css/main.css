@@ -2,15 +2,18 @@
 .red {
   color: #f44843;
 }
+.orange-brown {
+  color: #fa9663;
+}
 body {
   font-family: "Quicksand" !important;
 }
 #background {
-  position: fixed;
-  background: rgba(0, 0, 0, 0) url(../images/vildebackgroundlogo_medium.jpg) no-repeat 50% 0 / cover;
+  position: absolute;
+  background: transparent;
   background-size: cover;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   top: 0;
   left: 0;
   z-index: 0;
@@ -19,7 +22,7 @@ body {
   position: absolute;
   top: 100vh;
   z-index: 1;
-  background-color: #ffffff;
+  background: transparent;
 }
 #navbar {
   position: absolute;
@@ -44,10 +47,11 @@ body {
   padding: 5% 5% 5% 5% !important;
 }
 #quote {
-  height: 30vh;
-  background-color: #262626;
+  height: 100vh;
+  background-color: #d9d9d9;
   color: #f44843;
   overflow-y: auto;
+  padding: 10% 5% 10% 5%;
 }
 #quote blockquote {
   border: none !important;
@@ -67,15 +71,16 @@ body {
   line-height: 50%;
 }
 #news {
-  height: 70vh;
-  background-color: #bfbfbf;
+  height: 100vh;
+  background-color: #eaeaea;
   overflow-y: auto;
   font-size: 12pt;
 }
 #gigs {
-  background-color: #eaeaea;
+  background-color: #262626;
   height: 100vh;
   overflow-y: auto;
+  color: #f44843;
 }
 #gigs #gigs-container {
   overflow-y: auto;
@@ -90,18 +95,17 @@ body {
   font-size: 16pt;
 }
 #gigs .gig .gig-text {
-  border: 1px solid #bfbfbf;
+  border: 1px solid #b3b3b3;
   border-right: none;
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
   padding: 2% 2% 1% 2%;
 }
 #gigs .gig .gig-button {
-  border: 1px solid #262626;
+  border: 1px solid #b3b3b3;
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
   background-color: #262626;
-  color: #f44843;
   padding: 2% 2% 1% 2%;
 }
 #gigs .gig:hover {
@@ -116,19 +120,26 @@ body {
 #gigs .gig .expanded {
   height: 80%;
 }
+#quote-section {
+  padding: 10% 10% 10% 10%;
+}
 #members {
-  background-image: url(../images/allatre.jpg);
+  background: transparent;
   background-size: cover;
+  height: 100vh;
+}
+#members * {
+  background: transparent;
 }
 #members .member {
-  height: 60vh;
+  height: inherit;
   transition: all 0.2s ease-in-out;
   color: #eaeaea;
   position: relative;
 }
 #members .member .member-info {
   position: absolute;
-  bottom: 0;
+  bottom: 5%;
 }
 #members .member .member-info .instrument,
 #members .member .member-info .lastname {
@@ -149,6 +160,7 @@ body {
   font-size: 14pt;
   background-color: #eaeaea;
   overflow-y: auto;
+  padding: 10% 10% 10% 10%;
 }
 #about .drop-cap-container {
   float: left;
@@ -163,34 +175,18 @@ body {
   top: 0;
   line-height: 65px;
 }
-#contact {
+#big-image {
   height: 100vh;
-  background-color: #fbfbfb;
-  font-size: 16pt;
 }
 #youtube {
-  background-color: #bfbfbf;
+  background-color: #d9d9d9;
   height: 200vh;
   overflow-y: auto;
+  color: #f44843;
 }
 #soundcloud {
-  background-color: #262626;
+  background-color: #eaeaea;
   height: 200vh;
-  color: #f44843;
-  /*	.high-iframe {
-
-		height: @half-screen-height;
-		width: 39%;
-		margin: 0 5% 0 5%;
-
-	}
-
-	.wide-iframe {
-		
-		width: 89%;
-		margin: 2% 5% 0 5%;
-
-	}*/
 }
 #soundcloud iframe:nth-child(4) {
   height: 25vh;
@@ -200,6 +196,11 @@ iframe {
   height: 50vh;
   margin: 2% 10% 0 10%;
 }
+#contact {
+  background-color: #fbfbfb;
+  font-size: 16pt;
+}
 #footer {
   padding-top: 1%;
+  background-color: white;
 }

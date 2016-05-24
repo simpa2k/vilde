@@ -105,7 +105,7 @@ window.onload = function() {
                 window.scrollTo(0, getY(newsAndGigsSection) - navbarHeight);
                 break;
             case 'MEDLEMMAR':
-                window.scrollTo(0, getY(memberSection) - navbarHeight);
+                window.scrollTo(0, getY(memberSection));
                 break;
             case 'OM VILDE':
             case 'KONTAKT':

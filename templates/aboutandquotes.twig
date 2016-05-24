@@ -1,0 +1,21 @@
+<div id="about-and-contact-section">
+	<div class="container-fluid">
+		<div class="row">
+			<div id="about" class="col-xs-8">
+				<h1>"Mer musik åt folket, mer folk åt musiken!</h1>
+				{% for paragraph in description %}
+					{% if paragraph.dropcap != null %}
+						<div class="drop-cap-container"><p class="drop-cap">{{ paragraph.dropcap }}</p></div>
+					{% endif %}
+					<p>{{  paragraph.paragraph }}</p>
+				{% endfor %}
+			</div>
+			<div id="quote" class="col-xs-4">
+				<blockquote>
+					<p>{{ quotes[1].review }}</p>
+					<footer>{{ quotes[1].info }}</footer>
+				</blockquote>
+			</div>
+		</div>
+	</div>
+</div>

@@ -33,9 +33,9 @@ class MainPageModel {
 
 	}
 
-	public function getQuote() {
+	public function getQuote($id) {
 
-        return $this->_db->get('quote', array('id', '=', '9'))->first();
+        return $this->_db->get('quote', array('id', '=', $id))->first();
 
 	}
 

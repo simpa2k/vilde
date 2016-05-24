@@ -1,8 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand:300,700&subset=latin-ext,latin);
+//@import url(https://fonts.googleapis.com/css?family=Lato:300&subset=latin-ext);
 
 @white: #eaeaea;
 @red: #f44843;
-@light-grey: #bfbfbf;
+//@light-grey: #bfbfbf;
+@light-grey: #d9d9d9;
 @dark-grey: #333333;
 @black: #262626;
 @transparent-black: rgba(38, 38, 38, 0.9);
@@ -17,6 +19,12 @@
 
 }
 
+.orange-brown {
+
+	color: #fa9663
+
+}
+
 body {
 
 	font-family: "Quicksand" !important;
@@ -24,12 +32,11 @@ body {
 }
 
 #background {
-	position: fixed;
-        background: rgba( 0, 0, 0, 0 ) 
-                    url(../images/vildebackgroundlogo_medium.jpg) no-repeat 50% 0 / cover;
+	position: absolute;
+	background: transparent;
 	background-size: cover;
 	width: 100%;
-	height: @screen-height; 
+	height: 100%;
 	top: 0;
 	left: 0;
 	z-index: 0;
@@ -40,7 +47,7 @@ body {
 	position: absolute;
 	top: @screen-height;
 	z-index: 1;
-	background-color: #ffffff;
+	background: transparent;
 
 }
 
@@ -83,10 +90,11 @@ body {
 
 #quote {
 
-	height: @screen-height * 0.3;
-	background-color: @black;
+	height: @screen-height;
+	background-color: @light-grey;
 	color: @red;
 	overflow-y: auto;
+	padding: 10% 5% 10% 5%;
 
 	blockquote {
 
@@ -122,8 +130,9 @@ body {
 
 #news {
 	
-	height: @screen-height * 0.7; 
-	background-color: @light-grey;
+	height: @screen-height;
+	//background-color: @light-grey;
+	background-color: @white;
 	overflow-y: auto;
 	font-size: 12pt;
 	
@@ -131,9 +140,11 @@ body {
 
 #gigs {
 
-	background-color: @white;
+	//background-color: @white;
+	background-color: @black;
 	height: @screen-height;
 	overflow-y: auto;
+	color: @red;
 
 	#gigs-container {
 
@@ -157,7 +168,9 @@ body {
 
 		.gig-text {
 
-			border: 1px solid @light-grey;
+			//border: 1px solid @light-grey;
+			//border: 1px solid #bfbfbf;
+			border: 1px solid #b3b3b3;
 			border-right: none;
 			border-top-left-radius: 2px;
 			border-bottom-left-radius: 2px;
@@ -167,11 +180,12 @@ body {
 
 		.gig-button {
 			
-			border: 1px solid @black;
+			//border: 1px solid @black;
+			border: 1px solid #b3b3b3;
 			border-top-right-radius: 2px;
 			border-bottom-right-radius: 2px;
 			background-color: @black;
-			color: @red;
+			//color: @red;
 			padding: 2% 2% 1% 2%;
 			
 		}
@@ -204,14 +218,28 @@ body {
 
 }
 
+#quote-section {
+
+	padding: 10% 10% 10% 10%;
+
+}
+
 #members {
 
-	background-image: url(../images/allatre.jpg);
+	background: transparent;
 	background-size: cover;
+	height: @screen-height;
+
+	* {
+
+		background: transparent;
+
+	}
 
 	.member {
 
-		height: @screen-height * 0.6;
+		//height: @screen-height * 0.7;
+		height: inherit;
 		transition: all .2s ease-in-out;
 		color: @white;
 		position: relative;
@@ -219,7 +247,7 @@ body {
 		.member-info {
 
 			position: absolute;
-			bottom: 0;
+			bottom: 5%;
 
 			.instrument, .lastname {
 
@@ -273,6 +301,7 @@ body {
 	font-size: 14pt;
 	background-color: @white;
 	overflow-y: auto;
+	padding: 10% 10% 10% 10%;
 
 	.drop-cap-container {
 
@@ -295,42 +324,27 @@ body {
 
 }
 
-#contact {
-	
-	height:	@screen-height; 
-	background-color: @white + #111;
-	font-size: 16pt;
+#big-image {
+
+	height: @screen-height;
 
 }
 
 #youtube {
 
+	//background-color: @black;
 	background-color: @light-grey;
 	height: @double-screen-height;
 	overflow-y: auto;
+	color: @red;
 
 }
 
 #soundcloud {
 	
-	background-color: @black;
+	//background-color: @light-grey;
+	background-color: @white;
 	height: @double-screen-height;
-	color: @red;
-
-/*	.high-iframe {
-
-		height: @half-screen-height;
-		width: 39%;
-		margin: 0 5% 0 5%;
-
-	}
-
-	.wide-iframe {
-		
-		width: 89%;
-		margin: 2% 5% 0 5%;
-
-	}*/
 
 	iframe:nth-child(4) {
 
@@ -347,9 +361,19 @@ iframe {
 
 }
 
+
+#contact {
+
+	//height:	@half-screen-height;
+	background-color: @white + #111;
+	font-size: 16pt;
+
+}
+
 #footer {
 
     padding-top: 1%;
+	background-color: white;
 
 }
 

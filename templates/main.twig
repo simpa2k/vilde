@@ -17,19 +17,32 @@
 
 		<div id="main">
 
-			{% include 'newsandgigs.twig' %}
+			{% include 'aboutandquotes.twig' %}
 
 			{% include 'members.twig' %}
 
-			{% include 'aboutandcontact.twig' %}
+			{% include 'newsandgigs.twig' %}
+
+			<div id="quote-section" class="col-xs-12">
+				<blockquote>
+					<p>{{ quotes[0].review }}</p>
+					<footer>{{ quotes[0].info }}</footer>
+				</blockquote>
+			</div>
 
 			{% include 'media.twig' %}
+
+			<div id="big-image"></div>
+
+			{% include 'contact.twig' %}
 
 			{% include 'footer.twig' %}
 			
 		</div>
 
 		<script type="text/javascript" src="js/main.js"></script>
-
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/parallax_js/parallax.min.js"></script>
+		<script type="text/javascript" src="js/mainjQuery.js"></script>
 	</body>
 </html>
