@@ -56,24 +56,17 @@ window.onload = function() {
     }
 
     function expandGig(e) {
-	    
-        var clickedGig = e.target;
 
-        for(var i = 0; i < gigs.length; i++) {
+        var clickedGig = e.currentTarget;
 
-            if(gigs[i] == clickedGig) {
-
-                clickedGig.classList.add('expanded');
-
-            } else {
-
-                gigs[i].classList.add('hidden');
-
-            }
-
+        if(clickedGig.classList.contains('expanded')) {
+            clickedGig.classList.remove('expanded');
+        } else {
+            clickedGig.classList.add('expanded');
         }
 
-        var clickedGigHeight = clickedGig.getBoundingClientRect().height;
+
+        /*var clickedGigHeight = clickedGig.getBoundingClientRect().height;
 
         var height = setInterval(function() {
 
@@ -86,7 +79,7 @@ window.onload = function() {
 
             }
 
-        }, 15);
+        }, 15);*/
 
     }
 
@@ -120,7 +113,7 @@ window.onload = function() {
 
     for(var i = 0; i < gigs.length; i++) {
 
-	    gigs[i].addEventListener('click', expandGig, false);
+	    gigs[i].addEventListener('click', expandGig, true);
 
     }
 
@@ -128,32 +121,6 @@ window.onload = function() {
 
         headings[i].addEventListener('click', headingClick, false);
     }
-
-    var aboutHeading = document.getElementById('about-heading');
-
-    function dropdownMenu() {
-
-        var navbar = document.getElementById('navbar');
-
-        var aboutHeadingBoundingClientRect = aboutHeading.getBoundingClientRect();
-
-        var menu = document.createElement('div');
-        var menuHeading = document.createElement('h4');
-        menuHeading.innerHTML = "MEDLEMMAR";
-
-        menu.appendChild(menuHeading);
-
-        menu.style.position = "absolute";
-        menu.style.zIndex = "10";
-        menu.style.width = aboutHeadingBoundingClientRect.width;
-        menu.style.top = navbar.getBoundingClientRect().bottom;
-        menu.style.left = aboutHeadingBoundingClientRect.left;
-
-        document.body.appendChild(menu);
-
-    }
-
-    aboutHeading.addEventListener('click', dropdownMenu, false);
 
 };
 

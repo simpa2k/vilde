@@ -20,13 +20,34 @@
 				<h1 class="text-center">Kommande konserter</h1>
 					<div id="gigs-container">
 						{% for gig in gigs %}
-							<div class="gig row">
-								<div class="gig-text col-xs-9">
-									<p class="text-center">{{ gig.date }} - <span class="orange-brown">{{ gig.venue_name }}</span>, {{ gig.city }}</p>
-								</div>
-								<div class="gig-button col-xs-3"><p class="text-center">Mer info</p></div>
-								<div class="additional-info">
-									<p class="text-center">{{ gig.price }}</p>
+							<div class="gig collapsed row">
+								<div class="col-xs-12">
+									<div class="row">
+										<div class="gig-text col-xs-9">
+											<p class="text-center">{{ gig.date }} - <span class="orange-brown">{{ gig.venue_name }}</span>, {{ gig.city }}</p>
+										</div>
+										<div class="gig-button col-xs-3"><p class="text-center">Mer info</p></div>
+									</div>
+
+									<div class="row">
+										<div class="additional-info col-xs-12">
+											<p>Pris: <span class="orange-brown">{{ gig.price }}</span></p>
+
+											{% if gig.address != null %}
+												<p>Plats: <span class="orange-brown">{{ gig.address }}</span></p>
+											{% endif %}
+
+											{% if gig.webpage != null %}
+												<p>Webbsida: <a href="{{ gig.webpage }}">{{ gig.webpage }}</a></p>
+											{% endif %}
+
+											{% if gig.ticketlink != null %}
+												<p>Biljetter: <span class="orange-brown">{{ gig.ticketlink }}</span></p>
+											{% endif %}
+
+											<p>{{ gig.info }}</p>
+										</div>
+									</div>
 								</div>
 							</div>
 						{% endfor %}

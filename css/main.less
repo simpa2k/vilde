@@ -1,5 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Quicksand:300,700&subset=latin-ext,latin);
-//@import url(https://fonts.googleapis.com/css?family=Lato:300&subset=latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Quicksand:300,400,700&subset=latin-ext,latin);
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Great+Vibes&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Rosarivo&subset=latin,latin-ext);
 
 @white: #eaeaea;
 @red: #f44843;
@@ -8,6 +10,7 @@
 @dark-grey: #333333;
 @black: #262626;
 @transparent-black: rgba(38, 38, 38, 0.9);
+@orange-brown: #fa9663;
 
 @screen-height: 100vh;
 @half-screen-height: @screen-height / 2;
@@ -21,14 +24,19 @@
 
 .orange-brown {
 
-	color: #fa9663
+	color: @orange-brown;
 
 }
 
 body {
 
 	font-family: "Quicksand" !important;
+	font-weight: 300 !important;
 
+}
+
+h1 {
+	text-shadow: 1px 1px 2px rgba(180, 180, 180, 1);
 }
 
 #background {
@@ -92,13 +100,14 @@ body {
 
 	height: @screen-height;
 	background-color: @light-grey;
-	color: @red;
 	overflow-y: auto;
 	padding: 10% 5% 10% 5%;
+	position: relative;
 
 	blockquote {
 
 		border: none !important;
+		clear: left;
 
 		p {
 
@@ -109,6 +118,7 @@ body {
 		footer {
 
 			float: right;
+			color: @red;
 
 		}
 
@@ -116,13 +126,16 @@ body {
 	}
 
 	blockquote::before {
-		
-		content:'"';
-		font-size: 34pt;
+
+		content:'\201C';
+		font-family: "Rosarivo";
+		font-size: 52pt;
 		font-weight: bold;
-		float: left;
-		margin-right: 2%;
+		position: relative;
+		left: -0.6em;
+		top: 1em;
 		line-height: 50%;
+		color: @red;
 
 	}
 
@@ -163,15 +176,15 @@ body {
 		
 		margin: 2% 2% 0 2%;
 		width: 90%;
+		max-height: 500px;
 		transition: all .2s ease-in-out;
 		font-size: 16pt;
+		border: 1px solid #b3b3b3;
 
 		.gig-text {
 
-			//border: 1px solid @light-grey;
-			//border: 1px solid #bfbfbf;
-			border: 1px solid #b3b3b3;
-			border-right: none;
+			//border-bottom: 1px solid #b3b3b3;
+			border-right: 1px solid #b3b3b3;
 			border-top-left-radius: 2px;
 			border-bottom-left-radius: 2px;
 			padding: 2% 2% 1% 2%;
@@ -179,16 +192,43 @@ body {
 		}
 
 		.gig-button {
-			
-			//border: 1px solid @black;
-			border: 1px solid #b3b3b3;
+
+			//border-bottom: 1px solid #b3b3b3;
 			border-top-right-radius: 2px;
 			border-bottom-right-radius: 2px;
 			background-color: @black;
-			//color: @red;
 			padding: 2% 2% 1% 2%;
 			
 		}
+
+	}
+
+	.additional-info {
+		border-top: 1px solid #b3b3b3;
+		padding: 2% 2% 1% 2%;
+		cursor: default;
+
+		a {
+			text-decoration: none;
+			color: @orange-brown;
+
+		}
+	}
+
+	.collapsed .additional-info {
+
+		display: none;
+
+	}
+
+	.expanded {
+
+		.additional-info {
+
+			display: initial;
+
+		}
+
 
 	}
 
@@ -201,18 +241,6 @@ body {
 	#gigs-container:hover > .gig:hover {
 		
 		transform: scale(1.0);
-
-	}
-
-	.gig .hidden {
-
-		display: none;
-
-	}
-
-	.gig .expanded {
-
-		height: 80%;
 
 	}
 
@@ -301,7 +329,13 @@ body {
 	font-size: 14pt;
 	background-color: @white;
 	overflow-y: auto;
-	padding: 10% 10% 10% 10%;
+	padding: 5% 10% 10% 10%;
+
+	#more-music {
+		font-family: "Great Vibes";
+		font-size: 36pt;
+		margin-bottom: 10%;
+	}
 
 	.drop-cap-container {
 

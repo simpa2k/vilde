@@ -12,6 +12,12 @@ $gigsToBePlayed = $model->getGigsToBePlayed();
 
 foreach($gigsToBePlayed as $gig) {
 
+	if($gig->price == null) {
+		$gig->price = 'Gratis!';
+	} else {
+		$gig->price = $gig->price . ":-";
+	}
+
     $gig->date = $dateUtilities->dayAndMonth($gig->date);
 
 }

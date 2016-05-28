@@ -1,4 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Quicksand:300,700&subset=latin-ext,latin);
+@import url(https://fonts.googleapis.com/css?family=Quicksand:300,400,700&subset=latin-ext,latin);
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Great+Vibes&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Rosarivo&subset=latin,latin-ext);
 .red {
   color: #f44843;
 }
@@ -7,6 +10,10 @@
 }
 body {
   font-family: "Quicksand" !important;
+  font-weight: 300 !important;
+}
+h1 {
+  text-shadow: 1px 1px 2px #b4b4b4;
 }
 #background {
   position: absolute;
@@ -49,26 +56,31 @@ body {
 #quote {
   height: 100vh;
   background-color: #d9d9d9;
-  color: #f44843;
   overflow-y: auto;
   padding: 10% 5% 10% 5%;
+  position: relative;
 }
 #quote blockquote {
   border: none !important;
+  clear: left;
 }
 #quote blockquote p {
   font-size: 12pt;
 }
 #quote blockquote footer {
   float: right;
+  color: #f44843;
 }
 #quote blockquote::before {
-  content: '"';
-  font-size: 34pt;
+  content: '\201C';
+  font-family: "Rosarivo";
+  font-size: 52pt;
   font-weight: bold;
-  float: left;
-  margin-right: 2%;
+  position: relative;
+  left: -0.6em;
+  top: 1em;
   line-height: 50%;
+  color: #f44843;
 }
 #news {
   height: 100vh;
@@ -91,34 +103,43 @@ body {
 #gigs .gig {
   margin: 2% 2% 0 2%;
   width: 90%;
+  max-height: 500px;
   transition: all 0.2s ease-in-out;
   font-size: 16pt;
+  border: 1px solid #b3b3b3;
 }
 #gigs .gig .gig-text {
-  border: 1px solid #b3b3b3;
-  border-right: none;
+  border-right: 1px solid #b3b3b3;
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
   padding: 2% 2% 1% 2%;
 }
 #gigs .gig .gig-button {
-  border: 1px solid #b3b3b3;
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
   background-color: #262626;
   padding: 2% 2% 1% 2%;
+}
+#gigs .additional-info {
+  border-top: 1px solid #b3b3b3;
+  padding: 2% 2% 1% 2%;
+  cursor: default;
+}
+#gigs .additional-info a {
+  text-decoration: none;
+  color: #fa9663;
+}
+#gigs .collapsed .additional-info {
+  display: none;
+}
+#gigs .expanded .additional-info {
+  display: initial;
 }
 #gigs .gig:hover {
   cursor: pointer;
 }
 #gigs #gigs-container:hover > .gig:hover {
   transform: scale(1);
-}
-#gigs .gig .hidden {
-  display: none;
-}
-#gigs .gig .expanded {
-  height: 80%;
 }
 #quote-section {
   padding: 10% 10% 10% 10%;
@@ -160,7 +181,12 @@ body {
   font-size: 14pt;
   background-color: #eaeaea;
   overflow-y: auto;
-  padding: 10% 10% 10% 10%;
+  padding: 5% 10% 10% 10%;
+}
+#about #more-music {
+  font-family: "Great Vibes";
+  font-size: 36pt;
+  margin-bottom: 10%;
 }
 #about .drop-cap-container {
   float: left;
