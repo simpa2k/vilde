@@ -27,8 +27,8 @@ echo $twig->render('main.twig', array(
 		"news"	=> $model->getNews(),
 		
 		"quotes" => array(
-			0 => $model->getQuote(6),
-			1 => $model->getQuote(7)
+			0 => $model->getQuote(1),
+			1 => $model->getQuote(2)
 		),
 		
 		"gigs" => $gigsToBePlayed,

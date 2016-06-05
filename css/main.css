@@ -145,14 +145,14 @@ blockquote::before {
   max-height: 500px;
   transition: all 0.2s ease-in-out;
   font-size: 16pt;
-  border: 1px solid #6f6f6f;
+  border: 1px solid #333333;
   border-radius: 2px;
   -webkit-box-shadow: 2px 2px 3px 0px #171717;
   -moz-box-shadow: 2px 2px 3px 0px #171717;
   box-shadow: 2px 2px 3px 0px #171717;
 }
 #gigs .gig .gig-text {
-  border-right: 1px solid #6f6f6f;
+  border-right: 1px solid #333333;
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
   padding: 2% 2% 1% 2%;
@@ -165,7 +165,7 @@ blockquote::before {
   text-align: center;
 }
 #gigs .additional-info {
-  border-top: 1px solid #6f6f6f;
+  border-top: 1px solid #333333;
   padding: 2% 2% 1% 2%;
   cursor: default;
   overflow-x: auto;
