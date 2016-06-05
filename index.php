@@ -37,7 +37,7 @@ echo $twig->render('main.twig', array(
 		
 		"contact" => array(
 				
-				"mail" => "vildeland@gmail.se",
+				"mail" => "vildeland@gmail.com",
 				"contactpersons" => $model->getContactPersons()
 
 		)

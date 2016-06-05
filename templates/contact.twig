@@ -1,35 +1,40 @@
 <div id="contact" class="col-xs-12">
+    <div class="container-fluid">
+        <h1 class="text-center">BOKNING OCH PRESS</h1>
 
-    <h1 class="text-center">Bokning och press</h1>
-
-    <div class="row">
-        <div class="col-xs-4">
-            <p class="text-right"><span class="red">Mail</span>:</p>
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="col-sm-2 col-sm-offset-2">
+                    <p class="text-left"><span class="red">Mail</span>:</p>
+                </div>
+                <div class="col-sm-8">
+                   <p>{{ contact.mail }}</p>
+                </div>
+            </div>
         </div>
-        <div class="col-xs-8">
-            <p>{{ contact.mail }}</p>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-xs-4">
-            <p class="text-right"><span class="red">Telefon</span>:</p>
-        </div>
-        <div class="col-xs-8">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="col-sm-2 col-sm-offset-2">
+                    <p class="text-left"><span class="red">Telefon</span>:</p>
+                </div>
+                <div class="col-sm-8">
 
-            {% for contactperson in contact.contactpersons%}
-                <div class="row">
+                    {% for contactperson in contact.contactpersons%}
+                        <div class="row">
 
-                    <div class="col-xs-5">
-                        <p>{{ contactperson.name }}</p>
-                    </div>
-                    <div class="col-xs-5">
-                        <p>{{ contactperson.phonenumber }}</p>
-                    </div>
+                            <div class="col-sm-5">
+                                <p>{{ contactperson.name }}</p>
+                            </div>
+                            <div class="col-sm-5">
+                                <p>{{ contactperson.phonenumber }}</p>
+                            </div>
+
+                        </div>
+                    {% endfor %}
 
                 </div>
-            {% endfor %}
-
+            </div>
         </div>
     </div>
 </div>

@@ -1,7 +1,8 @@
 window.onload = function() {
 	
 	var gigs = document.getElementsByClassName('gig');
-    var headings = document.getElementsByClassName('heading');
+    //var headings = document.getElementsByClassName('heading');
+    var navbarTextElements = document.getElementsByClassName('navbar-text');
 
     function getY(element) {
         var boundingClientRect = element.getBoundingClientRect();
@@ -20,7 +21,7 @@ window.onload = function() {
 
     function fixateElementPositionBottom(element, bottomOffset) {
 
-        element.style.zIndex = "0";
+        element.style.zIndex = "10";
         element.style.position = "absolute";
         element.style.bottom = String(bottomOffset);
         element.style.top = "";
@@ -60,52 +61,49 @@ window.onload = function() {
         var clickedGig = e.currentTarget;
 
         if(clickedGig.classList.contains('expanded')) {
+
             clickedGig.classList.remove('expanded');
+            clickedGig.classList.add('collapsed');
+
         } else {
+
+            clickedGig.classList.remove('collapsed');
             clickedGig.classList.add('expanded');
         }
-
-
-        /*var clickedGigHeight = clickedGig.getBoundingClientRect().height;
-
-        var height = setInterval(function() {
-
-            clickedGigHeight += 10;
-            clickedGig.style.height = String(clickedGigHeight) + "px";
-
-            if(clickedGigHeight >= 500) {
-
-                clearInterval(height);
-
-            }
-
-        }, 15);*/
 
     }
 
     function headingClick(e) {
         var item = e.target;
 
-        var newsAndGigsSection = document.getElementById('news-and-gigs-section');
+        var newsSection = document.getElementById('news');
+        var gigsSection = document.getElementById('gigs');
         var memberSection = document.getElementById('member-section');
-        var aboutAndContactSection = document.getElementById('about-and-contact-section');
+        var aboutSection = document.getElementById('about');
         var mediaSection = document.getElementById('media-section');
+        var contactSection = document.getElementById('contact');
+
         var navbarHeight = document.getElementById('navbar').getBoundingClientRect().height;
 
         switch(item.innerHTML) {
-            case 'NYHETER':
-            case 'KONSERTER':
-                window.scrollTo(0, getY(newsAndGigsSection) - navbarHeight);
+            case 'OM VILDE':
+                window.scrollTo(0, getY(aboutSection) - navbarHeight);
                 break;
             case 'MEDLEMMAR':
                 window.scrollTo(0, getY(memberSection));
                 break;
-            case 'OM VILDE':
-            case 'KONTAKT':
-                window.scrollTo(0, getY(aboutAndContactSection) - navbarHeight);
+            case 'NYHETER':
+                window.scrollTo(0, getY(newsSection) - navbarHeight);
                 break;
-            case 'MUSIK OCH MEDIA':
+            case 'KONSERTER':
+                window.scrollTo(0, getY(gigsSection) - navbarHeight);
+                break;
+            case 'MEDIA':
                 window.scrollTo(0, getY(mediaSection) - navbarHeight);
+                break;
+            case 'KONTAKT':
+                window.scrollTo(0, getY(contactSection) - navbarHeight);
+                break;
         }
     }
     
@@ -117,9 +115,9 @@ window.onload = function() {
 
     }
 
-    for(i = 0; i < headings.length; i++) {
+    for(i = 0; i < navbarTextElements.length; i++) {
 
-        headings[i].addEventListener('click', headingClick, false);
+        navbarTextElements[i].addEventListener('click', headingClick, false);
     }
 
 };

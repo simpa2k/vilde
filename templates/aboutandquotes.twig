@@ -1,7 +1,7 @@
 <div id="about-and-contact-section">
 	<div class="container-fluid">
 		<div class="row">
-			<div id="about" class="col-xs-8">
+			<div id="about" class="col-sm-8">
 				<!--<h1 id="more-music">Mer musik åt folket, mer folk åt musiken!</h1>-->
 				{% for paragraph in description %}
 					{% if paragraph.dropcap != null %}
@@ -10,7 +10,7 @@
 					<p>{{  paragraph.paragraph }}</p>
 				{% endfor %}
 			</div>
-			<div id="quote" class="col-xs-4">
+			<div id="quote" class="col-sm-4">
 				<blockquote>
 					<p>{{ quotes[1].review }}</p>
 					<footer>{{ quotes[1].info }}</footer>
