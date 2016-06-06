@@ -1,9 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand:300,400,700&subset=latin-ext,latin);
-
 @import url(https://fonts.googleapis.com/css?family=Great+Vibes&subset=latin,latin-ext);
-
 @import url(https://fonts.googleapis.com/css?family=Rosarivo&subset=latin,latin-ext);
-
 @import url(https://fonts.googleapis.com/css?family=Julius+Sans+One);
 @media (min-width: 768px) {
   #quote {
@@ -54,19 +51,69 @@ body {
   background-color: rgba(38, 38, 38, 0.9);
   color: #f44843;
 }
-#navbar .heading {
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  font-size: 11pt;
+#navbar .navbar-brand {
+  padding-top: 1px;
+  padding-left: 1px;
 }
-#navbar .heading:hover {
-  transform: scale(1.05);
+#navbar ul {
+  display: inline-block;
+  list-style: none;
+  margin-top: 10px;
+  padding-left: 0;
+  padding-right: 5px;
 }
-#navbar #social-media-section {
-  padding-top: 0.5%;
+#navbar .navbar-text {
+  display: inline;
+  margin-left: 10%;
+  margin-top: 10px;
 }
-#navbar .social-media:hover {
-  background-color: #333333;
+#navbar .social-media-section {
+  display: none;
+}
+#navbar .social-media {
+  display: none;
+}
+@media (min-width: 500px) {
+  #navbar ul {
+    padding-left: 10%;
+  }
+}
+@media (min-width: 931px) {
+  #navbar .navbar-brand {
+    display: initial;
+  }
+  #navbar ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+  #navbar li {
+    display: inline-block;
+  }
+  #navbar .navbar-text {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 11pt;
+    margin: 15px 15px 15px 15px;
+  }
+  #navbar .navbar-text:hover {
+    transform: scale(1.05);
+  }
+  #navbar #social-media-section {
+    display: initial;
+    float: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #navbar .social-media {
+    display: initial;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  #navbar .social-media:hover {
+    background-color: #333333;
+  }
 }
 .navbar {
   margin-bottom: 0 !important;
@@ -298,7 +345,6 @@ blockquote::before {
 	 * each other on smaller screens.
 	 *
 	 */
-
   padding-top: 1%;
 }
 #soundcloud iframe:nth-child(4) {

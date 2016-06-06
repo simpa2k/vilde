@@ -15,15 +15,13 @@ window.onload = function() {
      *
      */
 
-    var navbar = document.getElementById('navbar');
-    var navbarHeight = navbar.getBoundingClientRect().height;
-
     function navbarPositionListener() {
         
-
         var main = document.getElementById('main');
-        var mainY = getY(main);
+        var navbar = document.getElementById('navbar');
 
+        var mainY = getY(main);
+        var navbarHeight = navbar.getBoundingClientRect().height;
         var topOfWindowAlignsWithTopOfHeader = window.scrollY > (mainY - navbarHeight);
 
         if (topOfWindowAlignsWithTopOfHeader) {
