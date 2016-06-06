@@ -36,7 +36,7 @@
 											{% endif %}
 
 											{% if gig.ticketlink != null %}
-												<p>Biljetter: <span class="orange-brown">{{ gig.ticketlink }}</span></p>
+												<p>Biljetter: <a href="{{ gig.ticketlink }}">{{ gig.ticketlink }}</a></p>
 											{% endif %}
 
 											<p>{{ gig.info }}</p>
