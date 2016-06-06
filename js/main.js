@@ -15,13 +15,16 @@ window.onload = function() {
      *
      */
 
-    function navbarPositionListener() {
-        
-        var main = document.getElementById('main');
-        var navbar = document.getElementById('navbar');
+    var main = document.getElementById('main');
 
+    var navbar = document.getElementById('navbar');
+    var collapsedNavbarHeight = navbar.getBoundingClientRect().height;
+    var expandedNavbarHeight;
+
+    function navbarPositionListener() {
+
+        var navbarHeight = navbar.classList.contains('expanded') ? expandedNavbarHeight : collapsedNavbarHeight;
         var mainY = getY(main);
-        var navbarHeight = navbar.getBoundingClientRect().height;
         var topOfWindowAlignsWithTopOfHeader = window.scrollY > (mainY - navbarHeight);
 
         if (topOfWindowAlignsWithTopOfHeader) {
@@ -105,6 +108,22 @@ window.onload = function() {
                 break;
         }
     }
+
+    function toggleNavbar() {
+
+        if(navbar.classList.contains('expanded')) {
+            navbar.classList.remove('expanded');
+            navbar.style.height = String(collapsedNavbarHeight) + 'px';
+        } else {
+            navbar.classList.add('expanded');
+            expandedNavbarHeight = document.querySelector('#navbar .container-fluid').getBoundingClientRect().height;
+            navbar.style.height = String(expandedNavbarHeight) + 'px';
+        }
+
+    }
+
+    var navbarButton = document.getElementById('navbar-button');
+    navbarButton.addEventListener('click', toggleNavbar, false);
     
     window.addEventListener('scroll', navbarPositionListener, false);
 
