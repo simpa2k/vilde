@@ -9,6 +9,35 @@ window.onload = function() {
         return boundingClientRect.top + window.scrollY;
     }
 
+    /*
+     *
+     * Function to fixate navbar to top of window when scrolling down past it and then pop it back when scrolling above it
+     *
+     */
+
+    var navbar = document.getElementById('navbar');
+    var navbarHeight = navbar.getBoundingClientRect().height;
+
+    function navbarPositionListener() {
+        
+
+        var main = document.getElementById('main');
+        var mainY = getY(main);
+
+        var topOfWindowAlignsWithTopOfHeader = window.scrollY > (mainY - navbarHeight);
+
+        if (topOfWindowAlignsWithTopOfHeader) {
+
+            fixateElementPositionTop(navbar, navbarHeight, 0);
+
+        } else {
+
+            fixateElementPositionBottom(navbar, mainY);
+            
+        }
+
+    }
+
     function fixateElementPositionTop(element, elementHeight, topOffset) {
 
         element.style.zIndex = "10";
@@ -25,34 +54,6 @@ window.onload = function() {
         element.style.position = "absolute";
         element.style.bottom = String(bottomOffset);
         element.style.top = "";
-
-    }
-
-    /*
-     *
-     * Function to fixate navbar to top of window when scrolling down past it and then pop it back when scrolling above it
-     *
-     */
-
-    function navbarPositionListener() {
-        
-    	var navbar = document.getElementById('navbar');
-        var main = document.getElementById('main');
-    	
-        var headerHeight = navbar.getBoundingClientRect().height;
-        var mainY = getY(main);
-
-        var topOfWindowAlignsWithTopOfHeader = window.scrollY > (mainY - headerHeight);
-
-        if (topOfWindowAlignsWithTopOfHeader) {
-
-            fixateElementPositionTop(navbar, headerHeight, 0);
-
-        } else {
-
-            fixateElementPositionBottom(navbar, mainY);
-            
-        }
 
     }
 

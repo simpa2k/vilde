@@ -1,6 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand:300,400,700&subset=latin-ext,latin);
+
 @import url(https://fonts.googleapis.com/css?family=Great+Vibes&subset=latin,latin-ext);
+
 @import url(https://fonts.googleapis.com/css?family=Rosarivo&subset=latin,latin-ext);
+
 @import url(https://fonts.googleapis.com/css?family=Julius+Sans+One);
 @media (min-width: 768px) {
   #quote {
@@ -295,6 +298,7 @@ blockquote::before {
 	 * each other on smaller screens.
 	 *
 	 */
+
   padding-top: 1%;
 }
 #soundcloud iframe:nth-child(4) {
