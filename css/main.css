@@ -73,12 +73,24 @@ body {
 #navbar .social-media:hover {
   background-color: #333333;
 }
-#navbar button {
+#navbar #navbar-button {
   float: right;
   margin-top: 8px;
   background-color: #262626;
   color: white;
   border-color: #333333;
+}
+#navbar #navbar-button:hover {
+  background-color: #202020;
+  -webkit-box-shadow: inset 1px 1px 5px 0px #101010;
+  -moz-box-shadow: inset 1px 1px 5px 0px #101010;
+  box-shadow: inset 1px 1px 5px 0px #101010;
+}
+#navbar #navbar-button.active {
+  background-color: #202020;
+  -webkit-box-shadow: inset 1px 1px 5px 0px #101010;
+  -moz-box-shadow: inset 1px 1px 5px 0px #101010;
+  box-shadow: inset 1px 1px 5px 0px #101010;
 }
 #navbar.expanded ul {
   display: inline-block;
@@ -98,6 +110,9 @@ body {
 #navbar.expanded .social-media {
   display: none;
 }
+#navbar.expanded #navbar-button:hover {
+  background-color: #1c1c1c;
+}
 @media (min-width: 500px) {
   #navbar ul {
     padding-left: 10%;
@@ -108,6 +123,7 @@ body {
     display: initial;
   }
   #navbar ul {
+    display: initial;
     margin-top: 0;
     margin-bottom: 0;
     padding-right: 0;
@@ -117,6 +133,7 @@ body {
     display: inline-block;
   }
   #navbar .navbar-text {
+    display: initial;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     font-size: 11pt;
@@ -136,7 +153,7 @@ body {
   #navbar .social-media:hover {
     background-color: #333333;
   }
-  #navbar button {
+  #navbar #navbar-button {
     display: none;
   }
 }

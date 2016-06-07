@@ -18,6 +18,12 @@
 @half-screen-height: @screen-height / 2;
 @double-screen-height: @screen-height * 2;
 
+.box-shadow(@style, @c) when (iscolor(@c)) {
+	-webkit-box-shadow: @style @c;
+	-moz-box-shadow: @style @c;
+	box-shadow: @style @c;
+}
+
 @media (min-width: 768px) {
 
 	#quote {
@@ -101,7 +107,6 @@ h1 {
 
 	.navbar-brand {
 
-		//display: none;
 		padding-top: 1px;
 		padding-left: 1px;
 
@@ -138,7 +143,7 @@ h1 {
 
 	}
 
-	button {
+	#navbar-button {
 
 		float: right;
 		margin-top: 8px;
@@ -146,6 +151,16 @@ h1 {
 		color: white;
 		border-color: @gig-border;
 
+	}
+
+	#navbar-button:hover {
+		background-color: @black - #060606;
+		.box-shadow(inset 1px 1px 5px 0px, rgba(16,16,16,1));
+	}
+
+	#navbar-button.active {
+		background-color: @black - #060606;
+		.box-shadow(inset 1px 1px 5px 0px, rgba(16,16,16,1));
 	}
 
 }
@@ -180,6 +195,10 @@ h1 {
 
 	}
 
+	#navbar-button:hover {
+		background-color: @black - #0a0a0a;
+	}
+
 }
 
 @media(min-width: 500px) {
@@ -207,6 +226,7 @@ h1 {
 
 		ul {
 
+			display: initial;
 			margin-top: 0;
 			margin-bottom: 0;
 			padding-right: 0;
@@ -220,6 +240,7 @@ h1 {
 
 		.navbar-text {
 
+			display: initial;
 			cursor: pointer;
 			transition: all .2s ease-in-out;
 			font-size: 11pt;
@@ -253,7 +274,7 @@ h1 {
 
 		}
 
-		button {
+		#navbar-button {
 
 			display: none;
 
@@ -386,9 +407,7 @@ blockquote::before {
 		font-size: 16pt;
 		border: 1px solid @gig-border;
 		border-radius: 2px;
-		-webkit-box-shadow: 2px 2px 3px 0px rgba(23,23,23,1);
-		-moz-box-shadow: 2px 2px 3px 0px rgba(23,23,23,1);
-		box-shadow: 2px 2px 3px 0px rgba(23,23,23,1);
+		.box-shadow(2px 2px 3px 0px, rgba(23, 23, 23, 1));
 
 		.gig-text {
 
@@ -402,7 +421,6 @@ blockquote::before {
 
 		.gig-button {
 
-			//border-bottom: 1px solid #b3b3b3;
 			border-top-right-radius: 2px;
 			border-bottom-right-radius: 2px;
 			background-color: @black;
@@ -639,7 +657,6 @@ blockquote::before {
 
 #soundcloud {
 
-	//background-color: @light-grey;
 	background-color: @white;
 
 	/*
