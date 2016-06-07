@@ -1,8 +1,5 @@
 window.onload = function() {
 
-    var scene = document.getElementById('scene');
-    var parallax = new Parallax(scene);
-
 	var gigs = document.getElementsByClassName('gig');
     var navbarTextElements = document.getElementsByClassName('navbar-text');
 
