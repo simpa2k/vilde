@@ -1,10 +1,9 @@
 $(function() {
 
-	$('#background').parallax({imageSrc: 'images/background_logo.jpg',
+	$('#background').parallax({imageSrc: 'images/background.jpg',
 							bleed: 100,
 							position: "top"});
-
-
+	
 	$('#members').parallax({
 		imageSrc: 'images/allatre.jpg',
 		bleed: 100,

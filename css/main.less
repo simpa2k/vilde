@@ -78,14 +78,56 @@ h1 {
 }
 
 #background {
-	position: absolute;
-	background: transparent;
-	background-size: cover;
+
+	position: fixed;
 	width: 100%;
 	height: 100%;
 	top: 0;
 	left: 0;
 	z-index: 0;
+	background-image: url("/images/mobile_background3.jpg");
+	background-size: cover;
+
+	img {
+
+		position: absolute;
+		left: 5%;
+		top: 15%;
+		width: 90%;
+		opacity: 0.95;
+
+	}
+
+}
+
+@media(min-width: 560px) {
+
+	#background {
+
+		img {
+
+			width: 70%;
+			left: 15%;
+			top: 10%;
+
+		}
+	}
+}
+
+@media(min-width: 747px) {
+	#background {
+
+		position: absolute;
+		background: transparent;
+
+		img {
+
+			width: 20%;
+			left: 2%;
+			top: 2%;
+
+		}
+	}
 }
 
 #main {
@@ -327,6 +369,7 @@ h1 {
 	position: relative;
 
 }
+
 blockquote {
 
 	border: none !important;
@@ -495,34 +538,60 @@ blockquote::before {
 #quote-section {
 
 	padding: 10% 10% 10% 10%;
+	background-color: @white;
 
 }
 
-#member-section {
+/*#member-section {
 	display: none;
-}
+}*/
 
-/*#members {
+#members {
 
-	background-color: @black;
+	background-color: @white;
 
 }
 
 .member {
 
-	color: @white;
-	//position: relative;
+	color: @red;
+	background-color: @black;
+	max-height: @screen-height;
+
+	img {
+		width: 50%;
+		float: left;
+	}
 
 	.member-info {
 
-		.instrument, .lastname {
+		width: 50%;
+		float: right;
+		padding: 20% 10% 10% 10%;
 
-			display: none;
+		.lastname {
+
+			color: @orange-brown;
 
 		}
 
 	}
-}*/
+}
+
+#sunniva {
+
+
+}
+
+#nisse {
+
+}
+
+#erik {
+
+
+
+}
 
 @media (min-width: 768px) {
 
@@ -544,37 +613,32 @@ blockquote::before {
 
 			.member {
 
-				//height: @screen-height * 0.7;
 				height: inherit;
 				transition: all .2s ease-in-out;
 				color: @white;
 				position: relative;
 
+				img {
+
+					display: none;
+
+				}
+
 				.member-info {
 
+					width: auto;
 					position: absolute;
 					bottom: 5%;
+					float: none;
+					padding-left: 15px;
+					padding-right: 15px;
 
 					.instrument, .lastname {
 
 						display: none;
+						color: @white;
 
 					}
-
-				}
-
-				#sunniva {
-
-				}
-
-				#nisse {
-
-					//	background-image: url(images/nisse.jpg);
-				}
-
-				#erik {
-
-					//	background-image: url(images/erik.jpg);
 
 				}
 
