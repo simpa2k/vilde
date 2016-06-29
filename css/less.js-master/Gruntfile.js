@@ -149,7 +149,7 @@ module.exports = function (grunt) {
                 options: {
                     helpers: 'test/browser/runner-main-options.js',
                     specs: 'test/browser/runner-main-spec.js',
-                    outfile: 'tmp/browser/test-runner-main.html'
+                    outfile: 'tmp/browser/test-runner-index.html'
                 }
             },
             legacy: {
