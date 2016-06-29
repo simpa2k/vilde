@@ -6,6 +6,8 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css">
 
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
@@ -14,15 +16,15 @@
 			<img id="logo" src="images/logga.png">
 		</div>
 
-		{% include 'customnavbar.twig' %}
+		<ng-include src="customnavbar.html"></ng-include>
 
 		<div id="main">
 
-			{% include 'aboutandquotes.twig' %}
+			<ng-include src="aboutandquotes.html"></ng-include>
 
-			{% include 'members.twig' %}
+			<ng-include src="members.html"></ng-include>
 
-			{% include 'newsandgigs.twig' %}
+			<ng-include src="newsandgigs.html"></ng-include>
 
 
 			<div id="quote-section">
@@ -36,13 +38,13 @@
 				</div>
 			</div>
 
-			{% include 'media.twig' %}
+			<ng-include src="media.html"></ng-include>
 
 			<div id="big-image"></div>
 
-			{% include 'contact.twig' %}
+			<ng-include src="contact.html"></ng-include>
 
-			{% include 'footer.twig' %}
+			<ng-include src="footer.html"></ng-include>
 			
 		</div>
 
