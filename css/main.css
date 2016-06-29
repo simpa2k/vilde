@@ -313,9 +313,6 @@ blockquote::before {
   padding: 10% 10% 10% 10%;
   background-color: #eaeaea;
 }
-/*#member-section {
-	display: none;
-}*/
 #members {
   background-color: #eaeaea;
 }
@@ -331,8 +328,6 @@ blockquote::before {
   width: 100%;
 }
 .member .member-info {
-  /*width: 50%;
-		float: right;*/
   padding: 20% 10% 10% 10%;
 }
 .member .member-info .lastname {
