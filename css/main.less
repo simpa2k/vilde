@@ -556,17 +556,21 @@ blockquote::before {
 
 	color: @red;
 	background-color: @black;
-	max-height: @screen-height;
+	//max-height: @screen-height;
+
+	.member-image {
+		padding-left: 0;
+		padding-right: 0;
+	}
 
 	img {
-		width: 50%;
-		float: left;
+		width: 100%;
 	}
 
 	.member-info {
 
-		width: 50%;
-		float: right;
+		/*width: 50%;
+		float: right;*/
 		padding: 20% 10% 10% 10%;
 
 		.lastname {
@@ -585,15 +589,14 @@ blockquote::before {
 
 #nisse {
 
+
 }
 
 #erik {
 
-
-
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
 
 	#member-section {
 

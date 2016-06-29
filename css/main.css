@@ -322,21 +322,23 @@ blockquote::before {
 .member {
   color: #f44843;
   background-color: #262626;
-  max-height: 100vh;
+}
+.member .member-image {
+  padding-left: 0;
+  padding-right: 0;
 }
 .member img {
-  width: 50%;
-  float: left;
+  width: 100%;
 }
 .member .member-info {
-  width: 50%;
-  float: right;
+  /*width: 50%;
+		float: right;*/
   padding: 20% 10% 10% 10%;
 }
 .member .member-info .lastname {
   color: #fa9663;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   #member-section {
     display: initial;
   }
