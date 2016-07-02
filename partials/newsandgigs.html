@@ -5,46 +5,32 @@
 
 			<div id="news" class="box col-sm-4">
 				<h1>NYHETER</h1>
-				{% for newsItem in news %}
-					<p><span class="red">{{ newsItem.date }}</span> - {{ newsItem.content }}</p>
-				{% endfor %}
+				<p ng-repeat="newsItem in news"><span class="red">{{ newsItem.date }}</span> - {{ newsItem.content }}</p>
 			</div>
 
 			<div id="gigs" class="box col-sm-8">
 				<h1 class="text-center">KOMMANDE KONSERTER</h1>
 					<div id="gigs-container">
-						{% for gig in gigs %}
-							<div class="gig collapsed row">
-								<div class="col-xs-12">
-									<div class="row">
-										<div class="gig-text col-xs-9">
-											<p class="text-center">{{ gig.date }} - <span class="orange-brown">{{ gig.venue_name }}</span>, {{ gig.city }}</p>
-										</div>
-										<div class="gig-button col-xs-3"></div>
+						<div ng-repeat="gig in gigs" class="gig collapsed row">
+							<div class="col-xs-12">
+								<div class="row">
+									<div class="gig-text col-xs-9">
+										<p class="text-center">{{ gig.date }} - <span class="orange-brown">{{ gig.venue_name }}</span>, {{ gig.city }}</p>
 									</div>
+									<div class="gig-button col-xs-3"></div>
+								</div>
 
-									<div class="row">
-										<div class="additional-info col-xs-12">
-											<p>Pris: <span class="orange-brown">{{ gig.price }}</span></p>
-
-											{% if gig.address != null %}
-												<p>Plats: <span class="orange-brown">{{ gig.address }}</span></p>
-											{% endif %}
-
-											{% if gig.webpage != null %}
-												<p>Webbsida: <a href="{{ gig.webpage }}">{{ gig.webpage }}</a></p>
-											{% endif %}
-
-											{% if gig.ticketlink != null %}
-												<p>Biljetter: <a href="{{ gig.ticketlink }}">{{ gig.ticketlink }}</a></p>
-											{% endif %}
-
-											<p>{{ gig.info }}</p>
-										</div>
+								<div class="row">
+									<div class="additional-info col-xs-12">
+										<p>Pris: <span class="orange-brown">{{ gig.price }}</span></p>
+										<p ng-if="gig.address">Plats: <span class="orange-brown">{{ gig.address }}</span></p>
+										<p ng-if="gig.webpage">Webbsida: <a href="{{ gig.webpage }}">{{ gig.webpage }}</a></p>
+										<p ng-if="gig.ticketlink">Biljetter: <a href="{{ gig.ticketlink }}">{{ gig.ticketlink }}</a></p>
+										<p>{{ gig.info }}</p>
 									</div>
 								</div>
 							</div>
-						{% endfor %}
+						</div>
 					</div>
 			</div>
 

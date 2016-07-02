@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html ng-app="vilde" ng-controller="MainController">
+<html>
 	<head>
-		<title>{{ title }}</title>
+		<title>Vilde</title>
 
 		<link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css">
@@ -10,41 +10,41 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
-	<body>
-	
+	<body ng-app="vilde" ng-controller="MainController">
+
 		<div id="background">
 			<img id="logo" src="images/logga.png">
 		</div>
 
-		<ng-include src="partials/customnavbar.html"></ng-include>
+		<ng-include src="'partials/customnavbar.html'"></ng-include>
 
 		<div id="main">
 
-			<ng-include src="partials/aboutandquotes.html"></ng-include>
+			<ng-include src="'partials/aboutandquotes.html'"></ng-include>
 
-			<ng-include src="partials/members.html"></ng-include>
+			<ng-include src="'partials/members.html'"></ng-include>
 
-			<ng-include src="partials/newsandgigs.html"></ng-include>
+			<ng-include src="'partials/newsandgigs.html'"></ng-include>
 
 
 			<div id="quote-section">
 				<div class="container-fluid">
 					<div class="row">
 						<blockquote>
-							<p>{{ quotes[0].review }}</p>
-							<footer>{{ quotes[0].info }}</footer>
+							<p>{{ quote1.review }}</p>
+							<footer>{{ quote1.info }}</footer>
 						</blockquote>
 					</div>
 				</div>
 			</div>
 
-			<ng-include src="partials/media.html"></ng-include>
+			<!--<ng-include src="'partials/media.html'"></ng-include>-->
 
 			<div id="big-image"></div>
 
-			<ng-include src="partials/contact.html"></ng-include>
+			<!--<ng-include src="'partials/contact.html'"></ng-include>
 
-			<ng-include src="partials/footer.html"></ng-include>
+			<ng-include src="'partials/footer.html'"></ng-include>-->
 			
 		</div>
 
