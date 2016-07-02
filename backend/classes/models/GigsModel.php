@@ -19,4 +19,11 @@ class GigsModel extends BaseModel {
         return $this->getDB()->getAll('gig')->results();
 
     }
+
+    private function joinGigsAndVenues($where) {
+
+        $sql = 'SELECT g.*, city, address, webpage FROM gig g, venue v WHERE venue_name = name';
+        return $this->getDB()->query($sql, $where)->results();
+
+    }
 }
