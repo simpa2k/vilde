@@ -44,7 +44,7 @@ class DB {
         return $this;
     }
     
-    public function action($action, $table, $where = array()) {
+    public function action($action, $table, $where = array(), $joinCondition = array()) {
         if(count($where == 3)) {
             $operators = array('=', '<', '>', '<=', '>=', 'REGEXP');
 
@@ -68,6 +68,22 @@ class DB {
                 $values[] = $value;
             }
 
+            if(!empty($joinCondition)) {
+
+                if(!empty($where)) {
+                        $sql .= " AND ";
+                }
+
+                foreach($joinCondition as $condition => $parts) {
+
+                    $column1 = $parts[0];
+                    $column2 = $parts[1];
+
+                    $sql .= "$column1 = $column2";
+
+                }
+            }
+            
             if(!$this->query($sql, $values)->error()) {
                 return $this;
             } 

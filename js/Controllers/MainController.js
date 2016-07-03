@@ -1,11 +1,25 @@
 /**
  * Created by simpa2k on 2016-06-29.
  */
-var app = angular.module('vilde', []);
+var app = angular.module('vilde', ['ngParallax']);
 
 var root = 'backend/server.php/';
 
 app.controller('MainController', function($scope, $http) {
+   $scope.$on('$includeContentLoaded', function(event, source) {
+
+      if('partials/members.html' === source) {
+         $(function() {
+            $('#members').parallax({
+               imageSrc: 'images/allatre.jpg',
+               bleed: 100,
+               position: "bottom"
+            });
+         })
+      };
+
+   });
+
    $scope.title = 'Vilde';
 
    $http.get(root + 'description').then(function(response) {
@@ -24,7 +38,14 @@ app.controller('MainController', function($scope, $http) {
       $scope.news = response.data;
    });
 
-   $http.get(root + 'gigs').then(function(response) {
+   var date = new Date();
+   var year = date.getFullYear()
+   var month = date.getMonth() + 1;
+   var day = date.getDay();
+
+   var currentDate = year + "-" + month + "-" + day;
+
+   $http.get(root + 'gigs?date=gte=' + currentDate).then(function(response) {
       var gigs = response.data;
 
       for(var i = 0; i < gigs.length; i++) {
@@ -35,4 +56,11 @@ app.controller('MainController', function($scope, $http) {
 
       $scope.gigs = gigs;
    });
+
+   $scope.email = 'vildeland@gmail.com';
+
+   $http.get(root + 'contactpersons').then(function(response) {
+      $scope.contactpersons = response.data;
+   });
+
 });

@@ -8,7 +8,7 @@
                     <p class="text-left"><span class="red">Mail</span>:</p>
                 </div>
                 <div class="col-sm-8">
-                   <p>{{ contact.mail }}</p>
+                   <p>{{ email }}</p>
                 </div>
             </div>
         </div>
@@ -20,8 +20,7 @@
                 </div>
                 <div class="col-sm-8">
 
-                    {% for contactperson in contact.contactpersons%}
-                        <div class="row">
+                        <div ng-repeat="contactperson in contactpersons" class="row">
 
                             <div class="col-sm-5">
                                 <p>{{ contactperson.name }}</p>
@@ -31,7 +30,6 @@
                             </div>
 
                         </div>
-                    {% endfor %}
 
                 </div>
             </div>

@@ -11,7 +11,10 @@ require_once 'core/init.php';
 class BaseController {
 
     private $model;
-    private $operators = array('gt' => '>', 'lt' => '<');
+    private $operators = array('gt' => '>',
+                               'gte' => '>=',
+                               'lt' => '<',
+                               'lte' => '<=');
 
     public function __construct($model) {
 

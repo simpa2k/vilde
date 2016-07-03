@@ -8,22 +8,19 @@
 
 class GigsModel extends BaseModel {
 
-    public function get($where) {
+    public function get($where = array()) {
 
-        return $this->getDB()->get('gig', $where)->results();
+        $action = 'SELECT *';
+        $table = 'gig, venue';
+        $joinCondition = array( 0 => array('venue_name', 'name'));
+
+        return $this->getDB()->action($action, $table, $where, $joinCondition)->results();
 
     }
 
     public function getAll() {
 
-        return $this->getDB()->getAll('gig')->results();
-
-    }
-
-    private function joinGigsAndVenues($where) {
-
-        $sql = 'SELECT g.*, city, address, webpage FROM gig g, venue v WHERE venue_name = name';
-        return $this->getDB()->query($sql, $where)->results();
-
+        return $this->get();
+        
     }
 }
