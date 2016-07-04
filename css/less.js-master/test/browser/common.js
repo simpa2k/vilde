@@ -116,7 +116,7 @@ var testSheet = function (sheet) {
 
 function extractId(href) {
     return href.replace(/^[a-z-]+:\/+?[^\/]+/i, '') // Remove protocol & domain
-        .replace(/^\//, '') // Remove root /
+        .replace(/^\//, '') // Remove serverRoot /
         .replace(/\.[a-zA-Z]+$/, '') // Remove simple extension
         .replace(/[^\.\w-]+/g, '-') // Replace illegal characters
         .replace(/\./g, ':'); // Replace dots with colons(for valid id)

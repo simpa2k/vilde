@@ -2,6 +2,25 @@
 @import url(https://fonts.googleapis.com/css?family=Great+Vibes&subset=latin,latin-ext);
 @import url(https://fonts.googleapis.com/css?family=Rosarivo&subset=latin,latin-ext);
 @import url(https://fonts.googleapis.com/css?family=Julius+Sans+One);
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.parallax__layer--base {
+  transform: translateZ(0);
+}
+.parallax__layer--back {
+  transform: translateZ(-1px);
+}
 @media (min-width: 768px) {
   #quote {
     height: 100vh;
@@ -31,12 +50,12 @@ body {
 #background {
   position: fixed;
   width: 100%;
-  height: 100%;
+  height: 100vh !important;
   top: 0;
   left: 0;
   z-index: 0;
   background-image: url("/images/mobile_background3.jpg");
-  background-size: cover;
+  background-size: cover !important;
 }
 #background img {
   position: absolute;
@@ -55,7 +74,6 @@ body {
 @media (min-width: 747px) {
   #background {
     position: absolute;
-    background: transparent;
   }
   #background img {
     width: 20%;
@@ -85,6 +103,13 @@ body {
 }
 #navbar .navbar-text {
   display: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 11pt;
+  margin: 15px 15px 15px 15px;
+}
+#navbar .navbar-text:hover {
+  transform: scale(1.05);
 }
 #navbar #social-media-section {
   padding-top: 10px;
@@ -129,6 +154,9 @@ body {
   margin-left: 10%;
   margin-top: 10px;
 }
+#navbar.expanded .navbar-text:hover {
+  transform: scale(1.05);
+}
 #navbar.expanded .social-media-section {
   display: none;
 }
@@ -159,13 +187,6 @@ body {
   }
   #navbar .navbar-text {
     display: initial;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    font-size: 11pt;
-    margin: 15px 15px 15px 15px;
-  }
-  #navbar .navbar-text:hover {
-    transform: scale(1.05);
   }
   #navbar #social-media-section {
     float: right;
@@ -311,14 +332,14 @@ blockquote::before {
 }
 #quote-section {
   padding: 10% 10% 10% 10%;
-  background-color: #eaeaea;
+  background-color: #d9d9d9;
 }
 #members {
   background-color: #eaeaea;
 }
 .member {
   color: #f44843;
-  background-color: #262626;
+  background-color: #333333;
 }
 .member .member-image {
   padding-left: 0;
@@ -339,7 +360,7 @@ blockquote::before {
   }
   #member-section #members {
     background: transparent;
-    height: 100vh;
+    height: 100vh !important;
   }
   #member-section #members * {
     background: transparent;
@@ -401,10 +422,13 @@ blockquote::before {
   line-height: 65px;
 }
 #big-image {
-  height: 100vh;
+  height: 100vh !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
 }
 #youtube {
-  background-color: #d9d9d9;
+  background-color: #262626;
+  color: #f44843;
   overflow-y: auto;
   padding-top: 1%;
 }

@@ -859,7 +859,7 @@ module.exports = {
     extractId: function(href) {
         return href.replace(/^[a-z-]+:\/+?[^\/]+/, '')  // Remove protocol & domain
             .replace(/[\?\&]livereload=\w+/, '')        // Remove LiveReload cachebuster
-            .replace(/^\//, '')                         // Remove root /
+            .replace(/^\//, '')                         // Remove serverRoot /
             .replace(/\.[a-zA-Z]+$/, '')                // Remove simple extension
             .replace(/[^\.\w-]+/g, '-')                 // Replace illegal characters
             .replace(/\./g, ':');                       // Replace dots with colons(for valid id)
@@ -3188,7 +3188,7 @@ var Parser = function Parser(context, imports, fileInfo) {
 
             // Start with the primary rule.
             // The whole syntax tree is held under a Ruleset node,
-            // with the `root` property set to true, so no `{}` are
+            // with the `serverRoot` property set to true, so no `{}` are
             // output. The callback is called when the input is parsed.
             try {
                 parserInput.start(str, context.chunkInput, function fail(msg, index) {
@@ -3305,7 +3305,7 @@ var Parser = function Parser(context, imports, fileInfo) {
             //     block    →  '{' primary '}'
             //
             // Only at one point is the primary rule not called from the
-            // block rule: at the root level.
+            // block rule: at the serverRoot level.
             //
             primary: function () {
                 var mixin = this.mixin, root = [], node;
@@ -7343,7 +7343,7 @@ Node.numericCompare = function (a, b) {
         : a === b ?  0
         : a  >  b ?  1 : undefined;
 };
-// Returns true if this node represents root of ast imported by reference
+// Returns true if this node represents serverRoot of ast imported by reference
 Node.prototype.blocksVisibility = function () {
     if (this.visibilityBlocks == null) {
         this.visibilityBlocks = 0;
@@ -7872,7 +7872,7 @@ Ruleset.prototype.variables = function () {
             }
             // when evaluating variables in an import statement, imports have not been eval'd
             // so we need to go inside import statements.
-            // guard against root being a string (in the case of inlined less)
+            // guard against serverRoot being a string (in the case of inlined less)
             if (r.type === "Import" && r.root && r.root.variables) {
                 var vars = r.root.variables();
                 for (var name in vars) {
@@ -7997,7 +7997,7 @@ Ruleset.prototype.genCSS = function (context, output) {
     }
     ruleNodes = charsetRuleNodes.concat(ruleNodes);
 
-    // If this is the root node, we don't render
+    // If this is the serverRoot node, we don't render
     // a selector, or {}.
     if (!this.root) {
         debugInfo = getDebugInfo(context, this, tabSetStr);
@@ -9776,7 +9776,7 @@ ToCSSVisitor.prototype = {
         for (var i = 0; i < rules.length; i++) {
             ruleNode = rules[i];
             if (ruleNode instanceof tree.Rule && !ruleNode.variable) {
-                throw { message: "properties must be inside selector blocks, they cannot be in the root.",
+                throw { message: "properties must be inside selector blocks, they cannot be in the serverRoot.",
                     index: ruleNode.index, filename: ruleNode.currentFileInfo ? ruleNode.currentFileInfo.filename : null};
             }
         }
@@ -9815,7 +9815,7 @@ ToCSSVisitor.prototype = {
             }
             visitArgs.visitDeeper = false;
 
-        } else { //if (! rulesetNode.root) {
+        } else { //if (! rulesetNode.serverRoot) {
             rulesetNode.accept(this._visitor);
             visitArgs.visitDeeper = false;
         }

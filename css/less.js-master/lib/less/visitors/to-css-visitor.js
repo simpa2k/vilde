@@ -206,7 +206,7 @@ ToCSSVisitor.prototype = {
         for (var i = 0; i < rules.length; i++) {
             var ruleNode = rules[i];
             if (isRoot && ruleNode instanceof tree.Rule && !ruleNode.variable) {
-                throw { message: "Properties must be inside selector blocks. They cannot be in the root",
+                throw { message: "Properties must be inside selector blocks. They cannot be in the serverRoot",
                     index: ruleNode.index, filename: ruleNode.currentFileInfo && ruleNode.currentFileInfo.filename};
             }
             if (ruleNode instanceof tree.Call) {
@@ -253,7 +253,7 @@ ToCSSVisitor.prototype = {
             }
             visitArgs.visitDeeper = false;
 
-        } else { //if (! rulesetNode.root) {
+        } else { //if (! rulesetNode.serverRoot) {
             rulesetNode.accept(this._visitor);
             visitArgs.visitDeeper = false;
         }

@@ -168,7 +168,7 @@ define('source-map/source-map-generator', ['require', 'exports', 'module' ,  'so
    * with the following properties:
    *
    *   - file: The filename of the generated source.
-   *   - sourceRoot: An optional root for all URLs in this source map.
+   *   - sourceRoot: An optional serverRoot for all URLs in this source map.
    */
   function SourceMapGenerator(aArgs) {
     this._file = util.getArg(aArgs, 'file');
@@ -1028,7 +1028,7 @@ define('source-map/source-map-consumer', ['require', 'exports', 'module' ,  'sou
    *   - version: Which version of the source map spec this map is following.
    *   - sources: An array of URLs to the original source files.
    *   - names: An array of identifiers which can be referrenced by individual mappings.
-   *   - sourceRoot: Optional. The URL root from which all sources are relative.
+   *   - sourceRoot: Optional. The URL serverRoot from which all sources are relative.
    *   - sourcesContent: Optional. An array of contents of the original source files.
    *   - mappings: A string of base64 VLQs which contain the actual mappings.
    *   - file: The generated file this source map is associated with.

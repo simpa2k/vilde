@@ -240,7 +240,7 @@ Ruleset.prototype.variables = function () {
             }
             // when evaluating variables in an import statement, imports have not been eval'd
             // so we need to go inside import statements.
-            // guard against root being a string (in the case of inlined less)
+            // guard against serverRoot being a string (in the case of inlined less)
             if (r.type === "Import" && r.root && r.root.variables) {
                 var vars = r.root.variables();
                 for (var name in vars) {
@@ -365,7 +365,7 @@ Ruleset.prototype.genCSS = function (context, output) {
     }
     ruleNodes = charsetRuleNodes.concat(ruleNodes);
 
-    // If this is the root node, we don't render
+    // If this is the serverRoot node, we don't render
     // a selector, or {}.
     if (!this.root) {
         debugInfo = getDebugInfo(context, this, tabSetStr);

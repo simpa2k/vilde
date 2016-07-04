@@ -1,40 +1,41 @@
 /**
  * Created by simpa2k on 2016-06-29.
  */
-var app = angular.module('vilde', ['ngParallax']);
+var app = angular.module('vilde', ['ngRoute', 'ngParallax']);
 
-var root = 'backend/server.php/';
+app.config(function($routeProvider) {
+   $routeProvider
+
+       .when('/', {
+          templateUrl : 'partials/home.html',
+          controller  : 'MainController'
+       });
+
+});
+
+var serverRoot = 'backend/server.php/';
 
 app.controller('MainController', function($scope, $http) {
-   $scope.$on('$includeContentLoaded', function(event, source) {
 
-      if('partials/members.html' === source) {
-         $(function() {
-            $('#members').parallax({
-               imageSrc: 'images/allatre.jpg',
-               bleed: 100,
-               position: "bottom"
-            });
-         })
-      };
-
-   });
+   $scope.background = 'images/background.jpg';
+   $scope.allatre = 'images/allatre.jpg';
+   $scope.vidbil = 'images/vidbil.jpg';
 
    $scope.title = 'Vilde';
 
-   $http.get(root + 'description').then(function(response) {
+   $http.get(serverRoot + 'description').then(function(response) {
       $scope.description = response.data;
    });
 
-   $http.get(root + 'quotes?id=1').then(function(response) {
+   $http.get(serverRoot + 'quotes?id=1').then(function(response) {
       $scope.quote1 = response.data[0];
    });
 
-   $http.get(root + 'quotes?id=2').then(function(response) {
+   $http.get(serverRoot + 'quotes?id=2').then(function(response) {
       $scope.quote2 = response.data[0];
    });
 
-   $http.get(root + 'news').then(function(response) {
+   $http.get(serverRoot + 'news').then(function(response) {
       $scope.news = response.data;
    });
 
@@ -45,7 +46,7 @@ app.controller('MainController', function($scope, $http) {
 
    var currentDate = year + "-" + month + "-" + day;
 
-   $http.get(root + 'gigs?date=gte=' + currentDate).then(function(response) {
+   $http.get(serverRoot + 'gigs?date=gte=' + currentDate).then(function(response) {
       var gigs = response.data;
 
       for(var i = 0; i < gigs.length; i++) {
@@ -59,7 +60,7 @@ app.controller('MainController', function($scope, $http) {
 
    $scope.email = 'vildeland@gmail.com';
 
-   $http.get(root + 'contactpersons').then(function(response) {
+   $http.get(serverRoot + 'contactpersons').then(function(response) {
       $scope.contactpersons = response.data;
    });
 

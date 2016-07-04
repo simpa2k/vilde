@@ -71,7 +71,7 @@ Node.numericCompare = function (a, b) {
         : a === b ?  0
         : a  >  b ?  1 : undefined;
 };
-// Returns true if this node represents root of ast imported by reference
+// Returns true if this node represents serverRoot of ast imported by reference
 Node.prototype.blocksVisibility = function () {
     if (this.visibilityBlocks == null) {
         this.visibilityBlocks = 0;

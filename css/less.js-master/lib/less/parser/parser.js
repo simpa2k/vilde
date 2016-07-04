@@ -118,7 +118,7 @@ var Parser = function Parser(context, imports, fileInfo) {
 
             // Start with the primary rule.
             // The whole syntax tree is held under a Ruleset node,
-            // with the `root` property set to true, so no `{}` are
+            // with the `serverRoot` property set to true, so no `{}` are
             // output. The callback is called when the input is parsed.
             try {
                 parserInput.start(str, context.chunkInput, function fail(msg, index) {
@@ -235,7 +235,7 @@ var Parser = function Parser(context, imports, fileInfo) {
             //     block    →  '{' primary '}'
             //
             // Only at one point is the primary rule not called from the
-            // block rule: at the root level.
+            // block rule: at the serverRoot level.
             //
             primary: function () {
                 var mixin = this.mixin, root = [], node;
