@@ -1,7 +1,7 @@
 /**
  * Created by simpa2k on 2016-06-29.
  */
-var app = angular.module('vilde', ['ngRoute', 'ngParallax']);
+var app = angular.module('vilde', ['ngRoute']);
 
 app.config(function($routeProvider) {
    $routeProvider
@@ -16,10 +16,6 @@ app.config(function($routeProvider) {
 var serverRoot = 'backend/server.php/';
 
 app.controller('MainController', function($scope, $http) {
-
-   $scope.background = 'images/background.jpg';
-   $scope.allatre = 'images/allatre.jpg';
-   $scope.vidbil = 'images/vidbil.jpg';
 
    $scope.title = 'Vilde';
 
@@ -64,4 +60,13 @@ app.controller('MainController', function($scope, $http) {
       $scope.contactpersons = response.data;
    });
 
+});
+
+app.directive('myParallax', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            element.parallax({imageSrc: 'images/background.jpg'});
+        }
+    };
 });

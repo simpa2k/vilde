@@ -1,28 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="vilde">
 	<head>
 		<title>Vilde</title>
 
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <!--<script type="text/javascript" src="js/parallax_js/parallax.min.js"></script>
-        <script type="text/javascript" src="js/mainjQuery.js"></script>-->
-
-		<script src="/bower_components/angular/angular.min.js"></script>
-		<script src="/bower_components/angular-route/angular-route.min.js"></script>
-        <script type="text/javascript" src="js/controllers/MainController.js"></script>
+        <!--<script type="text/javascript" src="js/mainjQuery.js"></script>-->
 
 		<link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
-	<body ng-app="vilde" ng-controller="MainController">
+	<body ng-controller="MainController">
 
         <div ng-view></div>
 
-		<script type="text/javascript" src="js/main.js"></script>
-		<script type="text/javascript" src="css/bootstrap/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="bower_components/ng-simple-parallax/js/ngParallax.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
 
-	</body>
+
+        <script src="/bower_components/angular/angular.min.js"></script>
+        <script src="/bower_components/angular-route/angular-route.min.js"></script>
+
+        <script type="text/javascript" src="js/parallax-js/parallax.min.js"></script>
+
+        <script type="text/javascript" src="css/bootstrap/js/bootstrap.min.js"></script>
+        <!--<script type="text/javascript" src="bower_components/ng-simple-parallax/js/ngParallax.js"></script>-->
+
+        <script type="text/javascript" src="js/Controllers/MainController.js"></script>
+
+    </body>
 </html>

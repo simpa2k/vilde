@@ -17,7 +17,7 @@ angular.module('ngParallax', []).directive('ngParallax', [
           }
 
           var bgObj = elem[0];
-              bgObj.style.backgroundRepeat = "no-repeat";
+              bgObj.style.backgroundRepeat = "repeat";
               bgObj.style.backgroundAttachment = "fixed";
               bgObj.style.height = "100%";
               bgObj.style.margin = "0 auto"
