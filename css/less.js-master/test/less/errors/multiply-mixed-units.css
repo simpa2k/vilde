@@ -1,4 +1,5 @@
+(node) util.print is deprecated. Use console.log instead.
 /* Test */
 .a {
-  error: 1px;
+  error: 1em;
 }

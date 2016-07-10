@@ -1,5 +1,4 @@
-extend ' .button :hover' has no matches
-extend ' .button2:hover' has no matches
+(node) util.print is deprecated. Use console.log instead.
 .sidebar,
 .sidebar2,
 .type1 .sidebar3,

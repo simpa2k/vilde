@@ -1,14 +1,12 @@
+(node) util.print is deprecated. Use console.log instead.
 #import {
-  color: red;
+  color: #ff0000;
 }
 body {
   width: 100%;
 }
 .test-f {
   height: 10px;
-}
-body {
-  width: 100%;
 }
 .test-f {
   height: 10px;

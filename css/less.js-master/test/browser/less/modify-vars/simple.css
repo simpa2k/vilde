@@ -1,8 +1,9 @@
+(node) util.print is deprecated. Use console.log instead.
 .testisimported {
   color: gainsboro;
 }
 .test {
-  color1: red;
-  color2: blue;
+  color1: #ff0000;
+  color2: #0000ff;
   scalar: 10;
 }

@@ -1,22 +1,23 @@
+(node) util.print is deprecated. Use console.log instead.
 .class {
   border: 1;
   boxer: 1;
   border-width: 1;
   border: 2 !important;
   boxer: 2 !important;
-  border-width: 2 !important;
+  border-width: 2;
   border: 3;
   boxer: 3;
   border-width: 3;
   border: 4 !important;
   boxer: 4 !important;
-  border-width: 4 !important;
+  border-width: 4;
   border: 5;
   boxer: 5;
   border-width: 5;
   border: 0 !important;
   boxer: 0 !important;
-  border-width: 0 !important;
+  border-width: 0;
   border: 9 !important;
   border: 9;
   boxer: 9;
@@ -44,13 +45,13 @@
   test: 9;
 }
 .when-calling-nested-issue-2394 {
-  width: auto !important;
+  width: auto;
 }
 .when-calling-nested-with-param-issue-2394 {
-  width: 10px !important;
+  width: 10px;
 }
 .class1-2421 {
-  margin: 5px !important;
+  margin: 5px;
 }
 .class2-2421 {
   margin: 5px;

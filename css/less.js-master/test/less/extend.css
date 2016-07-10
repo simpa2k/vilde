@@ -1,4 +1,4 @@
-extend ' .dd' has no matches
+(node) util.print is deprecated. Use console.log instead.
 .error,
 .badError {
   border: 1px #f00;

@@ -1,3 +1,4 @@
+(node) util.print is deprecated. Use console.log instead.
 @media (-o-min-device-pixel-ratio: 2/1) {
   .test-math-and-units {
     font: ignores 0/0 rules;
@@ -7,7 +8,7 @@
 }
 #units {
   t1: 22em;
-  t2: 22em;
+  t2: 22;
   t3: 2em;
   t4: 22em;
   t5: 22em;

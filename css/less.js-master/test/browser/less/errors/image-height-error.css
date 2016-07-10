@@ -1,0 +1,4 @@
+(node) util.print is deprecated. Use console.log instead.
+.test-height {
+  height: image-height("../data/image.jpg");
+}

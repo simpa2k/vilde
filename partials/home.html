@@ -1,5 +1,5 @@
-<div my-parallax id="background">
-    <img id="logo" src="../images/logga.png">
+<div id="background" du-parallax y="background">
+    <img id="logo" src="../images/logga.png" du-parallax y="foreground">
 </div>
 
 <ng-include src="'partials/navbar.html'"></ng-include>
@@ -26,7 +26,7 @@
 
     <ng-include src="'partials/media.html'"></ng-include>
 
-    <div ng-parallax pattern="vidbil" speed="60" id="big-image"></div>
+    <div id="big-image" du-parallax y="background"></div>
 
     <ng-include src="'partials/contact.html'"></ng-include>
 

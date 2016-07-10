@@ -1,4 +1,6 @@
+(node) util.print is deprecated. Use console.log instead.
 @import "../css/background.css";
+
 @import "import-test-d.css";
 #logo {
   width: 100px;

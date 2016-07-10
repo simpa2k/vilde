@@ -1,9 +1,10 @@
+(node) util.print is deprecated. Use console.log instead.
 #import {
-  color: red;
+  color: #ff0000;
 }
 .mixin {
   height: 10px;
-  color: red;
+  color: #ff0000;
 }
 body {
   width: 100%;

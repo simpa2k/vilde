@@ -1,0 +1,4 @@
+(node) util.print is deprecated. Use console.log instead.
+.a {
+  a: svg-gradient(horizontal, #000000, #ffffff);
+}

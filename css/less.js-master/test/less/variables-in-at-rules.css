@@ -1,6 +1,7 @@
-@charset "UTF-8";
-@namespace less "http://lesscss.org";
-@keyframes enlarger {
+(node) util.print is deprecated. Use console.log instead.
+@charset "UTF-@{Eight}";
+@namespace  "http://lesscss.org";
+@keyframes @name {
   from {
     font-size: 12px;
   }
@@ -8,7 +9,7 @@
     font-size: 15px;
   }
 }
-@-webkit-keyframes reducer {
+@-webkit-keyframes @name {
   from {
     font-size: 13px;
   }

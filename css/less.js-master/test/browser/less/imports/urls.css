@@ -1,3 +1,4 @@
+(node) util.print is deprecated. Use console.log instead.
 @import "modify-this.css";
 .modify {
   my-url: url("a.png");
