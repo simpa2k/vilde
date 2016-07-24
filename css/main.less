@@ -552,6 +552,10 @@ blockquote::before {
 
 }
 
+#members-background {
+	display: none;
+}
+
 .member {
 
 	color: @red;
@@ -584,20 +588,25 @@ blockquote::before {
 	#member-section {
 
 		display: initial;
-		height: 100%;
+		//position: relative;
+		//height: 100%;
+		width: 100%;
+
+		/*#members-background {
+			display: initial;
+			position: relative;
+			width: 100%;
+			z-index: 0;
+		}*/
 
 		#members {
 
-			position: relative;
-			top: 0;
 			z-index: 1;
 			background-image: url('/images/allatre.jpg');
-			background-size: contain;
+			background-size: cover;
 			background-repeat: no-repeat;
-			background-position: center center;
-			background-attachment: fixed;
-			height: 0.6 * 100vw !important;
-			//height: @screen-height;
+			background-position: center top;
+			height: @screen-height;
 
 			* {
 
@@ -611,6 +620,7 @@ blockquote::before {
 				transition: all .2s ease-in-out;
 				color: @white;
 				position: relative;
+				z-index: 2;
 
 				img {
 
@@ -622,6 +632,7 @@ blockquote::before {
 
 					width: auto;
 					position: absolute;
+					//position: relative;
 					bottom: 5%;
 					float: none;
 					padding-left: 15px;

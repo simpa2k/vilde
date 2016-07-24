@@ -18,7 +18,7 @@ var serverRoot = 'backend/server.php/';
 app.controller('MainController', function($scope, $http, parallaxHelper) {
 
    $scope.title = 'Vilde';
-   $scope.background = parallaxHelper.createAnimator(-0.3, 150, -50);
+   $scope.background = parallaxHelper.createAnimator(-0.3, 300, -250);
    $scope.foreground = parallaxHelper.createAnimator(0.3, 150, -150);
 
    $http.get(serverRoot + 'description').then(function(response) {

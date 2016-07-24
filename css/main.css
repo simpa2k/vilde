@@ -1,3 +1,4 @@
+(node) util.print is deprecated. Use console.log instead.
 @import url(https://fonts.googleapis.com/css?family=Quicksand:300,400,700&subset=latin-ext,latin);
 
 @import url(https://fonts.googleapis.com/css?family=Great+Vibes&subset=latin,latin-ext);
@@ -323,6 +324,9 @@ blockquote::before {
   padding: 10% 10% 10% 10%;
   background-color: #d9d9d9;
 }
+#members-background {
+  display: none;
+}
 .member {
   color: #f44843;
   background-color: #333333;
@@ -343,18 +347,22 @@ blockquote::before {
 @media (min-width: 992px) {
   #member-section {
     display: initial;
-    height: 100%;
+    width: 100%;
+    /*#members-background {
+  			display: initial;
+  			position: relative;
+  			width: 100%;
+  			z-index: 0;
+  		}*/
+  
   }
   #member-section #members {
-    position: relative;
-    top: 0;
     z-index: 1;
     background-image: url('/images/allatre.jpg');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    height: 60vw !important;
+    background-position: center top;
+    height: 100vh;
   }
   #member-section #members * {
     background: transparent;
@@ -364,6 +372,7 @@ blockquote::before {
     transition: all 0.2s ease-in-out;
     color: #eaeaea;
     position: relative;
+    z-index: 2;
   }
   #member-section #members .member img {
     display: none;
