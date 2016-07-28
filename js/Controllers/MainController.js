@@ -14,7 +14,7 @@ app.config(function($routeProvider) {
        .when('/login', {
           templateUrl : 'partials/login.html',
           controller : 'LoginController'
-       })
+       });
 
 });
 
@@ -70,5 +70,12 @@ app.controller('MainController', function($scope, $http, parallaxHelper) {
 });
 
 app.controller('LoginController', function($scope) {
+   
+   $scope.username = '';
+   $scope.password = '';
+   
+   $scope.sendCredentials = function() {
+      console.log(username + ", " + password)
+   };
    
 });

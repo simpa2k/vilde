@@ -1,7 +1,9 @@
-<form>
+<form ng-submit="sendCredentials()" ng-controller="LoginController">
     <label for="username">Username:</label>
-    <input type="text" id="username">
+    <input type="text" id="username" ng-model="username">
 
     <label for="password">Password:</label>
-    <input type="password" id="password">
+    <input type="password" id="password" ng-model="password">
+
+    <input type="submit" value="Submit">
 </form>
