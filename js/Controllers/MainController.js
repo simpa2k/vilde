@@ -9,7 +9,12 @@ app.config(function($routeProvider) {
        .when('/', {
           templateUrl : 'partials/home.html',
           controller  : 'MainController'
-       });
+       })
+      
+       .when('/login', {
+          templateUrl : 'partials/login.html',
+          controller : 'LoginController'
+       })
 
 });
 
@@ -62,4 +67,8 @@ app.controller('MainController', function($scope, $http, parallaxHelper) {
       $scope.contactpersons = response.data;
    });
 
+});
+
+app.controller('LoginController', function($scope) {
+   
 });
