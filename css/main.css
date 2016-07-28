@@ -1,6 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand:300,400,700&subset=latin-ext,latin);
+
 @import url(https://fonts.googleapis.com/css?family=Great+Vibes&subset=latin,latin-ext);
+
 @import url(https://fonts.googleapis.com/css?family=Rosarivo&subset=latin,latin-ext);
+
 @import url(https://fonts.googleapis.com/css?family=Julius+Sans+One);
 @media (min-width: 768px) {
   #quote {
@@ -311,7 +314,7 @@ blockquote::before {
 }
 #quote-section {
   padding: 10% 10% 10% 10%;
-  background-color: #eaeaea;
+  background-color: #d9d9d9;
 }
 /*#member-section {
 	display: none;
@@ -333,6 +336,7 @@ blockquote::before {
 .member .member-info {
   /*width: 50%;
 		float: right;*/
+
   padding: 20% 10% 10% 10%;
 }
 .member .member-info .lastname {
@@ -409,7 +413,8 @@ blockquote::before {
   height: 100vh;
 }
 #youtube {
-  background-color: #d9d9d9;
+  background-color: #262626;
+  color: #f44843;
   overflow-y: auto;
   padding-top: 1%;
 }
@@ -422,6 +427,7 @@ blockquote::before {
 	 * each other on smaller screens.
 	 *
 	 */
+
   padding-top: 1%;
 }
 #soundcloud iframe:nth-child(4) {
