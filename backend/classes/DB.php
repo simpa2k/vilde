@@ -56,7 +56,7 @@ class DB {
                 $field      = $parts[0];
                 $operator   = $parts[1];
                 $value      = $parts[2];
-
+                
                 if(in_array($operator, $operators)) {
                     $sql .= "$field $operator ?";
                 }

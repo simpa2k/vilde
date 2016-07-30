@@ -10,12 +10,17 @@ class UsersModel extends BaseModel
 {
     public function get($where)
     {
-        // TODO: Implement get() method.
+        return $this->getDB()->get('users', $where)->first();
     }
 
     public function getAll()
     {
         // TODO: Implement getAll() method.
+    }
+    
+    public function updateToken($id, $token) {
+        $fields = array('token' => $token);
+        $this->getDB()->update('users', $id, $fields); 
     }
 
 }

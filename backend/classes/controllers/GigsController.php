@@ -13,7 +13,7 @@ class GigsController extends BaseController {
     }
 
     public function getAction($request) {
-
+        
         if (isset($request->urlElements[2])) {
             return $request->urlElements[2];
         } else {
@@ -23,7 +23,7 @@ class GigsController extends BaseController {
     }
 
     public function postAction($request) {
-        return $request->parameters;
+        $this->getModel()->insert($this->filter($request->parameters));
     }
 
 }

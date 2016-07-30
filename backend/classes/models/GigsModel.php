@@ -23,4 +23,8 @@ class GigsModel extends BaseModel {
         return $this->get();
         
     }
+    
+    public function insert($fields) {
+       $this->getDB()->insert('gig', $fields); 
+    }
 }
