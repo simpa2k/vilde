@@ -23,7 +23,7 @@ class GigsController extends BaseController {
     }
 
     public function postAction($request) {
-        $this->getModel()->insert($this->filter($request->parameters));
+        $this->getModel()->insert($request->parameters);
     }
 
 }

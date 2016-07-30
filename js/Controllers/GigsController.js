@@ -19,28 +19,25 @@ app.controller('GigsController', function($scope, $rootScope, $http) {
         }
 
         $scope.gigs = gigs;
+        console.log($scope.gigs);
     });
 
     $scope.newGig = {
         date: '',
-        venue_name: '',
-        city: '',
-        price: '',
-        address: '',
-        webpage: '',
+        time: '',
         ticketlink: '',
-        info: ''
+        info: '',
+        venue_name: '',
+        price: ''
     }
     
     $scope.addGig = function() {
        $http.post($rootScope.serverRoot + 'gigs?date=' + $scope.newGig.date + 
+                    '&time=' + $scope.newGig.time +
+                    '&ticketlink=' + $scope.newGig.ticketlink +
+                    '&info=' + $scope.newGig.info + 
                     '&venue_name=' + $scope.newGig.venue_name + 
-                    '&city=' + $scope.newGig.city + 
-                    '&price=' + $scope.newGig.price + 
-                    '&address=' + $scope.newGig.address + 
-                    '&webpage=' + $scope.newGig.webpage + 
-                    '&ticketlink=' + $scope.newGig.ticketlink + 
-                    '&info=' + $scope.newGig.info)
+                    '&price=' + $scope.newGig.price) 
        .then(function(response) {
             console.log(response.data);    
        }); 
