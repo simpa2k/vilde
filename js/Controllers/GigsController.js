@@ -19,7 +19,6 @@ app.controller('GigsController', function($scope, $rootScope, $http) {
         }
 
         $scope.gigs = gigs;
-        console.log($scope.gigs);
     });
 
     $scope.newGig = {

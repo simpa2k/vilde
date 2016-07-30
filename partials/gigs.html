@@ -3,7 +3,7 @@
         <h1 class="text-center">KOMMANDE KONSERTER</h1>
         <div id="gigs-container">
             <div ng-repeat="gig in gigs" class="gig collapsed row">
-                <gig></gig>
+                <gig data="{{ gig }}" ng-click="assignFocus()"></gig>
             </div>
         </div>
     </div>

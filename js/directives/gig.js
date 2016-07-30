@@ -4,12 +4,19 @@
 app.directive('gig', function() {
     return {
         restrict: 'E',
-        templateUrl: 'partials/gig/gig.html',
-        controller: function($scope) {
-            $scope.template = 'partials/gig/overview.html';
-            $scope.toggleEditable = function() {
-                $scope.template = ($scope.template == 'partials/gig/overview.html') ? 'partials/gig/editable.html' : 'partials/gig/overview.html'
-            }
+        templateUrl: 'partials/gig.html',
+        link: function($scope, element, attrs) {
+            element.bind('click', function() {
+                var data = $scope.$eval(attrs.data);
+
+                $scope.newGig.date = data.date;
+                $scope.newGig.time = data.time;
+                $scope.newGig.ticketlink = data.ticketlink;
+                $scope.newGig.info = data.info;
+                $scope.newGig.venue_name = data.venue_name;
+                $scope.newGig.price = data.price;
+                $scope.$apply();
+            });
         }
     };
 });
