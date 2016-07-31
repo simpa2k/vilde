@@ -26,21 +26,9 @@ class GigsController extends BaseController {
         $this->getModel()->insert($request->parameters);
     }
     
-    private function retrievePrimaryKey($requestParameters) {
-        $dateAndTime = array();
-
-        forEach($requestParameters as $key => $value) {
-            if($key == 'date' || $key == 'time') {
-                $dateAndTime[$key] = $value;
-            }
-        }
-        
-        return $dateAndTime;
-    }
-    
     public function put($request) {
         $id = $request->parameters['id'];
-        $this->getModel()->update("id = $id", $request->parameters);
+        $this->getModel()->update($id, $request->parameters);
     }
     
     public function delete($request) {

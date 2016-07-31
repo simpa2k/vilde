@@ -128,7 +128,7 @@ class DB {
         return $this->action('DELETE', $table, $where);
     }
     
-    public function update($table, $primaryKey, $fields) {
+    public function update($table, $id, $fields) {
         $set = '';
         $x = 1;
         
@@ -140,7 +140,7 @@ class DB {
             $x++;
         }
         
-        $sql = "UPDATE {$table} SET {$set} WHERE {$primaryKey}";
+        $sql = "UPDATE {$table} SET {$set} WHERE id = {$id}";
 
         if(!$this->query($sql, $fields)->error()) {
             return true;
