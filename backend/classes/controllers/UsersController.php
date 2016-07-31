@@ -40,7 +40,7 @@ class UsersController extends BaseController
 
         if(password_verify($submittedPassword, $user->password)) {
             $token = Token::generate();
-            $this->getModel()->updateToken($user->id, $token);
+            $this->getModel()->updateToken("id = $user->id", $token);
             return array('token' => $token);
         } else {
             http_response_code(401);

@@ -27,4 +27,12 @@ class GigsModel extends BaseModel {
     public function insert($fields) {
        $this->getDB()->insert('gig', $fields); 
     }
+    
+    public function update($primaryKey, $fields) {
+       $this->getDB()->update('gig', $primaryKey, $fields); 
+    }
+    
+    public function delete($where) {
+       $this->getDB()->delete('gig', $where); 
+    }
 }

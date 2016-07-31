@@ -21,9 +21,36 @@ class GigsController extends BaseController {
         }
         
     }
-
+    
     public function postAction($request) {
         $this->getModel()->insert($request->parameters);
+    }
+    
+    private function retrievePrimaryKey($requestParameters) {
+        $dateAndTime = array();
+
+        forEach($requestParameters as $key => $value) {
+            if($key == 'date' || $key == 'time') {
+                $dateAndTime[$key] = $value;
+            }
+        }
+        
+        return $dateAndTime;
+    }
+    
+    public function putAction($request) {
+        $dateAndTime = $this->retrievePrimaryKey($request->parameters);
+
+        $date = $dateAndTime['date'];
+        $time = $dateAndTime['time'];
+        
+        $this->getModel()->update("date = '$date' AND time = '$time'", $request->parameters);
+    }
+    
+    public function deleteAction($request) {
+        $dateAndTime = $this->retrievePrimaryKey($request->parameters); 
+        
+        $this->getModel()->delete($this->filter($dateAndTime)); 
     }
 
 }

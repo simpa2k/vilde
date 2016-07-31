@@ -56,6 +56,17 @@ class BaseController {
         }
 
     }
+    
+    /*
+     * The following method is used to parse the request
+     * parameters and present them in a format that's readable as
+     * sql where-conditions to the database wrapper. 
+     * However, due to lack of time there are some inconsistencies
+     * in what format the database wrapper expects where conditions to be in
+     * for different types of operations.
+     * Currently the request parameters must be filtered when inserting
+     * and when deleting but not when updating.
+     */
 
     protected function filter($parameters) {
 

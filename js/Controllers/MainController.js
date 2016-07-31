@@ -2,7 +2,7 @@
  * Created by simpa2k on 2016-06-29.
  */
 
-app.controller('MainController', function($scope, $rootScope, $http, parallaxHelper) {
+app.controller('MainController', function($scope, $rootScope, $http, parallaxHelper, GetAndPrepareGigsService) {
 
    $scope.title = 'Vilde';
    $scope.background = parallaxHelper.createAnimator(-0.3, 300, -250);
@@ -22,6 +22,10 @@ app.controller('MainController', function($scope, $rootScope, $http, parallaxHel
 
    $http.get($rootScope.serverRoot + 'news').then(function(response) {
       $scope.news = response.data;
+   });
+   
+   GetAndPrepareGigsService.getAndPrepareGigs(function(gigs) {
+      $scope.gigs = gigs;
    });
 
    $scope.email = 'vildeland@gmail.com';
