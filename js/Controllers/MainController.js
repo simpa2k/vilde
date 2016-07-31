@@ -6,7 +6,7 @@ app.controller('MainController', function($scope, $rootScope, $http, parallaxHel
 
    $scope.title = 'Vilde';
    $scope.background = parallaxHelper.createAnimator(-0.3, 300, -250);
-   $scope.foreground = parallaxHelper.createAnimator(0.3, 150, -150);
+   $scope.foreground = parallaxHelper.createAnimator(-0.1, 150, -150);
 
    $http.get($rootScope.serverRoot + 'description').then(function(response) {
       $scope.description = response.data;
