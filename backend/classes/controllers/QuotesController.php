@@ -18,4 +18,16 @@ class QuotesController extends BaseController {
             return $this->handleQuery($request);
         }
     }
+    
+    public function post($request) {
+        return $request->parameters;
+    }
+    
+    public function put($request) {
+
+    }
+
+    public function delete($request) {
+
+    }
 }

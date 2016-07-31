@@ -8,7 +8,7 @@
 
 require_once 'core/init.php';
 
-class BaseController {
+abstract class BaseController {
 
     private $model;
     private $operators = array('gt' => '>',
@@ -46,7 +46,7 @@ class BaseController {
 
         if($request->parameters) {
 
-            $results = $this->model->get($this->filter($request->parameters));
+            $results = $this->model->get($this->formatParameters($request->parameters));
             return $results;
 
         } else {
@@ -64,11 +64,11 @@ class BaseController {
      * However, due to lack of time there are some inconsistencies
      * in what format the database wrapper expects where conditions to be in
      * for different types of operations.
-     * Currently the request parameters must be filtered when inserting
+     * Currently the request parameters must be formatted when inserting
      * and when deleting but not when updating.
      */
 
-    protected function filter($parameters) {
+    protected function formatParameters($parameters) {
 
         $where = array();
 
@@ -86,6 +86,68 @@ class BaseController {
 
         return $where;
 
+    }
+
+    protected function filterParameters($whiteListedParameters, $parameters) {
+       $filteredParameters = array(); 
+        
+       foreach($whiteListedParameters as $whiteListedKey) {
+           foreach($parameters as $key => $value) {
+               if($whiteListedKey == $key) {
+                 $filteredParameters[$key] = $value;
+               }
+           }
+       } 
+       return $filteredParameters; 
+    }
+    
+    private function unsetAuthenticationParameters(&$request) {
+        if(isset($request->parameters['username'])) {
+            unset($request->parameters['username']);
+        }
+        
+        if(isset($request->parameters['token'])) {
+            unset($request->parameters['token']);
+        }
+    }
+
+    public function checkToken($requestParameters) {
+        $usernameAndToken = $this->filterParameters(array('username', 'token'), $requestParameters);
+        
+        $db = $this->model->getDB();
+        
+        if($db->get('users', $this->formatParameters($usernameAndToken)) != null) {
+            return true;
+        } else {
+            http_response_code(401);
+        }
+    }
+
+    public abstract function post($request);
+    public abstract function put($request);
+    public abstract function delete($request);
+    
+    public function postAction($request) {
+       if($this->checkToken($request->parameters)) {
+           $this->unsetAuthenticationParameters($request);
+           $this->post($request);
+       } 
+    }
+    
+    public function putAction($request) {
+        if($this->checkToken($request->parameters)) {
+            $this->unsetAuthenticationParameters($request);
+            $this->put($request);
+        } 
+        
+    }
+    
+    public function deleteAction($request) {
+        if($this->checkToken($request->parameters)) {
+            $this->unsetAuthenticationParameters($request);
+            $this->delete($request);
+        } 
+        
     }
 
 }

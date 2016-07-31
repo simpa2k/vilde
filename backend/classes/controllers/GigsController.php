@@ -22,7 +22,7 @@ class GigsController extends BaseController {
         
     }
     
-    public function postAction($request) {
+    public function post($request) {
         $this->getModel()->insert($request->parameters);
     }
     
@@ -38,19 +38,14 @@ class GigsController extends BaseController {
         return $dateAndTime;
     }
     
-    public function putAction($request) {
-        $dateAndTime = $this->retrievePrimaryKey($request->parameters);
-
-        $date = $dateAndTime['date'];
-        $time = $dateAndTime['time'];
-        
-        $this->getModel()->update("date = '$date' AND time = '$time'", $request->parameters);
+    public function put($request) {
+        $id = $request->parameters['id'];
+        $this->getModel()->update("id = $id", $request->parameters);
     }
     
-    public function deleteAction($request) {
-        $dateAndTime = $this->retrievePrimaryKey($request->parameters); 
-        
-        $this->getModel()->delete($this->filter($dateAndTime)); 
+    public function delete($request) {
+        $id = $this->filterParameters(array('id'), $request->parameters);
+        $this->getModel()->delete($this->formatParameters($id)); 
     }
 
 }

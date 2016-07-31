@@ -21,7 +21,9 @@ class UsersController extends BaseController
             if(isset($parameters['username']) && isset($parameters['password'])) {
                 return $this->login($parameters['username'], $parameters['password']);
             } else if(isset($parameters['username']) && isset($parameters['token'])) {
-                return $this->checkToken($request);
+                if($this->checkToken($request->parameters)) {
+                    http_response_code(200);
+                }
             }
         }
 
@@ -48,16 +50,16 @@ class UsersController extends BaseController
         
     }
     
-    private function checkToken($request) {
-        if($this->handleQuery($request) != null) {
-            http_response_code(200);
-        } else {
-            http_response_code(401);
-        }
+    public function post($request) {
+        return $request->parameters;
+    }    
+    
+    public function put($request) {
+
     }
 
-    public function postAction($request) {
-        return $request->parameters;
+    public function delete($request) {
+
     }
 
 }

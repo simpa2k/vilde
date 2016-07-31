@@ -1,1 +1,12 @@
-* Det är väldigt ineffektivt att GigsControllern måste hämta ALLA gigs varje gång ett gig uppdateras, läggs till eller tas bort
+* Det är väldigt ineffektivt att GigsControllern måste hämta ALLA gigs varje gång ett gig
+  uppdateras, läggs till eller tas bort. Kan lösas med att backenden skickar tillbaka all info om
+  giget i fråga och så tar AdminGigsControllern hand om det i callbacken.
+
+* Fixa en bättre lösning får autentisering av post, puts och deletes. UserController och UserModel borde ta hand
+  om token checks men samtidigt kan inte BaseController instantiera en UserController och en UserModel för att göra det,
+  framförallt inte om det i själva verket redan är en UserController som anropar BaseControllers checkToken-metod.
+  Vilken soppa.
+
+* Just nu sparas inte primärnyckeln hos det gig man har klickat på undan. Det betyder att det inte går att ändra
+  datum eller tid på giget, eftersom backenden försöker använda det nya datumet/tiden som primärnyckel, vilket ju inte går.
+  Datum och tid måste ju skickas två gånger om någon av dem ändrats - både det gamla och det nya värdet måste med.

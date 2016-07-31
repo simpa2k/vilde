@@ -23,7 +23,7 @@ app.config(function($routeProvider) {
     
        .when('/admin/gigs', {
            templateUrl : 'partials/gigs.html',
-           controller : 'GigsController'
+           controller : 'AdminGigsController'
        });
 
 });

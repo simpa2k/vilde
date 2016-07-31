@@ -6,6 +6,7 @@ app.service('AuthenticationService', ['$rootScope', '$http', '$location', functi
 
    self.checkToken = function(username, token) {
       $http.get($rootScope.serverRoot + 'users?username=' + username + '&token=' + token).error(function(response) {
+         console.log(response);
          $location.path('/');
       })
    }

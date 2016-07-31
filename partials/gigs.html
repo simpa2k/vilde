@@ -1,42 +1,40 @@
-<div ng-controller="GigsController">
-    <div id="gigs" class="box col-sm-4">
-        <h1 class="text-center">KOMMANDE KONSERTER</h1>
-        <div id="gigs-container">
-            <div ng-repeat="gig in gigs" class="gig collapsed row">
-                <div class="col-xs-12" ng-click="assignFocus(gig)">
-                    <div class="row">
-                        <div class="gig-text col-xs-9">
-                            <p class="text-center">{{ gig.date }} - <span class="orange-brown">{{ gig.venue_name }}</span>, {{ gig.city }}</p>
-                        </div>
-                        <div class="gig-button col-xs-3"></div>
+<div id="gigs" class="box col-sm-4">
+    <h1 class="text-center">KOMMANDE KONSERTER</h1>
+    <div id="gigs-container">
+        <div ng-repeat="gig in gigs" class="gig collapsed row">
+            <div class="col-xs-12" ng-click="assignFocus(gig)">
+                <div class="row">
+                    <div class="gig-text col-xs-9">
+                        <p class="text-center">{{ gig.date }} - <span class="orange-brown">{{ gig.venue_name }}</span>, {{ gig.city }}</p>
                     </div>
+                    <div class="gig-button col-xs-3"></div>
+                </div>
 
-                    <div class="row">
-                        <div class="additional-info col-xs-12">
-                            <p>Pris: <span class="orange-brown">{{ gig.price }}</span></p>
-                            <p ng-if="gig.address">Plats: <span class="orange-brown">{{ gig.address }}</span></p>
-                            <p ng-if="gig.webpage">Webbsida: <a href="{{ gig.webpage }}">{{ gig.webpage }}</a></p>
-                            <p ng-if="gig.ticketlink">Biljetter: <a href="{{ gig.ticketlink }}">{{ gig.ticketlink }}</a></p>
-                            <p>{{ gig.info }}</p>
-                        </div>
+                <div class="row">
+                    <div class="additional-info col-xs-12">
+                        <p>Pris: <span class="orange-brown">{{ gig.price }}</span></p>
+                        <p ng-if="gig.address">Plats: <span class="orange-brown">{{ gig.address }}</span></p>
+                        <p ng-if="gig.webpage">Webbsida: <a href="{{ gig.webpage }}">{{ gig.webpage }}</a></p>
+                        <p ng-if="gig.ticketlink">Biljetter: <a href="{{ gig.ticketlink }}">{{ gig.ticketlink }}</a></p>
+                        <p>{{ gig.info }}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-8">
-        <div class="col-sm-6 col-sm-offset-3">
-            <h1 class="text-center">{{ heading }}</h1>
-            <input type="text" class="form-control" ng-model="gigToBeSent.date" placeholder="Datum">
-            <input type="text" class="form-control" ng-model="gigToBeSent.time" placeholder="Tid">
-            <input type="text" class="form-control" ng-model="gigToBeSent.ticketlink" placeholder="Biljettlänk">
-            <input type="text" class="form-control" ng-model="gigToBeSent.info" placeholder="Ytterligare info">
-            <input type="text" class="form-control" ng-model="gigToBeSent.venue_name" placeholder="Spelställe">
-            <input type="text" class="form-control" ng-model="gigToBeSent.price" placeholder="Pris">
+</div>
+<div class="col-sm-8">
+    <div class="col-sm-6 col-sm-offset-3">
+        <h1 class="text-center">{{ heading }}</h1>
+        <input type="text" class="form-control" ng-model="gigToBeSent.date" placeholder="Datum">
+        <input type="text" class="form-control" ng-model="gigToBeSent.time" placeholder="Tid">
+        <input type="text" class="form-control" ng-model="gigToBeSent.ticketlink" placeholder="Biljettlänk">
+        <input type="text" class="form-control" ng-model="gigToBeSent.info" placeholder="Ytterligare info">
+        <input type="text" class="form-control" ng-model="gigToBeSent.venue_name" placeholder="Spelställe">
+        <input type="text" class="form-control" ng-model="gigToBeSent.price" placeholder="Pris">
 
-            <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-click="sendGig()">{{ gigAction }}</button>
-            <button class="btn btn-danger col-sm-6 col-sm-offset-3" ng-hide="addingNewGig" ng-click="deleteGig()">Ta bort gig</button>
-            <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-hide="addingNewGig" ng-click="removeFocus()">Nytt gig</button>
-        </div>
+        <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-click="sendGig()">{{ gigAction }}</button>
+        <button class="btn btn-danger col-sm-6 col-sm-offset-3" ng-hide="addingNewGig" ng-click="deleteGig()">Ta bort gig</button>
+        <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-hide="addingNewGig" ng-click="removeFocus()">Nytt gig</button>
     </div>
 </div>

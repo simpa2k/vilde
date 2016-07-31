@@ -1,7 +1,7 @@
 /**
  * Created by simon on 2016-07-30.
  */
-app.controller('GigsController', function($scope, $rootScope, $http, AuthenticationService, GetAndPrepareGigsService) {
+app.controller('AdminGigsController', function($scope, $rootScope, $http, AuthenticationService, GetAndPrepareGigsService) {
 
     var username = localStorage.getItem('username');
     var token = localStorage.getItem('token');
@@ -13,6 +13,7 @@ app.controller('GigsController', function($scope, $rootScope, $http, Authenticat
     });
 
     $scope.gigToBeSent = {
+        id: '',
         date: '',
         time: '',
         ticketlink: '',
@@ -22,6 +23,7 @@ app.controller('GigsController', function($scope, $rootScope, $http, Authenticat
     };
     
     $scope.assignFocus = function(gig) {
+        $scope.gigToBeSent.id = gig.id;
         $scope.gigToBeSent.date = gig.date;
         $scope.gigToBeSent.time = gig.time;
         $scope.gigToBeSent.ticketlink = gig.ticketlink;
@@ -39,7 +41,7 @@ app.controller('GigsController', function($scope, $rootScope, $http, Authenticat
         angular.forEach($scope.gigToBeSent, function(value, key) {
             $scope.gigToBeSent[key] = '';
         });
-
+        
         $scope.heading = 'Lägg till nytt gig';
         $scope.gigAction = 'Lägg till gig';
         $scope.addingNewGig = true;
@@ -47,13 +49,16 @@ app.controller('GigsController', function($scope, $rootScope, $http, Authenticat
     };
 
     $scope.putGig = function() {
-       var uri =  $rootScope.serverRoot + 'gigs?date=' + $scope.gigToBeSent.date +
+       var uri =  $rootScope.serverRoot + 'gigs?id=' + $scope.gigToBeSent.id + 
+        '&date=' + $scope.gigToBeSent.date +
         '&time=' + $scope.gigToBeSent.time +
         '&ticketlink=' + $scope.gigToBeSent.ticketlink +
         '&info=' + $scope.gigToBeSent.info +
         '&venue_name=' + $scope.gigToBeSent.venue_name +
-        '&price=' + $scope.gigToBeSent.price;
-
+        '&price=' + $scope.gigToBeSent.price + 
+        '&username=' + username + 
+        '&token=' + token;
+        
        $http.put(uri).then(function(response) {
            GetAndPrepareGigsService.getAndPrepareGigs(function(gigs) {
                $scope.gigs = gigs;
@@ -62,13 +67,16 @@ app.controller('GigsController', function($scope, $rootScope, $http, Authenticat
     };
     
     $scope.postGig = function() {
-        var uri = $rootScope.serverRoot + 'gigs?date=' + $scope.gigToBeSent.date +
+        var uri = $rootScope.serverRoot + 'gigs?id=' + $scope.gigToBeSent.id + 
+        '&date=' + $scope.gigToBeSent.date +
         '&time=' + $scope.gigToBeSent.time +
         '&ticketlink=' + $scope.gigToBeSent.ticketlink +
         '&info=' + $scope.gigToBeSent.info +
         '&venue_name=' + $scope.gigToBeSent.venue_name +
-        '&price=' + $scope.gigToBeSent.price;
-        
+        '&price=' + $scope.gigToBeSent.price + 
+        '&username=' + username +
+        '&token=' + token;
+        console.log(uri);
         $http.post(uri).then(function(response) {
             GetAndPrepareGigsService.getAndPrepareGigs(function(gigs) {
                 $scope.gigs = gigs;
@@ -77,17 +85,20 @@ app.controller('GigsController', function($scope, $rootScope, $http, Authenticat
     };
     
     $scope.deleteGig = function() {
-        var uri = $rootScope.serverRoot + 'gigs?date=' + $scope.gigToBeSent.date +
+        var uri = $rootScope.serverRoot + 'gigs?id=' + $scope.gigToBeSent.id +
+        '&date=' + $scope.gigToBeSent.date +
         '&time=' + $scope.gigToBeSent.time +
         '&ticketlink=' + $scope.gigToBeSent.ticketlink +
         '&info=' + $scope.gigToBeSent.info +
         '&venue_name=' + $scope.gigToBeSent.venue_name +
-        '&price=' + $scope.gigToBeSent.price;
+        '&price=' + $scope.gigToBeSent.price +
+        '&username=' + username +
+        '&token=' + token;
         
-        console.log(uri);
         $http.delete(uri).then(function(response) {
             GetAndPrepareGigsService.getAndPrepareGigs(function(gigs) {
                 $scope.gigs = gigs;
+                $scope.removeFocus();
             });
         });    
     };

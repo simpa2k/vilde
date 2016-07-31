@@ -21,7 +21,15 @@ class ContactPersonsController extends BaseController {
 
     }
 
-    public function postAction($request) {
+    public function post($request) {
         return $request->parameters;
+    }
+    
+    public function put($request) {
+
+    }
+
+    public function delete($request) {
+
     }
 }
