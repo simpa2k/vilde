@@ -7,6 +7,3 @@
   framförallt inte om det i själva verket redan är en UserController som anropar BaseControllers checkToken-metod.
   Vilken soppa.
 
-* Just nu sparas inte primärnyckeln hos det gig man har klickat på undan. Det betyder att det inte går att ändra
-  datum eller tid på giget, eftersom backenden försöker använda det nya datumet/tiden som primärnyckel, vilket ju inte går.
-  Datum och tid måste ju skickas två gånger om någon av dem ändrats - både det gamla och det nya värdet måste med.
