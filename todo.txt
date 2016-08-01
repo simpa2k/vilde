@@ -7,3 +7,5 @@
   framförallt inte om det i själva verket redan är en UserController som anropar BaseControllers checkToken-metod.
   Vilken soppa.
 
+* AdminGigsController och AdminNewsController är i princip identiska - fixa.
+
