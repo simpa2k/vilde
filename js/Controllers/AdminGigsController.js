@@ -1,16 +1,25 @@
 /**
  * Created by simon on 2016-07-30.
  */
-app.controller('AdminGigsController', function($scope, $rootScope, $http, AuthenticationService, GetAndPrepareGigsService) {
+app.controller('AdminGigsController', function($scope, 
+                                               $rootScope, 
+                                               $http, 
+                                               AuthenticationService, 
+                                               GetAndPrepareGigsService,
+                                               AppendCredentialsService,
+                                               SendObjectService) {
 
     var username = localStorage.getItem('username');
     var token = localStorage.getItem('token');
 
     AuthenticationService.checkToken(username, token);
     
-    GetAndPrepareGigsService.getAndPrepareGigs(function(gigs) {
-        $scope.gigs = gigs;
-    });
+    function getGigs() {
+        GetAndPrepareGigsService.getAndPrepareGigs(function(gigs) {
+            console.log(gigs);
+            $scope.gigs = gigs;
+        });
+    };
 
     $scope.gigToBeSent = {
         id: '',
@@ -47,62 +56,35 @@ app.controller('AdminGigsController', function($scope, $rootScope, $http, Authen
         $scope.addingNewGig = true;
         $scope.sendGig = $scope.postGig;
     };
-
+    
+    var gigsEndpoint = $rootScope.serverRoot + 'gigs';
+    
     $scope.putGig = function() {
-       var uri =  $rootScope.serverRoot + 'gigs?id=' + $scope.gigToBeSent.id + 
-        '&date=' + $scope.gigToBeSent.date +
-        '&time=' + $scope.gigToBeSent.time +
-        '&ticketlink=' + $scope.gigToBeSent.ticketlink +
-        '&info=' + $scope.gigToBeSent.info +
-        '&venue_name=' + $scope.gigToBeSent.venue_name +
-        '&price=' + $scope.gigToBeSent.price + 
-        '&username=' + username + 
-        '&token=' + token;
+       AppendCredentialsService.appendCredentials($scope.gigToBeSent, username, token); 
         
-       $http.put(uri).then(function(response) {
-           GetAndPrepareGigsService.getAndPrepareGigs(function(gigs) {
-               $scope.gigs = gigs;
-           });
-       }); 
+       SendObjectService.putObject(gigsEndpoint, $scope.gigToBeSent, function() {
+           getGigs();
+       });
     };
     
     $scope.postGig = function() {
-        var uri = $rootScope.serverRoot + 'gigs?id=' + $scope.gigToBeSent.id + 
-        '&date=' + $scope.gigToBeSent.date +
-        '&time=' + $scope.gigToBeSent.time +
-        '&ticketlink=' + $scope.gigToBeSent.ticketlink +
-        '&info=' + $scope.gigToBeSent.info +
-        '&venue_name=' + $scope.gigToBeSent.venue_name +
-        '&price=' + $scope.gigToBeSent.price + 
-        '&username=' + username +
-        '&token=' + token;
-        console.log(uri);
-        $http.post(uri).then(function(response) {
-            GetAndPrepareGigsService.getAndPrepareGigs(function(gigs) {
-                $scope.gigs = gigs;
-            });
+        AppendCredentialsService.appendCredentials($scope.gigToBeSent, username, token); 
+        
+        SendObjectService.postObject(gigsEndpoint, $scope.gigToBeSent, function() {
+            getGigs();
         });
     };
     
     $scope.deleteGig = function() {
-        var uri = $rootScope.serverRoot + 'gigs?id=' + $scope.gigToBeSent.id +
-        '&date=' + $scope.gigToBeSent.date +
-        '&time=' + $scope.gigToBeSent.time +
-        '&ticketlink=' + $scope.gigToBeSent.ticketlink +
-        '&info=' + $scope.gigToBeSent.info +
-        '&venue_name=' + $scope.gigToBeSent.venue_name +
-        '&price=' + $scope.gigToBeSent.price +
-        '&username=' + username +
-        '&token=' + token;
+        AppendCredentialsService.appendCredentials($scope.gigToBeSent, username, token); 
         
-        $http.delete(uri).then(function(response) {
-            GetAndPrepareGigsService.getAndPrepareGigs(function(gigs) {
-                $scope.gigs = gigs;
-                $scope.removeFocus();
-            });
-        });    
+        SendObjectService.deleteObject(gigsEndpoint, $scope.gigToBeSent, function() {
+            getGigs();
+            $scope.removeFocus();
+        });
     };
     
+    getGigs();
     $scope.heading = 'Lägg till nytt gig';
     $scope.gigAction = 'Lägg till gig';
     $scope.addingNewGig = true;
