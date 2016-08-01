@@ -12,7 +12,7 @@ class NewsController extends BaseController {
         parent::__construct($model);
     }
 
-    public function get($request) {
+    public function getAction($request) {
 
         if (isset($request->urlElements[2])) {
             return $request->urlElements[2];

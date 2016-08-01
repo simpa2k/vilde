@@ -20,6 +20,11 @@ app.config(function($routeProvider) {
            templateUrl : 'partials/admin.html',
            controller : 'AdminController'
        })
+       
+       .when('/admin/news', {
+         templateUrl : 'partials/news.html',
+         controller : 'AdminNewsController'  
+       })
     
        .when('/admin/gigs', {
            templateUrl : 'partials/gigs.html',

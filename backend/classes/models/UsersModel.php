@@ -19,6 +19,9 @@ class UsersModel extends BaseModel
     }
     
     public function updateToken($id, $token) {
+        $debug = fopen('debugfile.txt', 'w');
+        fwrite($debug, var_export($token, true));
+        fclose($debug);
         $fields = array('token' => $token);
         $this->getDB()->update('users', $id, $fields); 
     }

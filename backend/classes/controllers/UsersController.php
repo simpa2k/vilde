@@ -30,7 +30,6 @@ class UsersController extends BaseController
     }
     
     private function login($username, $submittedPassword) {
-
         $where = array(
             0 => array(
                 'username',
@@ -42,12 +41,11 @@ class UsersController extends BaseController
 
         if(password_verify($submittedPassword, $user->password)) {
             $token = Token::generate();
-            $this->getModel()->updateToken("id = $user->id", $token);
+            $this->getModel()->updateToken($user->id, $token);
             return array('token' => $token);
         } else {
             http_response_code(401);
         }
-        
     }
     
     public function post($request) {

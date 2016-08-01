@@ -17,8 +17,6 @@ $modelName = $prefix . 'Model';
 if(class_exists($controllerName) && class_exists($modelName)) {
     $controller = new $controllerName(new $modelName());
     $actionName = strtolower($request->verb) . 'Action';
-    
-    
     $results = $controller->$actionName($request);
     
     $viewName = ucfirst($request->format) . 'View';
