@@ -8,6 +8,7 @@
 
     <div class="row">
         <div class="additional-info col-xs-12">
+            <p>Tid: <span class="orange-brown">{{ gig.time }}</span></p>
             <p>Pris: <span class="orange-brown">{{ gig.price }}</span></p>
             <p ng-if="gig.address">Plats: <span class="orange-brown">{{ gig.address }}</span></p>
             <p ng-if="gig.webpage">Webbsida: <a href="{{ gig.webpage }}">{{ gig.webpage }}</a></p>

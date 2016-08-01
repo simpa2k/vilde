@@ -44,7 +44,7 @@ class DB {
         return $this;
     }
     
-    public function action($action, $table, $where = array(), $joinCondition = array()) {
+    public function action($action, $table, $where = array(), $joinCondition = array(), $orderBy = array()) {
         if(count($where == 3)) {
             $operators = array('=', '<', '>', '<=', '>=', 'REGEXP');
 
@@ -81,6 +81,18 @@ class DB {
 
                     $sql .= "$column1 = $column2";
 
+                }
+            }
+            
+            if(!empty($orderBy)) {
+                $sql .= " ORDER BY ";
+                
+                foreach($orderBy as $column) {
+                    $sql .= "$column";
+                    
+                    if($column != end($orderBy)) {
+                        $sql .= ", ";
+                    }
                 }
             }
             
