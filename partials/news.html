@@ -1,11 +1,12 @@
 <div id="news" class="box col-sm-4">
     <h1>NYHETER</h1>
-    <p ng-repeat="newsItem in news" ng-click="assignFocus(newsItem)"><span class="red">{{ newsItem.date }}</span> - {{ newsItem.content }}</p>
+    <p ng-repeat="newsItem in news" ng-click="assignFocus(newsItem)"><span class="red">{{ newsItem.date }}</span> : <span ng-bind-html="newsItem.content"></span></p>
 </div>
 <div class="col-sm-8">
     <div class="col-sm-6 col-sm-offset-3">
         <h1 class="text-center">{{ heading }}</h1>
-        <textarea class="form-control" ng-model="newsItemToBeSent.content"></textarea>
+        <textarea class="form-control" ui-tinymce="tinymceOptions" ng-model="newsItemToBeSent.content"></textarea>
+        <p>{{ newsItemToBeSent.content }}</p>
 
         <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-click="sendNewsItem()">{{ newsItemAction}}</button>
         <button class="btn btn-danger col-sm-6 col-sm-offset-3" ng-hide="addingNewNewsItem" ng-click="deleteNewsItem()">Ta bort nyhet</button>

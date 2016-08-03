@@ -4,6 +4,7 @@
 app.controller('AdminNewsController', function($scope,
                                                $rootScope,
                                                $http,
+                                               $sce,
                                                AuthenticationService,
                                                SendObjectService,
                                                AppendCredentialsService,
@@ -59,15 +60,15 @@ app.controller('AdminNewsController', function($scope,
     $scope.putNewsItem = function() {
         AppendCredentialsService.appendCredentials($scope.newsItemToBeSent, username, token); 
 
-        console.log($scope.newsItemToBeSent);
         SendObjectService.putObject(newsEndpoint, $scope.newsItemToBeSent, function() {
             getNews();
         });
     };
 
     $scope.postNewsItem = function() {
-        AppendCredentialsService.appendCredentials($scope.newsItemToBeSent, username, token); 
-        
+        AppendCredentialsService.appendCredentials($scope.newsItemToBeSent, username, token);
+
+        console.log($scope.newsItemToBeSent);
         SendObjectService.postObject(newsEndpoint, $scope.newsItemToBeSent, function() {
             getNews();
             $scope.removeFocus();

@@ -1,7 +1,7 @@
 /**
  * Created by simon on 2016-07-29.
  */
-var app = angular.module('vilde', ['ngRoute', 'duParallax']);
+var app = angular.module('vilde', ['ngRoute', 'duParallax', 'ui.tinymce', 'ngSanitize']);
 
 app.config(function($routeProvider) {
    $routeProvider

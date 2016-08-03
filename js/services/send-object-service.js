@@ -20,12 +20,14 @@ app.service('SendObjectService', ['$http', function($http) {
         var counter = 0;
 
         angular.forEach(object, function(value, key) {
-            uri += key + '=' + value;
+            var encodedValue = encodeURIComponent(value);
+            uri += key + '=' + encodedValue;
             counter++;
             if(counter < numberOfIterations) {
                 uri += '&';
             }
         });
+        console.log(uri);
         return uri;
     };
     
