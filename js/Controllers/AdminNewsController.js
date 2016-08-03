@@ -25,6 +25,8 @@ app.controller('AdminNewsController', function($scope,
         content: ''
     };
 
+    $scope.sendNewsItem = $scope.postNewsItem;
+    
     $scope.assignFocus = function(newsItem) {
         $scope.newsItemToBeSent.id = newsItem.id;
         $scope.newsItemToBeSent.date = newsItem.date;
@@ -33,7 +35,7 @@ app.controller('AdminNewsController', function($scope,
         $scope.heading = 'Redigera nyhet';
         $scope.newsItemAction = 'Uppdatera nyhet';
         $scope.addingNewNewsItem = false;
-        $scope.sendNewsItem = $scope.putNewsItem();
+        $scope.sendNewsItem = $scope.putNewsItem;
     };
 
     $scope.removeFocus = function() {
@@ -57,24 +59,27 @@ app.controller('AdminNewsController', function($scope,
     $scope.putNewsItem = function() {
         AppendCredentialsService.appendCredentials($scope.newsItemToBeSent, username, token); 
 
-        SendObjectService.putObject(newsEndpoint, $scope.newsItemToBeSent, function(news) {
+        console.log($scope.newsItemToBeSent);
+        SendObjectService.putObject(newsEndpoint, $scope.newsItemToBeSent, function() {
             getNews();
         });
     };
 
     $scope.postNewsItem = function() {
         AppendCredentialsService.appendCredentials($scope.newsItemToBeSent, username, token); 
-        console.log($scope.newsItemToBeSent);
-        SendObjectService.postObject(newsEndpoint, $scope.newsItemToBeSent, function(news) {
+        
+        SendObjectService.postObject(newsEndpoint, $scope.newsItemToBeSent, function() {
             getNews();
+            $scope.removeFocus();
         });
     };
 
     $scope.deleteNewsItem = function() {
         AppendCredentialsService.appendCredentials($scope.newsItemToBeSent, username, token); 
 
-        SendObjectService.deleteObject(newsEndpoint, $scope.newsItemToBeSent, function(news) {
+        SendObjectService.deleteObject(newsEndpoint, $scope.newsItemToBeSent, function() {
             getNews();
+            $scope.removeFocus();
         });
     };
     

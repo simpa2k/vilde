@@ -72,6 +72,7 @@ app.controller('AdminGigsController', function($scope,
         
         SendObjectService.postObject(gigsEndpoint, $scope.gigToBeSent, function() {
             getGigs();
+            $scope.removeFocus();
         });
     };
     

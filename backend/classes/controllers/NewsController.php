@@ -23,17 +23,16 @@ class NewsController extends BaseController {
     }
     
     public function post($request) {
-        $debug = fopen('debugfile.txt', 'w');
-        fwrite($debug, var_export($request->parameters, true));
-        fclose($debug);
         $this->getModel()->insert($request->parameters);
     }
     
     public function put($request) {
-
+        $id = $request->parameters['id'];
+        $this->getModel()->update($id, $request->parameters);
     }
     
     public function delete($request) {
-
+        $id = $this->filterParameters(array('id'), $request->parameters);
+        $this->getModel()->delete($this->formatParameters($id)); 
     }
 }
