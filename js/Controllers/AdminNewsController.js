@@ -1,7 +1,13 @@
 /**
  * Created by simon on 2016-08-01.
  */
-app.controller('AdminNewsController', function($scope, $rootScope, $http, AuthenticationService, SendObjectService, AppendCredentialsService) {
+app.controller('AdminNewsController', function($scope,
+                                               $rootScope,
+                                               $http,
+                                               AuthenticationService,
+                                               SendObjectService,
+                                               AppendCredentialsService,
+                                               GetDateService) {
     var username = localStorage.getItem('username');
     var token = localStorage.getItem('token');
     
@@ -32,7 +38,13 @@ app.controller('AdminNewsController', function($scope, $rootScope, $http, Authen
 
     $scope.removeFocus = function() {
         angular.forEach($scope.newsItemToBeSent, function(value, key) {
-            $scope.newsItemToBeSent[key] = '';
+            if(key === 'date') {
+                GetDateService.getCurrentDate(function(currentDate) {
+                    $scope.newsItemToBeSent[key] = currentDate;
+                });
+            } else {
+                $scope.newsItemToBeSent[key] = '';
+            }
         });
 
         $scope.heading = 'Lägg till nyhet';
@@ -45,15 +57,15 @@ app.controller('AdminNewsController', function($scope, $rootScope, $http, Authen
     $scope.putNewsItem = function() {
         AppendCredentialsService.appendCredentials($scope.newsItemToBeSent, username, token); 
 
-        SendObjectService.putObject(newsEndpoint, $scope.gigToBeSent, function(news) {
+        SendObjectService.putObject(newsEndpoint, $scope.newsItemToBeSent, function(news) {
             getNews();
         });
     };
 
     $scope.postNewsItem = function() {
         AppendCredentialsService.appendCredentials($scope.newsItemToBeSent, username, token); 
-
-        SendObjectService.postObject(newsEndpoint, $scope.gigToBeSent, function(news) {
+        console.log($scope.newsItemToBeSent);
+        SendObjectService.postObject(newsEndpoint, $scope.newsItemToBeSent, function(news) {
             getNews();
         });
     };
@@ -61,14 +73,11 @@ app.controller('AdminNewsController', function($scope, $rootScope, $http, Authen
     $scope.deleteNewsItem = function() {
         AppendCredentialsService.appendCredentials($scope.newsItemToBeSent, username, token); 
 
-        SendObjectService.deleteObject(newsEndpoint, $scope.gigToBeSent, function(news) {
+        SendObjectService.deleteObject(newsEndpoint, $scope.newsItemToBeSent, function(news) {
             getNews();
         });
     };
     
     getNews();
-    $scope.heading = 'Lägg till nyhet';
-    $scope.newsItemAction = 'Lägg till nyhet';
-    $scope.addingNewNewsItem = true;
-    $scope.sendNewsItem = $scope.postNewsItem;
+    $scope.removeFocus();
 });

@@ -23,7 +23,10 @@ class NewsController extends BaseController {
     }
     
     public function post($request) {
-        
+        $debug = fopen('debugfile.txt', 'w');
+        fwrite($debug, var_export($request->parameters, true));
+        fclose($debug);
+        $this->getModel()->insert($request->parameters);
     }
     
     public function put($request) {
