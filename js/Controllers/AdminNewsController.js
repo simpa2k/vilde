@@ -4,7 +4,6 @@
 app.controller('AdminNewsController', function($scope,
                                                $rootScope,
                                                $http,
-                                               $sce,
                                                AuthenticationService,
                                                SendObjectService,
                                                AppendCredentialsService,
