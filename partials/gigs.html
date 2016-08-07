@@ -13,8 +13,12 @@
         <input type="text" class="form-control" ng-model="gigToBeSent.time" placeholder="Tid">
         <input type="text" class="form-control" ng-model="gigToBeSent.ticketlink" placeholder="Biljettlänk">
         <input type="text" class="form-control" ng-model="gigToBeSent.info" placeholder="Ytterligare info">
-        <input type="text" class="form-control" ng-model="gigToBeSent.venue_name" placeholder="Spelställe">
         <input type="text" class="form-control" ng-model="gigToBeSent.price" placeholder="Pris">
+        <select class="form-control" ng-model="selectedVenue" ng-options="venue as venue.name for venue in venues"></select>
+
+        <input type="text" class="form-control" ng-model="selectedVenue.address" disabled>
+        <input type="text" class="form-control" ng-model="selectedVenue.city" disabled>
+        <input type="text" class="form-control" ng-model="selectedVenue.webpage" disabled>
 
         <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-click="sendGig()">{{ gigAction }}</button>
         <button class="btn btn-danger col-sm-6 col-sm-offset-3" ng-hide="addingNewGig" ng-click="deleteGig()">Ta bort gig</button>

@@ -33,7 +33,7 @@ app.controller('AdminNewsController', function($scope,
         $scope.newsItemToBeSent.content = newsItem.content;
 
         $scope.heading = 'Redigera nyhet';
-        $scope.newsItemAction = 'Uppdatera nyhet';
+        $scope.newsItemAction = 'Bekräfta ändringar';
         $scope.addingNewNewsItem = false;
         $scope.sendNewsItem = $scope.putNewsItem;
     };
