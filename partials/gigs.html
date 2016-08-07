@@ -2,7 +2,7 @@
     <h1 class="text-center">KOMMANDE KONSERTER</h1>
     <div id="gigs-container">
         <div ng-repeat="gig in gigs" class="gig collapsed row">
-            <gig ng-click="assignFocus(gig)"></gig>
+            <gig ng-click="setPutState(gig)"></gig>
         </div>
     </div>
 </div>
@@ -22,6 +22,6 @@
 
         <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-click="sendGig()">{{ gigAction }}</button>
         <button class="btn btn-danger col-sm-6 col-sm-offset-3" ng-hide="addingNewGig" ng-click="deleteGig()">Ta bort gig</button>
-        <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-hide="addingNewGig" ng-click="removeFocus()">Nytt gig</button>
+        <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-hide="addingNewGig" ng-click="setPostState()">Nytt gig</button>
     </div>
 </div>

@@ -43,7 +43,7 @@ app.controller('AdminGigsController', function($scope,
         });
     };
     
-    $scope.assignFocus = function(gig) {
+    $scope.setPutState = function(gig) {
         $scope.gigToBeSent.id = gig.id;
         $scope.gigToBeSent.date = gig.date;
         $scope.gigToBeSent.time = gig.time;
@@ -59,7 +59,7 @@ app.controller('AdminGigsController', function($scope,
         $scope.sendGig = $scope.putGig;
     };
     
-    $scope.removeFocus = function() {
+    $scope.setPostState = function() {
         angular.forEach($scope.gigToBeSent, function(value, key) {
             $scope.gigToBeSent[key] = '';
         });
@@ -76,8 +76,8 @@ app.controller('AdminGigsController', function($scope,
        AppendCredentialsService.appendCredentials($scope.gigToBeSent, username, token);
        
        /*
-        This needs to be done on put and post in order
-        to ensure that the venue name sent actually reflects
+        The setting of gigToBeSent.venue_name cannot be done before the actual put and post.
+        This is to ensure that the venue name sent actually reflects
         the selected venue name as the <select> tag cannot be bound to gigToBeSent.venue_name
         but must be bound to a venue object, due to the fact that the tag's ng-options
         gets its data from venue objects.
@@ -96,7 +96,7 @@ app.controller('AdminGigsController', function($scope,
 
         SendObjectService.postObject(gigsEndpoint, $scope.gigToBeSent, function() {
             getGigs();
-            $scope.removeFocus();
+            $scope.setPostState();
         });
     };
     
@@ -105,15 +105,11 @@ app.controller('AdminGigsController', function($scope,
         
         SendObjectService.deleteObject(gigsEndpoint, $scope.gigToBeSent, function() {
             getGigs();
-            $scope.removeFocus();
+            $scope.setPostState();
         });
     };
     
     getGigs();
-    /*$scope.heading = 'Lägg till nytt gig';
-    $scope.gigAction = 'Lägg till gig';
-    $scope.addingNewGig = true;
-    $scope.sendGig = $scope.postGig;*/
-    $scope.removeFocus();
+    $scope.setPostState();
     
 });

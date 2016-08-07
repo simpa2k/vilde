@@ -27,7 +27,7 @@ app.controller('AdminNewsController', function($scope,
 
     $scope.sendNewsItem = $scope.postNewsItem;
     
-    $scope.assignFocus = function(newsItem) {
+    $scope.setPutState = function(newsItem) {
         $scope.newsItemToBeSent.id = newsItem.id;
         $scope.newsItemToBeSent.date = newsItem.date;
         $scope.newsItemToBeSent.content = newsItem.content;
@@ -38,7 +38,7 @@ app.controller('AdminNewsController', function($scope,
         $scope.sendNewsItem = $scope.putNewsItem;
     };
 
-    $scope.removeFocus = function() {
+    $scope.setPostState = function() {
         angular.forEach($scope.newsItemToBeSent, function(value, key) {
             if(key === 'date') {
                 GetDateService.getCurrentDate(function(currentDate) {
@@ -54,6 +54,7 @@ app.controller('AdminNewsController', function($scope,
         $scope.addingNewNewsItem = true;
         $scope.sendNewsItem = $scope.postNewsItem;
     };
+    
     var newsEndpoint = $rootScope.serverRoot + 'news';
 
     $scope.putNewsItem = function() {
@@ -70,7 +71,7 @@ app.controller('AdminNewsController', function($scope,
         console.log($scope.newsItemToBeSent);
         SendObjectService.postObject(newsEndpoint, $scope.newsItemToBeSent, function() {
             getNews();
-            $scope.removeFocus();
+            $scope.setPostState();
         });
     };
 
@@ -79,10 +80,10 @@ app.controller('AdminNewsController', function($scope,
 
         SendObjectService.deleteObject(newsEndpoint, $scope.newsItemToBeSent, function() {
             getNews();
-            $scope.removeFocus();
+            $scope.setPostState();
         });
     };
     
     getNews();
-    $scope.removeFocus();
+    $scope.setPostState();
 });

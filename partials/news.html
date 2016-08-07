@@ -1,6 +1,6 @@
 <div id="news" class="box col-sm-4">
     <h1>NYHETER</h1>
-    <p ng-repeat="newsItem in news" ng-click="assignFocus(newsItem)"><span class="red">{{ newsItem.date }}</span>: <span ng-bind-html="newsItem.content"></span></p>
+    <p ng-repeat="newsItem in news" ng-click="setPutState(newsItem)"><span class="red">{{ newsItem.date }}</span>: <span ng-bind-html="newsItem.content"></span></p>
 </div>
 <div class="col-sm-8">
     <div class="col-sm-6 col-sm-offset-3">
@@ -9,6 +9,6 @@
 
         <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-click="sendNewsItem()">{{ newsItemAction}}</button>
         <button class="btn btn-danger col-sm-6 col-sm-offset-3" ng-hide="addingNewNewsItem" ng-click="deleteNewsItem()">Ta bort nyhet</button>
-        <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-hide="addingNewNewsItem" ng-click="removeFocus()">Ny nyhet</button>
+        <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-hide="addingNewNewsItem" ng-click="setPostState()">Ny nyhet</button>
     </div>
 </div>
