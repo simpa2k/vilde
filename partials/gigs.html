@@ -8,17 +8,23 @@
 </div>
 <div class="col-sm-8">
     <div class="col-sm-6 col-sm-offset-3">
-        <h1 class="text-center">{{ heading }}</h1>
-        <input type="text" class="form-control" ng-model="gigToBeSent.date" placeholder="Datum">
-        <input type="text" class="form-control" ng-model="gigToBeSent.time" placeholder="Tid">
-        <input type="text" class="form-control" ng-model="gigToBeSent.ticketlink" placeholder="Biljettlänk">
-        <input type="text" class="form-control" ng-model="gigToBeSent.info" placeholder="Ytterligare info">
-        <input type="text" class="form-control" ng-model="gigToBeSent.price" placeholder="Pris">
-        <select class="form-control" ng-model="selectedVenue" ng-options="venue as venue.name for venue in venues"></select>
+        <div class="row">
+            <h1 class="text-center">{{ heading }}</h1>
+            <input type="text" class="form-control" ng-model="gigToBeSent.date" placeholder="Datum">
+            <input type="text" class="form-control" ng-model="gigToBeSent.time" placeholder="Tid">
+            <input type="text" class="form-control" ng-model="gigToBeSent.ticketlink" placeholder="Biljettlänk">
+            <input type="text" class="form-control" ng-model="gigToBeSent.info" placeholder="Ytterligare info">
+            <input type="text" class="form-control" ng-model="gigToBeSent.price" placeholder="Pris">
+        </div>
+        <div class="row">
+            <label for="select-venue">Välj spelställe:</label><br>
+            <select id=select-venue ng-model="selectedVenue" ng-options="venue as venue.name for venue in venues"></select>
 
-        <input type="text" class="form-control" ng-model="selectedVenue.address" disabled>
-        <input type="text" class="form-control" ng-model="selectedVenue.city" disabled>
-        <input type="text" class="form-control" ng-model="selectedVenue.webpage" disabled>
+            <input type="text" class="form-control" ng-model="selectedVenue.address" disabled>
+            <input type="text" class="form-control" ng-model="selectedVenue.city" disabled>
+            <input type="text" class="form-control" ng-model="selectedVenue.webpage" disabled>
+        </div>
+
 
         <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-click="sendGig()">{{ gigAction }}</button>
         <button class="btn btn-danger col-sm-6 col-sm-offset-3" ng-hide="addingNewGig" ng-click="deleteGig()">Ta bort gig</button>
