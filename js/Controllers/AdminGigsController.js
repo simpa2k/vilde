@@ -22,7 +22,6 @@ app.controller('AdminGigsController', function($scope,
     
     $http.get($rootScope.serverRoot + 'venues').then(function(response) {
         $scope.venues = response.data;
-        $scope.selectedVenue = $scope.venues[0];
     });
 
     $scope.gigToBeSent = {
@@ -33,6 +32,21 @@ app.controller('AdminGigsController', function($scope,
         info: '',
         venue_name: '',
         price: ''
+    };
+    
+    $scope.searchVenues = function() {
+       console.log($scope.gigToBeSent.venue_name);
+       var found = false;
+       angular.forEach($scope.venues, function(value) {
+           if(value.name == $scope.gigToBeSent.venue_name) {
+               $scope.selectedVenue = value;
+               found = true;
+           }
+       });
+
+        if(!found) {
+            $scope.selectedVenue = undefined;
+        }
     };
     
     function selectVenue(venueName) {
@@ -49,6 +63,7 @@ app.controller('AdminGigsController', function($scope,
         $scope.gigToBeSent.time = gig.time;
         $scope.gigToBeSent.ticketlink = gig.ticketlink;
         $scope.gigToBeSent.info = gig.info;
+        $scope.gigToBeSent.venue_name = gig.venue_name;
         $scope.gigToBeSent.price = gig.price;
         
         selectVenue(gig.venue_name);

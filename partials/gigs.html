@@ -18,7 +18,8 @@
         </div>
         <div class="row">
             <label for="select-venue">Välj spelställe:</label><br>
-            <select id=select-venue ng-model="selectedVenue" ng-options="venue as venue.name for venue in venues"></select>
+            <!--<select id=select-venue ng-model="selectedVenue" ng-options="venue as venue.name for venue in venues"></select>-->
+            <input type="text" id="select-venue" class="form-control" ng-model="gigToBeSent.venue_name" ng-change="searchVenues()" placeholder="Spelställe">
 
             <input type="text" class="form-control" ng-model="selectedVenue.address" disabled>
             <input type="text" class="form-control" ng-model="selectedVenue.city" disabled>
