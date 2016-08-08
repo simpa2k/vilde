@@ -21,7 +21,11 @@ app.controller('AdminGigsController', function($scope,
     };
     
     $http.get($rootScope.serverRoot + 'venues').then(function(response) {
-        $scope.venues = response.data;
+        //$scope.venues = response.data;
+        $scope.venues = {};
+        angular.forEach(response.data, function(value) {
+           $scope.venues[value.name] = value; 
+        });
     });
 
     $scope.gigToBeSent = {
@@ -35,18 +39,13 @@ app.controller('AdminGigsController', function($scope,
     };
     
     $scope.searchVenues = function() {
-       console.log($scope.gigToBeSent.venue_name);
-       var found = false;
-       angular.forEach($scope.venues, function(value) {
-           if(value.name == $scope.gigToBeSent.venue_name) {
-               $scope.selectedVenue = value;
-               found = true;
-           }
-       });
+       var venue = $scope.venues[$scope.gigToBeSent.venue_name]; 
+       if(venue !== undefined) {
+           $scope.selectedVenue = venue;
+       } else {
+           $scope.selectedVenue = undefined;
+       } 
 
-        if(!found) {
-            $scope.selectedVenue = undefined;
-        }
     };
     
     function selectVenue(venueName) {
