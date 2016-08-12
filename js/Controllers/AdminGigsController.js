@@ -20,13 +20,14 @@ app.controller('AdminGigsController', function($scope,
         });
     };
     
-    $http.get($rootScope.serverRoot + 'venues').then(function(response) {
-        //$scope.venues = response.data;
-        $scope.venues = {};
-        angular.forEach(response.data, function(value) {
-           $scope.venues[value.name] = value; 
+    function getVenues() {
+        $http.get($rootScope.serverRoot + 'venues').then(function (response) {
+            $scope.venues = {};
+            angular.forEach(response.data, function (value) {
+                $scope.venues[value.name] = value;
+            });
         });
-    });
+    };
 
     $scope.gigToBeSent = {
         id: '',
@@ -38,11 +39,23 @@ app.controller('AdminGigsController', function($scope,
         price: ''
     };
     
+    /*
+    foundVenueRecently tries to determine
+    if the user is trying to add a new venue
+    or is searching for an already added one.
+    As it is now the address, city and webpage fields
+    will be cleared if a venue was just found and the
+    user continues to change the input field, but
+    not if a venue wasn't found. This might not be the optimal solution, however.
+     */
+    var foundVenueRecently = false;
     $scope.searchVenues = function() {
-       var venue = $scope.venues[$scope.gigToBeSent.venue_name]; 
+       // Make sure to create a copy of the venue object 
+       var venue = jQuery.extend({}, $scope.venues[$scope.gigToBeSent.venue_name]);
        if(venue !== undefined) {
            $scope.selectedVenue = venue;
-       } else {
+           foundVenueRecently = true;
+       } else if(foundVenueRecently) {
            $scope.selectedVenue = undefined;
        } 
 
@@ -51,7 +64,8 @@ app.controller('AdminGigsController', function($scope,
     function selectVenue(venueName) {
         angular.forEach($scope.venues, function(value) {
             if(value.name == venueName) {
-                $scope.selectedVenue = value;
+                // Make sure to create a copy of the venue object 
+                $scope.selectedVenue = jQuery.extend({}, value);
             }
         });
     };
@@ -83,6 +97,30 @@ app.controller('AdminGigsController', function($scope,
         $scope.addingNewGig = true;
         $scope.sendGig = $scope.postGig;
     };
+
+    function sendVenue() {
+        $scope.selectedVenue.name = $scope.gigToBeSent.venue_name;
+        var venueForComparison = $scope.venues[$scope.selectedVenue.name];
+        var venuesEndpoint = $scope.serverRoot + 'venues';
+
+        console.log(JSON.stringify($scope.selectedVenue), JSON.stringify(venueForComparison));
+        if(venueForComparison == undefined) {
+            // If there is no venue with the specified name, post the venue (i.e. create it)
+            AppendCredentialsService.appendCredentials($scope.selectedVenue, username, token);
+            SendObjectService.postObject(venuesEndpoint, $scope.selectedVenue, function() {
+                getVenues();
+            });
+        } else if(JSON.stringify($scope.selectedVenue) != JSON.stringify(venueForComparison)) {
+            /* 
+            If there is a venue with the specified name, but some of the other fields have been changed,
+            put the venue (i.e. update it)
+             */
+            AppendCredentialsService.appendCredentials($scope.selectedVenue, username, token);
+            SendObjectService.putObject(venuesEndpoint, $scope.selectedVenue, function() {
+                getVenues();    
+            });
+        }
+    };
     
     var gigsEndpoint = $rootScope.serverRoot + 'gigs';
     
@@ -97,8 +135,9 @@ app.controller('AdminGigsController', function($scope,
         gets its data from venue objects.
          */
         
-       $scope.gigToBeSent.venue_name = $scope.selectedVenue.name; 
-        
+       //$scope.gigToBeSent.venue_name = $scope.selectedVenue.name;
+       sendVenue();
+
        SendObjectService.putObject(gigsEndpoint, $scope.gigToBeSent, function() {
            getGigs();
        });
@@ -106,7 +145,8 @@ app.controller('AdminGigsController', function($scope,
     
     $scope.postGig = function() {
         AppendCredentialsService.appendCredentials($scope.gigToBeSent, username, token);
-        $scope.gigToBeSent.venue_name = $scope.selectedVenue.name;
+        //$scope.gigToBeSent.venue_name = $scope.selectedVenue.name;
+        sendVenue();
 
         SendObjectService.postObject(gigsEndpoint, $scope.gigToBeSent, function() {
             getGigs();
@@ -122,8 +162,14 @@ app.controller('AdminGigsController', function($scope,
             $scope.setPostState();
         });
     };
+
+    $scope.debugVenue = function() {
+        console.log($scope.selectedVenue);
+        console.log($scope.venues[$scope.selectedVenue.name]);
+    };
     
     getGigs();
+    getVenues();
     $scope.setPostState();
     
 });

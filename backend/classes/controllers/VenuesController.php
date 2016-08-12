@@ -25,11 +25,13 @@ class VenuesController extends BaseController {
 
     }
     public function post($request) {
-        
+        $this->getModel()->insert($request->parameters);
     }
     
     public function put($request) {
-        
+        $name = $request->parameters['name'];
+        $primaryKey = "name = '$name'";
+        $this->getModel()->update($primaryKey, $request->parameters);
     }
     
     public function delete($request) {
