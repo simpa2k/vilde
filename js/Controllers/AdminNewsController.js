@@ -8,10 +8,6 @@ app.controller('AdminNewsController', function($scope,
                                                SendObjectService,
                                                AppendCredentialsService,
                                                GetDateService) {
-    var username = localStorage.getItem('username');
-    var token = localStorage.getItem('token');
-    
-    AuthenticationService.checkToken(username, token);
     
     function getNews() {
         $http.get($rootScope.serverRoot + 'news').then(function(response) {

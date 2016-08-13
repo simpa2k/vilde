@@ -9,3 +9,5 @@
 
 * AdminGigsController och AdminNewsController är i princip identiska - fixa.
 
+* Sökning på venues är case sensitive - ska den vara det?
+

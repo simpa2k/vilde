@@ -8,11 +8,6 @@ app.controller('AdminGigsController', function($scope,
                                                GetAndPrepareGigsService,
                                                AppendCredentialsService,
                                                SendObjectService) {
-
-    var username = localStorage.getItem('username');
-    var token = localStorage.getItem('token');
-
-    AuthenticationService.checkToken(username, token);
     
     function getGigs() {
         GetAndPrepareGigsService.getAndPrepareGigs(function(gigs) {
@@ -95,6 +90,7 @@ app.controller('AdminGigsController', function($scope,
         $scope.heading = 'Lägg till nytt gig';
         $scope.gigAction = 'Lägg till gig';
         $scope.addingNewGig = true;
+        $scope.selectedVenue = undefined;
         $scope.sendGig = $scope.postGig;
     };
 
