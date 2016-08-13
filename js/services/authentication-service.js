@@ -10,10 +10,10 @@ app.service('AuthenticationService', ['$rootScope', '$http', '$location', functi
       });
    };
    
-   self.checkToken = function(username, token) {
+   self.checkToken = function(username, token, callback) {
       $http.get($rootScope.serverRoot + 'users?username=' + username + '&token=' + token).error(function(response) {
-         $location.path('/');
-      })
+         callback(response);
+      });
    };
 
 }]);

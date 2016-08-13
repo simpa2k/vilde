@@ -64,7 +64,10 @@ app.run(['$rootScope', '$state', 'AuthenticationService', function($rootScope, $
              var username = localStorage.getItem('username');
              var token = localStorage.getItem('token');
 
-             AuthenticationService.checkToken(username, token);
+             AuthenticationService.checkToken(username, token, function() {
+                 event.preventDefault();
+                 $state.go('home');
+             });
          }
 
      });
