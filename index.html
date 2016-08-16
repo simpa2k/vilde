@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html ng-app="vilde">
+<html>
 	<head>
 		<title>Vilde</title>
-
-        <!--<script type="text/javascript" src="js/mainjQuery.js"></script>-->
 
 		<link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css">
@@ -15,33 +13,6 @@
 
         <div ui-view></div>
 
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
-
-        <script src="/bower_components/angular/angular.min.js"></script>
-        <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-        <script src="bower_components/angular-scroll/angular-scroll.js"></script>
-        <script src="bower_components/ng-parallax/angular-parallax.js"></script>
-        <script src="bower_components/tinymce-dist/tinymce.js"></script>
-        <script src="bower_components/angular-ui-tinymce/src/tinymce.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-
-        <script type="text/javascript" src="css/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>
-
-        <script type="text/javascript" src="js/Controllers/MainController.js"></script>
-        <script type="text/javascript" src="js/Controllers/LoginController.js"></script>
-        <script type="text/javascript" src="js/Controllers/AdminController.js"></script>
-        <script type="text/javascript" src="js/Controllers/AdminNewsController.js"></script>
-        <script type="text/javascript" src="js/Controllers/AdminGigsController.js"></script>
-
-        <script type="text/javascript" src="js/services/get-and-prepare-gigs-service.js"></script>
-        <script type="text/javascript" src="js/services/append-credentials-service.js"></script>
-        <script type="text/javascript" src="js/services/send-object-service.js"></script>
-        <script type="text/javascript" src="js/services/get-date-service.js"></script>
-        <script type="text/javascript" src="js/services/authentication-service.js"></script>
-
-        <script type="text/javascript" src="js/directives/sticky-navbar.js"></script>
-        <script type="text/javascript" src="js/directives/gig.js"></script>
+        <script src="bower_components/requirejs/require.js" data-main="app/main.js"></script>
     </body>
 </html>

@@ -11,3 +11,5 @@
 
 * Sökning på venues är case sensitive - ska den vara det?
 
+* Lös sessionhantering med hjälp av en interceptor
+
