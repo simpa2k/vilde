@@ -1,0 +1,29 @@
+{
+  "name": "vildeangular",
+  "homepage": "https://github.com/simpa2k/vilde",
+  "authors": [
+    "Simon Olofsson <s.olofsson@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.5.7",
+    "angular-scroll": "^1.0.0",
+    "angular": "^1.5.7",
+    "ng-parallax": "^0.1.8",
+    "angular-ui-tinymce": "^0.0.16",
+    "angular-sanitize": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "requirejs": "^2.2.0",
+    "jquery": "^3.1.0"
+  }
+}
