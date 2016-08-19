@@ -5,7 +5,7 @@ define(function() {
     app.directive('stickyNavbar', function() {
         return {
             restrict: 'EA',
-            templateUrl: 'partials/navbar.html',
+            templateUrl: 'app/modules/vilde/directives/sticky-navbar/sticky-navbar.html',
             link: function($scope, element, attrs) {
                 var navbarTextElements = document.getElementsByClassName('navbar-text');
 

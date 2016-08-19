@@ -12,7 +12,7 @@ define(function() {
         'modules/vilde/services/get-date-service',
         'modules/vilde/services/send-object-service',
         'modules/vilde/directives/gig',
-        'modules/vilde/directives/sticky-navbar',
+        'modules/vilde/directives/sticky-navbar/sticky-navbar',
         'modules/vilde/directives/youtube',
         'modules/vilde/directives/asynch-iframe'
 
