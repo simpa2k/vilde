@@ -126,7 +126,7 @@ define(function() {
                     }
                 }
 
-                for(i = 0; i < navbarTextElements.length; i++) {
+                for(var i = 0; i < navbarTextElements.length; i++) {
                     navbarTextElements[i].addEventListener('click', headingClick, false);
                 }
             }

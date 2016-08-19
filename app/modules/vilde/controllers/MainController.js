@@ -8,6 +8,24 @@ define(function() {
       $scope.background = parallaxHelper.createAnimator(-0.3, 300, -250);
       $scope.foreground = parallaxHelper.createAnimator(-0.1, 150, -150);
 
+      function getElement(getFunction) {
+        getFunction('#about');
+      }
+
+      $scope.headings = [
+         {'OM VILDE': '#about'},
+         {'MEDLEMMAR': '#member-section'},
+         {'NYHETER': '#news'},
+         {'KONSERTER': '#gigs'},
+         {'MEDIA': '#media-section'},
+         {'KONTAKT': '#contact'}
+      ];
+      $scope.adminHeadings = [
+         {'DASHBOARD': 'admin.dashboard'},
+         {'KONSERTER': 'admin.gigs'},
+         {'NYHETER': 'admin.news'}
+      ];
+
       $http.get($rootScope.serverRoot + 'description').then(function(response) {
          $scope.description = response.data;
       });
@@ -28,14 +46,6 @@ define(function() {
          $scope.gigs = gigs;
       });
 
-      var iframe = {
-         'id': 'test-iframe',
-         'scrolling': 'no',
-         'frameborder': 'no',
-         'src': 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/238951938&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true'
-      };
-
-      AsynchIframeService.appendAsynchIframe($("#soundcloud"), iframe);
       $scope.email = 'vildeland@gmail.com';
 
       $http.get($rootScope.serverRoot + 'contactpersons').then(function(response) {
