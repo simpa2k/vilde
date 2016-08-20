@@ -13,7 +13,6 @@ define(function() {
 
                 // Based on the YouTube ID, we can easily find the thumbnail image
                 element.css('background-image', 'url(http://i.ytimg.com/vi/' + attrs.id + '/sddefault.jpg)');
-                console.log(element.width());
 
                 // Overlay the Play icon to make it look like a video player
                 element.append($('<div/>', {'class': 'play'}));

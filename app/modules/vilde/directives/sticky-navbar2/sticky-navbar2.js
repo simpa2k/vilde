@@ -1,80 +1,84 @@
 define(function() {
 
-   var parseHeadingObject = function(headingObject) {
-      var listItem = '';
-
-      angular.forEach(headingObject, function(value, key) {
-          switch(value.charAt(0)) {
-              case '#':
-                  //An id suggests that the intention is to scroll to a specific section, not to go another page
-                  listItem = '<p class="navbar-text" ng-click="goToSection($event)">' + key + '</p>';
-                  break;
-              default:
-                  //If an id is not provided, assume that the intention is to go to another page, not to scroll.
-                  //Since we're using ui-router, we're setting the ui-sref attribute.
-                  listItem = '<a class="navbar-text" ui-sref="' + value.uisref + '">' + key + '</a>';
-                  break;
-          }
-      });
-      return listItem;
-   };
-
-   var constructHeadings = function(headings, listContainer) {
-       const numberOfItemsPerGroup = 3;
-
-       for(var i = 0; i < headings.length; i++) {
-           if(i % numberOfItemsPerGroup == 0) {
-               listContainer.append($('<ul></ul>'));
-           }
-
-           var listItem = parseHeadingObject(headings[i]);
-           var lastUl = listContainer.children('ul').last();
-           lastUl.append($('<li>' + listItem + '</li>'));
-       };
-
-   }
-
-   var stickyNavbar2 = function($compile, $templateRequest) {
-
-       var stickyNavbarController = ['$scope', function($scope) {
-
-           $scope.goToSection = function($event) {
-
-              for(var i = 0; i < $scope.headings.length; i++) {
-                  if($scope.headings[i][$event.target.innerHTML] != null) {
-                      console.log($($scope.headings[i][$event.target.innerHTML]));
-                      var section = $($scope.headings[i][$event.target.innerHTML]);
-                      var navbar = $('#navbar');
-                      console.log(section.offset().top);
-                      $('html, body').scrollTop(section.offset().top);
-                  }
-              }
-              /*section = $(section);
-              var navbar = $('#navbar');
-              //http://stackoverflow.com/questions/2905867/how-to-scroll-to-specific-item-using-jquery
-              $('body').animate({
-                  scrollTop: section.offset().top
-              });*/
-           }
-
-       }];
+   var stickyNavbar2 = function() {
 
        return {
            restrict: 'E',
-           controller: stickyNavbarController,
+           replace: true,
+           scope: {
+               headings: '='
+           },
+           templateUrl: 'app/modules/vilde/directives/sticky-navbar2/sticky-navbar2.html',
            link: function($scope, element, attributes) {
-               //Since we're generating a lot of dynamic html, we need to do some compiling magic to
-               //be able to access our scope.
-               $templateRequest('app/modules/vilde/directives/sticky-navbar2/sticky-navbar2.html')
-                   .then(function(html) {
-                        var template = angular.element(html);
-                        var headings = $scope.$eval(attributes.headings);
+               $scope.socialMedia = attributes.socialMedia;
 
-                        constructHeadings(headings, template.find('.list-container'));
+               var elementToStickTo = $('#' + attributes.elementToStickTo);
+               var collapsedNavbarHeight = element.height();
+               var expandedNavbarHeight;
 
-                        element.append(template)
-                        $compile(template)($scope);
-               });
+               var navbarPositionListener = function() {
+                   var navbarHeight = element.hasClass('expanded') ? expandedNavbarHeight : collapsedNavbarHeight;
+                   var elementToStickToY = elementToStickTo.offset().top;
+                   var topOfWindowAlignsWithTopOfHeader = $(window).scrollTop() > (elementToStickToY - navbarHeight);
+
+                   if(topOfWindowAlignsWithTopOfHeader) {
+                       fixateElementPositionTop(element, navbarHeight);
+                   } else {
+                       fixateElementPositionBottom(element, elementToStickToY);
+                   }
+
+               };
+
+               var fixateElementPositionTop = function(element, elementHeight) {
+
+                   element.css({
+                       'z-index': '10',
+                       'position': 'fixed',
+                       'top': '0',
+                       'height': String(elementHeight) + 'px'
+                   });
+               };
+
+               var fixateElementPositionBottom = function(element, bottomOffset) {
+
+                   element.css({
+                       'z-index': '10',
+                       'position': 'absolute',
+                       'bottom': String(bottomOffset),
+                       'top': ''
+                   });
+               };
+
+               $scope.goToSection = function(sectionId) {
+                   $('html').animate({
+                       scrollTop: $(sectionId).offset().top
+                   });
+               };
+
+               $scope.toggleNavbar = function() {
+                   var navbarButton = document.getElementById('navbar-button');
+
+                   if(element.hasClass('expanded')) {
+                       element.removeClass('expanded');
+                       element.css('height', String(collapsedNavbarHeight) + 'px');
+
+                       navbarButton.removeClass('active');
+                   } else {
+                       element.addClass('expanded');
+                       expandedNavbarHeight = $('#navbar .container-fluid').height();
+                       element.css('height', String(expandedNavbarHeight) + 'px');
+
+                       var navbarY = element.offset().top;
+                       if(navbarY < window.scrollY) {
+                           $('html').scrollTop(navbarY);
+                       }
+
+                       navbarButton.addClass('active');
+                   }
+
+               };
+
+               $(window).scroll(navbarPositionListener);
            }
        }
 

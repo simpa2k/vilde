@@ -8,22 +8,18 @@ define(function() {
       $scope.background = parallaxHelper.createAnimator(-0.3, 300, -250);
       $scope.foreground = parallaxHelper.createAnimator(-0.1, 150, -150);
 
-      function getElement(getFunction) {
-        getFunction('#about');
-      }
-
       $scope.headings = [
-         {'OM VILDE': '#about'},
-         {'MEDLEMMAR': '#member-section'},
-         {'NYHETER': '#news'},
-         {'KONSERTER': '#gigs'},
-         {'MEDIA': '#media-section'},
-         {'KONTAKT': '#contact'}
-      ];
-      $scope.adminHeadings = [
-         {'DASHBOARD': 'admin.dashboard'},
-         {'KONSERTER': 'admin.gigs'},
-         {'NYHETER': 'admin.news'}
+         {
+            'OM VILDE': '#about',
+            'MEDLEMMAR': '#member-section',
+            'NYHETER': '#news'
+         },
+
+         {
+            'KONSERTER': '#gigs',
+            'MEDIA': '#media-section',
+            'KONTAKT': '#contact'
+         }
       ];
 
       $http.get($rootScope.serverRoot + 'description').then(function(response) {
