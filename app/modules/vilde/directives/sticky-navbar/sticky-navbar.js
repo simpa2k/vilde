@@ -19,9 +19,9 @@ define(function() {
                var navbarPositionListener = function() {
                    var navbarHeight = element.hasClass('expanded') ? expandedNavbarHeight : collapsedNavbarHeight;
                    var elementToStickToY = elementToStickTo.offset().top;
-                   var topOfWindowAlignsWithTopOfHeader = $(window).scrollTop() > (elementToStickToY - navbarHeight);
+                   var topOfWindowAlignsWithTopOfNavbar= $(window).scrollTop() > (elementToStickToY - navbarHeight);
 
-                   if(topOfWindowAlignsWithTopOfHeader) {
+                   if(topOfWindowAlignsWithTopOfNavbar) {
                        fixateElementPositionTop(element, navbarHeight);
                    } else {
                        fixateElementPositionBottom(element, elementToStickToY);
@@ -29,8 +29,8 @@ define(function() {
 
                };
 
-               var fixateElementPositionTop = function(element, elementHeight) {
 
+               var fixateElementPositionTop = function(element, elementHeight) {
                    element.css({
                        'z-index': '10',
                        'position': 'fixed',
@@ -40,7 +40,6 @@ define(function() {
                };
 
                var fixateElementPositionBottom = function(element, bottomOffset) {
-
                    element.css({
                        'z-index': '10',
                        'position': 'absolute',
@@ -55,16 +54,38 @@ define(function() {
                 */
 
                var setNavbarHeight = function() {
-                   $(element).css('height', $('#navbar .container-fluid').height() + 'px');
+                   var correctHeight = $(element).children('.container-fluid').height();
+
+                   if(element.hasClass('expanded')) {
+                       expandedNavbarHeight = correctHeight;
+                       $(element).css('height', expandedNavbarHeight);
+                   } else {
+                       collapsedNavbarHeight = correctHeight;
+                       $(element).css('height', collapsedNavbarHeight);
+                   }
+               };
+
+               /*
+                * If the navbar is expanded so that its upper edge
+                * is off screen, the window has to be scrolled up to account
+                * for this.
+                */
+
+               var checkNavbarUpperEdge = function() {
+                   var navbarY = $(element).offset().top;
+
+                   if(navbarY < window.scrollY) {
+                       $('html').scrollTop(navbarY);
+                   }
                };
 
                /*
                 * If the navbar is fixed to the top and it's height changes so that it
-                * still is fixed to the top despite it being placed above the element that it should stick to
-                * it has to be fixated to it.
+                * still is fixed to the top, despite the lower edge hanging above the element
+                * that it should stick to, it has to be moved down.
                 */
 
-               var checkBottomPosition = function() {
+               var checkNavbarLowerEdge = function() {
                    var elementBottom = $(element).offset().top + $(element).height();
 
                    if(elementBottom < elementToStickTo.offset().top) {
@@ -81,11 +102,9 @@ define(function() {
 
                var resizeHandler = function() {
                    setNavbarHeight();
-                   checkBottomPosition();
+                   checkNavbarUpperEdge();
+                   checkNavbarLowerEdge();
                };
-
-               $(window).resize(resizeHandler);
-
 
                $scope.goToSection = function(sectionId) {
                    $('html').animate({
@@ -100,35 +119,22 @@ define(function() {
                        element.removeClass('expanded');
                        element.css('height', String(collapsedNavbarHeight) + 'px');
 
-                       /*
-                        * If the navbar is collapsed it might end up having it's lower
-                        * edge being placed above the element it should stick to.
-                        */
-
-                       checkBottomPosition();
+                       checkNavbarLowerEdge();
 
                        navbarButton.removeClass('active');
                    } else {
                        element.addClass('expanded');
-                       expandedNavbarHeight = $('#navbar .container-fluid').height();
+                       expandedNavbarHeight = $(element).children('.container-fluid').height();
                        element.css('height', String(expandedNavbarHeight) + 'px');
 
-                       /*
-                        * If the navbar is expanded so that its upper edge
-                        * is off screen, the window has to be scrolled up to account
-                        * for this.
-                        */
-
-                       var navbarY = element.offset().top;
-                       if(navbarY < window.scrollY) {
-                           $('html').scrollTop(navbarY);
-                       }
+                       checkNavbarUpperEdge();
 
                        navbarButton.addClass('active');
                    }
 
                };
 
+               $(window).resize(resizeHandler);
                $(window).scroll(navbarPositionListener);
            }
        }
