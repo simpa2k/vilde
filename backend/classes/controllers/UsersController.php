@@ -15,12 +15,18 @@ class UsersController extends BaseController
     public function getAction($request) {
         
         if (isset($request->urlElements[2])) {
+            
             return $request->urlElements[2];
+            
         } else {
             $parameters = $request->parameters; 
+            
             if(isset($parameters['username']) && isset($parameters['password'])) {
+                
                 return $this->login($parameters['username'], $parameters['password']);
+                
             } else if(isset($parameters['username']) && isset($parameters['token'])) {
+                
                 if($this->checkToken($request->parameters)) {
                     http_response_code(200);
                 }
@@ -38,8 +44,13 @@ class UsersController extends BaseController
             ));
 
         $user = $this->getModel()->get($where);
-
+        
         if(password_verify($submittedPassword, $user->password)) {
+            
+            $debug = fopen('debug.txt', 'w');
+            fwrite($debug, var_export('verified', true));
+            fclose($debug);
+            
             $token = Token::generate();
             $this->getModel()->updateToken($user->id, $token);
             return array('token' => $token);

@@ -1,38 +1,37 @@
-<div id="background" du-parallax y="background">
-    <img id="logo" src="../images/logga.png" du-parallax y="foreground">
-</div>
-
-<!--<ng-include src="'partials/navbar.html'"></ng-include>-->
-<!--<sticky-navbar></sticky-navbar>-->
-
-<sticky-navbar headings="headings" element-to-stick-to="main" social-media="true"></sticky-navbar>
-
-<div id="main">
-
-    <ng-include src="'partials/aboutandquotes.html'"></ng-include>
-
-    <ng-include src="'partials/members.html'"></ng-include>
-
-    <ng-include src="'partials/newsandgigs.html'"></ng-include>
-
-
-    <div id="quote-section">
-        <div class="container-fluid">
-            <div class="row">
-                <blockquote>
-                    <p>{{ quote1.review }}</p>
-                    <footer>{{ quote1.info }}</footer>
-                </blockquote>
-            </div>
-        </div>
+<div ng-controller="MainController">
+    <div id="background" du-parallax y="background">
+        <img id="logo" src="../images/logga.png" du-parallax y="foreground">
     </div>
 
-    <ng-include src="'partials/media.html'"></ng-include>
+    <sticky-navbar headings="headings" element-to-stick-to="main" socialmedia="socialmedia"></sticky-navbar>
 
-    <div id="big-image" du-parallax y="background"></div>
+    <div id="main">
 
-    <ng-include src="'partials/contact.html'"></ng-include>
+        <ng-include src="'partials/aboutandquotes.html'"></ng-include>
 
-    <ng-include src="'partials/footer.html'"></ng-include>
+        <ng-include src="'partials/members.html'"></ng-include>
 
+        <ng-include src="'partials/newsandgigs.html'"></ng-include>
+
+
+        <div id="quote-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <blockquote>
+                        <p>{{ quote1.review }}</p>
+                        <footer>{{ quote1.info }}</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+
+        <ng-include src="'partials/media.html'"></ng-include>
+
+        <div id="big-image" du-parallax y="background"></div>
+
+        <ng-include src="'partials/contact.html'"></ng-include>
+
+        <ng-include src="'partials/footer.html'"></ng-include>
+
+    </div>
 </div>

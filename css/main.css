@@ -1,9 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand:300,400,700&subset=latin-ext,latin);
-
 @import url(https://fonts.googleapis.com/css?family=Great+Vibes&subset=latin,latin-ext);
-
 @import url(https://fonts.googleapis.com/css?family=Rosarivo&subset=latin,latin-ext);
-
 @import url(https://fonts.googleapis.com/css?family=Julius+Sans+One);
 @media (min-width: 768px) {
   #quote {
@@ -81,6 +78,11 @@ body {
   bottom: 0;
   background-color: rgba(38, 38, 38, 0.9);
   color: #f44843;
+  /*.social-media:hover {
+
+		background-color: @dark-grey;
+
+	}*/
 }
 #navbar .navbar-brand {
   padding-top: 1px;
@@ -107,9 +109,6 @@ body {
 #navbar .social-media {
   margin-left: 10px;
   margin-right: 10px;
-}
-#navbar .social-media:hover {
-  background-color: #333333;
 }
 #navbar #navbar-button {
   float: right;
@@ -348,12 +347,11 @@ blockquote::before {
     display: initial;
     width: 100%;
     /*#members-background {
-  			display: initial;
-  			position: relative;
-  			width: 100%;
-  			z-index: 0;
-  		}*/
-  
+			display: initial;
+			position: relative;
+			width: 100%;
+			z-index: 0;
+		}*/
   }
   #member-section #members {
     z-index: 1;
@@ -463,7 +461,6 @@ blockquote::before {
   margin: 2% 10% 0 10%;
   /*height: 100%;
 	width: 100%;*/
-
   opacity: .8;
   filter: alpha(opacity=80);
   transition: all 0.2s ease-out;
@@ -481,7 +478,6 @@ blockquote::before {
 	 * each other on smaller screens.
 	 *
 	 */
-
   padding-top: 1%;
   z-index: 1;
   position: relative;

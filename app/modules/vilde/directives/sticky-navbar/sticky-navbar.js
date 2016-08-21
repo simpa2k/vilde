@@ -6,11 +6,12 @@ define(function() {
            restrict: 'E',
            replace: true,
            scope: {
-               headings: '='
+               headings: '=',
+               socialmedia: '='
            },
            templateUrl: 'app/modules/vilde/directives/sticky-navbar/sticky-navbar.html',
            link: function($scope, element, attributes) {
-               $scope.socialMedia = attributes.socialMedia;
+               $scope.socialMedia = $scope.$eval(attributes.socialMedia);
 
                var elementToStickTo = $('#' + attributes.elementToStickTo);
                var collapsedNavbarHeight = element.height();
@@ -28,7 +29,6 @@ define(function() {
                    }
 
                };
-
 
                var fixateElementPositionTop = function(element, elementHeight) {
                    element.css({
@@ -134,8 +134,24 @@ define(function() {
 
                };
 
-               $(window).resize(resizeHandler);
-               $(window).scroll(navbarPositionListener);
+
+               if(elementToStickTo.length == 0) {
+                   $(element).css({
+                       'position': 'static'
+                   });
+
+                   $(window).resize(function() {
+                       setNavbarHeight();
+
+                   });
+               } else {
+                   $(window).scroll(navbarPositionListener);
+                   $(window).resize(function() {
+                       setNavbarHeight();
+                       checkNavbarUpperEdge();
+                       checkNavbarLowerEdge();
+                   });
+               }
            }
        }
 

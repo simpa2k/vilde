@@ -9,14 +9,14 @@
                 <!-- If destination is an id, assume that the intention is to scroll, not to go to another page -->
                 <p ng-switch-when="#" class="navbar-text" ng-click="goToSection(destination)">{{ content }}</p>
                 <!-- Else, assume that the intention is to go to another page, not to scroll -->
-                <a ng-switch-default  class="navbar-text" ui-sref="destination">{{ content }}</a>
+                <a ng-switch-default  class="navbar-text" ui-sref="{{ destination }}">{{ content }}</a>
             </li>
         </ul>
 
-        <div id="social-media-section" ng-hide="!socialMedia">
-            <a class="social-media" href="https://soundcloud.com/vildeland"><img src="images/socialmedia/sc29.png"></a>
-            <a class="social-media" href="http://www.facebook.com/vildeland"><img src="images/socialmedia/facebooklogga_29.png"></a>
-            <a class="social-media" href="https://www.youtube.com/channel/UC-v-m14JPztcf6mKgQif9NA"><img src="images/socialmedia/yt29.png"></a>
+        <div id="social-media-section">
+            <a ng-repeat="(linkHref, imgSrc) in socialmedia" class="social-media" href="{{ linkHref }}">
+                <img src="{{ imgSrc }}">
+            </a>
         </div>
 
         <button id="navbar-button" type="button" class="btn btn-default" ng-click="toggleNavbar()"><span class="glyphicon glyphicon-menu-hamburger"></span></button>

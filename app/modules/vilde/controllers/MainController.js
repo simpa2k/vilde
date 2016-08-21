@@ -22,6 +22,12 @@ define(function() {
          }
       ];
 
+      $scope.socialmedia = {
+         'https://soundcloud.com/vildeland': 'images/socialmedia/sc29.png',
+         'http://www.facebook.com/vildeland': 'images/socialmedia/facebooklogga_29.png',
+         'https://www.youtube.com/channel/UC-v-m14JPztcf6mKgQif9NA': 'images/socialmedia/yt29.png'
+      };
+
       $http.get($rootScope.serverRoot + 'description').then(function(response) {
          $scope.description = response.data;
       });
