@@ -113,7 +113,7 @@ abstract class BaseController {
 
     public function checkToken($requestParameters) {
         $usernameAndToken = $this->filterParameters(array('username', 'token'), $requestParameters);
-        
+
         $db = $this->model->getDB();
 
         if($db->get('users', $this->formatParameters($usernameAndToken))->results() != null) {

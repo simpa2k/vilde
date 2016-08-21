@@ -32,7 +32,7 @@ define(function() {
         };
 
         self.appendToUri = function(uri, object) {
-            return uri + constructUriFromObject(object);
+            return uri + '&' + constructUriFromObject(object);
         };
 
         self.createUri = function(endpoint, object) {

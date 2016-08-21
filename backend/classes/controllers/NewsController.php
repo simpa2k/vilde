@@ -31,7 +31,9 @@ class NewsController extends BaseController {
     
     public function put($request) {
         $id = $request->parameters['id'];
-        $this->getModel()->update($id, $request->parameters);
+        $primaryKey = "id = $id";
+        unset($request->parameters['id']);
+        $this->getModel()->update($primaryKey, $request->parameters);
     }
     
     public function delete($request) {

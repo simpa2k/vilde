@@ -153,6 +153,9 @@ class DB {
         }
         
         $sql = "UPDATE {$table} SET {$set} WHERE {$primaryKey}";
+        $debug = fopen('debugfile.txt', 'w');
+        fwrite($debug, var_export($sql, true));
+        fclose($debug);
 
         if(!$this->query($sql, $fields)->error()) {
             return true;

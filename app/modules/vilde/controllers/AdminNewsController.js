@@ -5,14 +5,13 @@ define(function() {
     app.controller('AdminNewsController', function($scope,
                                                    $rootScope,
                                                    $http,
-                                                   AuthenticationService,
+                                                   NewsService,
                                                    SendObjectService,
-                                                   AppendCredentialsService,
                                                    GetDateService) {
 
-        function getNews() {
-            $http.get($rootScope.serverRoot + 'news').then(function(response) {
-                $scope.news = response.data;
+        var refreshNews = function() {
+            NewsService.refreshNews().then(function(news) {
+                $scope.news = news;
             });
         };
 
@@ -55,33 +54,25 @@ define(function() {
         var newsEndpoint = $rootScope.serverRoot + 'news';
 
         $scope.putNewsItem = function() {
-            AppendCredentialsService.appendCredentials($scope.newsItemToBeSent, username, token);
-
             SendObjectService.putObject(newsEndpoint, $scope.newsItemToBeSent, function() {
-                getNews();
+                refreshNews();
             });
         };
 
         $scope.postNewsItem = function() {
-            AppendCredentialsService.appendCredentials($scope.newsItemToBeSent, username, token);
-
-            console.log($scope.newsItemToBeSent);
             SendObjectService.postObject(newsEndpoint, $scope.newsItemToBeSent, function() {
-                getNews();
+                refreshNews();
                 $scope.setPostState();
             });
         };
 
         $scope.deleteNewsItem = function() {
-            AppendCredentialsService.appendCredentials($scope.newsItemToBeSent, username, token);
-
             SendObjectService.deleteObject(newsEndpoint, $scope.newsItemToBeSent, function() {
-                getNews();
+                refreshNews();
                 $scope.setPostState();
             });
         };
 
-        getNews();
         $scope.setPostState();
     });
     

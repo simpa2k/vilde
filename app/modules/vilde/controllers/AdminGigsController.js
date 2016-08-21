@@ -5,13 +5,11 @@ define(function() {
     app.controller('AdminGigsController', function($scope,
                                                    $rootScope,
                                                    $http,
-                                                   AuthenticationService,
-                                                   GetAndPrepareGigsService,
-                                                   AppendCredentialsService,
+                                                   GigsService,
                                                    SendObjectService) {
 
-        function getGigs() {
-            GetAndPrepareGigsService.getAndPrepareGigs(function(gigs) {
+        var refreshGigs = function() {
+            GigsService.refreshGigs().then(function(gigs) {
                 $scope.gigs = gigs;
             });
         };
@@ -136,7 +134,7 @@ define(function() {
             sendVenue();
 
             SendObjectService.putObject(gigsEndpoint, $scope.gigToBeSent, function() {
-                getGigs();
+                refreshGigs();
             });
         };
 
@@ -146,7 +144,7 @@ define(function() {
             sendVenue();
 
             SendObjectService.postObject(gigsEndpoint, $scope.gigToBeSent, function() {
-                getGigs();
+                refreshGigs();
                 $scope.setPostState();
             });
         };
@@ -155,7 +153,7 @@ define(function() {
             //AppendCredentialsService.appendCredentials($scope.gigToBeSent, username, token);
 
             SendObjectService.deleteObject(gigsEndpoint, $scope.gigToBeSent, function() {
-                getGigs();
+                refreshGigs();
                 $scope.setPostState();
             });
         };
@@ -165,7 +163,6 @@ define(function() {
             console.log($scope.venues[$scope.selectedVenue.name]);
         };
 
-        getGigs();
         getVenues();
         $scope.setPostState();
 
