@@ -15,6 +15,7 @@ define(function() {
         'modules/vilde/services/gigs-service',
         'modules/vilde/services/description-service',
         'modules/vilde/services/quotes-service',
+        'modules/vilde/services/quote-sections-service',
         'modules/vilde/services/get-date-service',
         'modules/vilde/services/send-object-service',
         'modules/vilde/directives/gig',

@@ -18,8 +18,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <blockquote>
-                        <p>{{ quotes[0].review }}</p>
-                        <footer>{{ quotes[0].source }}</footer>
+                        <p ng-bind-html="secondQuoteSection.review"></p>
+                        <footer ng-bind-html="secondQuoteSection.source"><footer>
                     </blockquote>
                 </div>
             </div>

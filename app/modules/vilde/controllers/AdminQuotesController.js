@@ -6,6 +6,10 @@ define(function() {
 
         $scope.quoteToBeSent = {};
 
+        QuotesService.getQuotes().then(function(quotes) {
+            $scope.quotes = quotes;
+        });
+
         var refreshQuotes = function() {
             QuotesService.refreshQuotes().then(function(quotes) {
                 $scope.quotes = quotes;

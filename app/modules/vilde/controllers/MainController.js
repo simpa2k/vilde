@@ -9,6 +9,7 @@ define(function() {
                                              GetDateService,
                                              DescriptionService,
                                              QuotesService,
+                                             QuoteSectionsService,
                                              NewsService,
                                              GigsService) {
 
@@ -26,8 +27,13 @@ define(function() {
          $scope.description = descriptionObject;
       });
 
-      QuotesService.getQuotes().then(function(quotes) {
-         $scope.quotes = quotes;
+
+      QuoteSectionsService.getFirstQuoteSection().then(function(firstQuoteSection) {
+         $scope.firstQuoteSection = firstQuoteSection[0];
+      });
+
+      QuoteSectionsService.getSecondQuoteSection().then(function(secondQuoteSection) {
+         $scope.secondQuoteSection = secondQuoteSection[0];
       });
 
       NewsService.getNews().then(function(news) {
