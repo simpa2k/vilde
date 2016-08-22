@@ -2,11 +2,15 @@ define(function() {
 
    var app = angular.module('vilde');
 
-   app.controller('MainController', function($scope, $rootScope, $http, parallaxHelper, DescriptionService, NewsService, GigsService) {
+   app.controller('MainController', function($scope, $rootScope, $http, parallaxHelper, GetDateService, DescriptionService, NewsService, GigsService) {
 
       $scope.title = 'Vilde';
       $scope.background = parallaxHelper.createAnimator(-0.3, 300, -250);
       $scope.foreground = parallaxHelper.createAnimator(-0.1, 150, -150);
+
+      GetDateService.getCurrentDate(function(currentDate) {
+          $scope.currentDate = currentDate;
+      });
 
       $scope.description = {};
 

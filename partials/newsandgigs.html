@@ -9,12 +9,12 @@
 			</div>
 
 			<div id="gigs" class="box col-sm-8">
-				<h1 class="text-center">KOMMANDE KONSERTER</h1>
-					<div id="gigs-container">
-						<div ng-repeat="gig in gigs" class="gig collapsed row">
-							<gig></gig>
-						</div>
-					</div>
+                <h1 class="text-center">KOMMANDE KONSERTER</h1>
+                <div id="gigs-container">
+                    <div ng-repeat="gig in gigs | filter:dateFilter()" class="gig collapsed row">
+                        <gig></gig>
+                    </div>
+                </div>
 			</div>
 
 		</div>

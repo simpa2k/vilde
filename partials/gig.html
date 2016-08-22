@@ -1,7 +1,7 @@
 <div class="col-xs-12">
     <div class="row">
         <div class="gig-text col-xs-9">
-            <p class="text-center">{{ gig.date }} - <span class="orange-brown">{{ gig.venue_name }}</span>, {{ gig.city }}</p>
+            <p class="text-center">{{ gig.date | date:'d/M, yyyy'}} - <span class="orange-brown">{{ gig.venue_name }}</span>, {{ gig.city }}</p>
         </div>
         <div class="gig-button col-xs-3"></div>
     </div>

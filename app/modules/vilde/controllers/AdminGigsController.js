@@ -14,13 +14,21 @@ define(function() {
             });
         };
 
-        function getVenues() {
+        var getVenues = function() {
             $http.get($rootScope.serverRoot + 'venues').then(function (response) {
                 $scope.venues = {};
                 angular.forEach(response.data, function (value) {
                     $scope.venues[value.name] = value;
                 });
             });
+        };
+
+        $scope.date = $scope.currentDate;
+
+        $scope.dateFilter = function() {
+            return function(gig) {
+                return gig.date >= $scope.date;
+            }
         };
 
         $scope.gigToBeSent = {

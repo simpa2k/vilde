@@ -75,7 +75,7 @@ define(function() {
                    var navbarY = $(element).offset().top;
 
                    if(navbarY < window.scrollY) {
-                       $('html').scrollTop(navbarY);
+                       $('html, body').scrollTop(navbarY);
                    }
                };
 
@@ -107,7 +107,7 @@ define(function() {
                };
 
                $scope.goToSection = function(sectionId) {
-                   $('html').animate({
+                   $('html, body').animate({
                        scrollTop: $(sectionId).offset().top
                    });
                };

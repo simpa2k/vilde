@@ -1,7 +1,11 @@
 <div id="gigs" class="box col-sm-4">
-    <h1 class="text-center">KOMMANDE KONSERTER</h1>
+    <h1 class="text-center">KONSERTER</h1>
+    <div class="row">
+        <input type="text" ng-model="date" class="col-xs-6 col-xs-offset-3">
+    </div>
+
     <div id="gigs-container">
-        <div ng-repeat="gig in gigs" class="gig collapsed row">
+        <div ng-repeat="gig in gigs | filter:dateFilter()" class="gig collapsed row">
             <gig ng-click="setPutState(gig)"></gig>
         </div>
     </div>

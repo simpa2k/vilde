@@ -24,6 +24,12 @@ define(function() {
             'https://www.youtube.com/channel/UC-v-m14JPztcf6mKgQif9NA': 'images/socialmedia/yt29.png'
         };
 
+       $scope.dateFilter = function() {
+           return function(gig) {
+               return gig.date >= $scope.currentDate;
+           }
+       };
+
     });
 
 });
