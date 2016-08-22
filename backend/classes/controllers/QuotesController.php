@@ -20,14 +20,18 @@ class QuotesController extends BaseController {
     }
     
     public function post($request) {
-        return $request->parameters;
+        $this->getModel()->insert($request->parameters);
     }
     
     public function put($request) {
-
+        $id = $request->parameters['id'];
+        $primaryKey = "id = $id";
+        unset($request->parameters['id']);
+        $this->getModel()->update($primaryKey, $request->parameters);
     }
 
     public function delete($request) {
-
+        $id = $this->filterParameters(array('id'), $request->parameters);
+        $this->getModel()->delete($this->formatParameters($id)); 
     }
 }

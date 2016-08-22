@@ -15,6 +15,7 @@ define(['modules/vilde/runners/authenticationRunner', 'modules/vilde/runners/roo
                        token: localStorage.getItem('token')
                    };
                    config.url = SendObjectService.appendToUri(config.url, session);
+                   console.log(config.url);
                }
                return config;
            }
@@ -57,6 +58,12 @@ define(['modules/vilde/runners/authenticationRunner', 'modules/vilde/runners/roo
                url: '/dashboard',
                templateUrl: 'partials/admin-dashboard.html',
                controller: 'AdminController'
+           })
+
+           .state('admin.quotes', {
+               url: '/quotes',
+               templateUrl: 'partials/admin-quotes.html',
+               controller: 'AdminQuotesController'
            })
 
            .state('admin.description', {

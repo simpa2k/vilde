@@ -19,5 +19,17 @@ class QuotesModel extends BaseModel {
         return $this->getDB()->getAll('quote')->results();
 
     }
+    
+    public function insert($fields) {
+        $this->getDB()->insert('quote', $fields);
+    }
+
+    public function update($primaryKey, $fields) {
+        $this->getDB()->update('quote', $primaryKey, $fields);
+    }
+
+    public function delete($where) {
+        $this->getDB()->delete('quote', $where);
+    }
 
 }

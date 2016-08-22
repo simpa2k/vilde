@@ -46,11 +46,6 @@ class UsersController extends BaseController
         $user = $this->getModel()->get($where);
         
         if(password_verify($submittedPassword, $user->password)) {
-            
-            $debug = fopen('debug.txt', 'w');
-            fwrite($debug, var_export('verified', true));
-            fclose($debug);
-            
             $token = Token::generate();
             $this->getModel()->updateToken($user->id, $token);
             return array('token' => $token);

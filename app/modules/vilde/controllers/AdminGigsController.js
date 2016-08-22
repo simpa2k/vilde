@@ -106,7 +106,6 @@ define(function() {
             var venueForComparison = $scope.venues[$scope.selectedVenue.name];
             var venuesEndpoint = $scope.serverRoot + 'venues';
 
-            console.log(JSON.stringify($scope.selectedVenue), JSON.stringify(venueForComparison));
             if(venueForComparison == undefined) {
                 // If there is no venue with the specified name, post the venue (i.e. create it)
                 //AppendCredentialsService.appendCredentials($scope.selectedVenue, username, token);

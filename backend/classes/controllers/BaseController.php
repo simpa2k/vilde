@@ -135,6 +135,9 @@ abstract class BaseController {
     }
     
     public function putAction($request) {
+        $debug = fopen('debug.txt', 'w');
+        fwrite($debug, var_export($request->parameters, true));
+        fclose($debug);
         if($this->checkToken($request->parameters)) {
             $this->unsetAuthenticationParameters($request);
             $this->put($request);
