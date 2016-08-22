@@ -2,6 +2,7 @@ define(function() {
 
     return [
         'modules/vilde/controllers/AdminController',
+        'modules/vilde/controllers/AdminDescriptionController',
         'modules/vilde/controllers/AdminGigsController',
         'modules/vilde/controllers/AdminNewsController',
         'modules/vilde/controllers/HomeController',
@@ -11,6 +12,7 @@ define(function() {
         'modules/vilde/services/asynch-iframe-service',
         'modules/vilde/services/news-service',
         'modules/vilde/services/gigs-service',
+        'modules/vilde/services/description-service',
         'modules/vilde/services/get-date-service',
         'modules/vilde/services/send-object-service',
         'modules/vilde/directives/gig',

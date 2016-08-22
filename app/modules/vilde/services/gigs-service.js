@@ -27,13 +27,14 @@ define(function() {
                 return promise;
             },
             refreshGigs: function() {
-                return $http.get(gigsEndpoint).then(function(response) {
+                promise = $http.get(gigsEndpoint).then(function(response) {
                     handlePricesSetToZero(response.data);
 
                     return response.data;
                 });
+                return promise;
             }
-        }
+        };
         return gigsService;
     }]);
 

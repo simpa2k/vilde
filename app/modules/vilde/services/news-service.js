@@ -17,9 +17,10 @@ define(function() {
                 return promise;
             },
             refreshNews: function() {
-                return $http.get(newsEndpoint).then(function(response) {
+                promise = $http.get(newsEndpoint).then(function(response) {
                     return response.data;
                 });
+                return promise;
             }
         };
         return newsService;

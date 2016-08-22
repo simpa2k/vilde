@@ -2,14 +2,16 @@ define(function() {
 
    var app = angular.module('vilde');
 
-   app.controller('MainController', function($scope, $rootScope, $http, parallaxHelper, NewsService, GigsService) {
+   app.controller('MainController', function($scope, $rootScope, $http, parallaxHelper, DescriptionService, NewsService, GigsService) {
 
       $scope.title = 'Vilde';
       $scope.background = parallaxHelper.createAnimator(-0.3, 300, -250);
       $scope.foreground = parallaxHelper.createAnimator(-0.1, 150, -150);
 
-      $http.get($rootScope.serverRoot + 'description').then(function(response) {
-         $scope.description = response.data;
+      $scope.description = {};
+
+      DescriptionService.getDescription().then(function(descriptionObject) {
+         $scope.description = descriptionObject;
       });
 
       $http.get($rootScope.serverRoot + 'quotes?id=1').then(function(response) {

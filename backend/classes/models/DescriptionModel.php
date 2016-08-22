@@ -18,4 +18,8 @@ class DescriptionModel extends BaseModel {
         return $this->getDB()->getAll('description')->results();
 
     }
+    
+    public function update($primaryKey, $fields) {
+        $this->getDB()->update('description', $primaryKey, $fields);
+    }
 }

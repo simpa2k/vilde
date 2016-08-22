@@ -59,6 +59,12 @@ define(['modules/vilde/runners/authenticationRunner', 'modules/vilde/runners/roo
                controller: 'AdminController'
            })
 
+           .state('admin.description', {
+               url: '/description',
+               templateUrl: 'partials/admin-description.html',
+               controller: 'AdminDescriptionController'
+           })
+
            .state('admin.gigs', {
                url: '/gigs',
                templateUrl: 'partials/admin-gigs.html',

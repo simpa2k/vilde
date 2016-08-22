@@ -2,12 +2,10 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div id="about" class="col-sm-8">
-				<div ng-repeat="paragraph in description">
-					<div ng-if="paragraph.dropcap" class="drop-cap-container">
-						<p class="drop-cap">{{ paragraph.dropcap }}</p>
-					</div>
-					<p>{{  paragraph.paragraph }}</p>
-				</div>
+                <div class="drop-cap-container">
+                    <p class="drop-cap">{{ description.dropCap }}</p>
+                </div>
+				<p ng-bind-html="description.truncatedContent"></p>
 			</div>
 			<div id="quote" class="col-sm-4">
 				<blockquote>
