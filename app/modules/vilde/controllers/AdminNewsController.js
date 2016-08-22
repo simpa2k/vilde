@@ -15,11 +15,7 @@ define(function() {
             });
         };
 
-        $scope.newsItemToBeSent = {
-            id: '',
-            date: '',
-            content: ''
-        };
+        $scope.newsItemToBeSent = {};
 
         $scope.sendNewsItem = $scope.postNewsItem;
 
@@ -35,14 +31,9 @@ define(function() {
         };
 
         $scope.setPostState = function() {
-            angular.forEach($scope.newsItemToBeSent, function(value, key) {
-                if(key === 'date') {
-                    GetDateService.getCurrentDate(function(currentDate) {
-                        $scope.newsItemToBeSent[key] = currentDate;
-                    });
-                } else {
-                    $scope.newsItemToBeSent[key] = '';
-                }
+            $scope.newsItemToBeSent = {};
+            GetDateService.getCurrentDate(function(currentDate) {
+                $scope.newsItemToBeSent.date = currentDate;
             });
 
             $scope.heading = 'Lägg till nyhet';

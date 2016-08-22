@@ -31,15 +31,7 @@ define(function() {
             }
         };
 
-        $scope.gigToBeSent = {
-            id: '',
-            date: '',
-            time: '',
-            ticketlink: '',
-            info: '',
-            venue_name: '',
-            price: ''
-        };
+        $scope.gigToBeSent = {};
 
         /*
          foundVenueRecently tries to determine
@@ -63,7 +55,7 @@ define(function() {
 
         };
 
-        function selectVenue(venueName) {
+        var selectVenue = function(venueName) {
             angular.forEach($scope.venues, function(value) {
                 if(value.name == venueName) {
                     // Make sure to create a copy of the venue object 
@@ -90,9 +82,7 @@ define(function() {
         };
 
         $scope.setPostState = function() {
-            angular.forEach($scope.gigToBeSent, function(value, key) {
-                $scope.gigToBeSent[key] = '';
-            });
+            $scope.gigToBeSent = {};
 
             $scope.heading = 'Lägg till nytt gig';
             $scope.gigAction = 'Lägg till gig';
@@ -101,23 +91,21 @@ define(function() {
             $scope.sendGig = $scope.postGig;
         };
 
-        function sendVenue() {
+        var sendVenue = function() {
             $scope.selectedVenue.name = $scope.gigToBeSent.venue_name;
             var venueForComparison = $scope.venues[$scope.selectedVenue.name];
             var venuesEndpoint = $scope.serverRoot + 'venues';
 
             if(venueForComparison == undefined) {
-                // If there is no venue with the specified name, post the venue (i.e. create it)
-                //AppendCredentialsService.appendCredentials($scope.selectedVenue, username, token);
+                // If there is no venue with the specified name, post the venue (i.e. create it).
                 SendObjectService.postObject(venuesEndpoint, $scope.selectedVenue, function() {
                     getVenues();
                 });
             } else if(JSON.stringify($scope.selectedVenue) != JSON.stringify(venueForComparison)) {
                 /* 
                  If there is a venue with the specified name, but some of the other fields have been changed,
-                 put the venue (i.e. update it)
+                 put the venue (i.e. update it).
                  */
-                //AppendCredentialsService.appendCredentials($scope.selectedVenue, username, token);
                 SendObjectService.putObject(venuesEndpoint, $scope.selectedVenue, function() {
                     getVenues();
                 });
@@ -127,29 +115,14 @@ define(function() {
         var gigsEndpoint = $rootScope.serverRoot + 'gigs';
 
         $scope.putGig = function() {
-            //AppendCredentialsService.appendCredentials($scope.gigToBeSent, username, token);
-
-            /*
-             The setting of gigToBeSent.venue_name cannot be done before the actual put and post.
-             This is to ensure that the venue name sent actually reflects
-             the selected venue name as the <select> tag cannot be bound to gigToBeSent.venue_name
-             but must be bound to a venue object, due to the fact that the tag's ng-options
-             gets its data from venue objects.
-             */
-
-            //$scope.gigToBeSent.venue_name = $scope.selectedVenue.name;
             sendVenue();
-
             SendObjectService.putObject(gigsEndpoint, $scope.gigToBeSent, function() {
                 refreshGigs();
             });
         };
 
         $scope.postGig = function() {
-            //AppendCredentialsService.appendCredentials($scope.gigToBeSent, username, token);
-            //$scope.gigToBeSent.venue_name = $scope.selectedVenue.name;
             sendVenue();
-
             SendObjectService.postObject(gigsEndpoint, $scope.gigToBeSent, function() {
                 refreshGigs();
                 $scope.setPostState();
@@ -157,17 +130,10 @@ define(function() {
         };
 
         $scope.deleteGig = function() {
-            //AppendCredentialsService.appendCredentials($scope.gigToBeSent, username, token);
-
             SendObjectService.deleteObject(gigsEndpoint, $scope.gigToBeSent, function() {
                 refreshGigs();
                 $scope.setPostState();
             });
-        };
-
-        $scope.debugVenue = function() {
-            console.log($scope.selectedVenue);
-            console.log($scope.venues[$scope.selectedVenue.name]);
         };
 
         getVenues();
