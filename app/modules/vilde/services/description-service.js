@@ -37,20 +37,20 @@ define(function() {
         };
 
         var concatenateObjects = function(object1, object2) {
+            var concatenatedObject = jQuery.extend({}, object1);
+
             for(var property in object2) {
-                object1[property] = object2[property];
+                concatenatedObject[property] = object2[property];
             }
+
+            return concatenatedObject;
         };
 
         var buildDescriptionObject = function(descriptionObject) {
             var description = descriptionObject.content;
-
             var dropCapAndTruncatedDescription = pickOutDropCap(description);
-            concatenateObjects(descriptionObject, dropCapAndTruncatedDescription);
-            console.log(descriptionObject);
 
-            return descriptionObject;
-
+            return concatenateObjects(descriptionObject, dropCapAndTruncatedDescription);
         };
 
         var descriptionService = {
