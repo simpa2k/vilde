@@ -7,6 +7,20 @@
                <p ng-bind-html="quote.review"></p>
                <footer>{{ quote.source }}</footer>
             </blockquote>
+            <label class="radio-inline">
+               <input type="radio"
+                      name="quote1"
+                      ng-model="firstQuoteSectionToBeSent.quote_id"
+                      value="{{ quote.id }}"
+                      ng-change="updateFirstQuoteSection()">Citat 1
+            </label>
+            <label class="radio-inline">
+               <input type="radio"
+                      name="quote2"
+                      ng-model="secondQuoteSectionToBeSent.quote_id"
+                      value="{{ quote.id }}"
+                      ng-change="updateSecondQuoteSection()">Citat 2
+            </label>
          </div>
       </div>
    </div>

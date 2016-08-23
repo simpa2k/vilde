@@ -8,9 +8,11 @@ define(function() {
                                                           DescriptionService,
                                                           SendObjectService) {
 
-        $scope.descriptionToBeSent = {
-            id: $scope.description.id,
-            content: $scope.description.content
+        $scope.descriptionToBeSent = {};
+
+        var updateDescriptionToBeSent = function() {
+          $scope.descriptionToBeSent.id = $scope.description.id;
+          $scope.descriptionToBeSent.content = $scope.description.content;
         };
 
         $scope.putDescription = function() {
@@ -18,11 +20,12 @@ define(function() {
                 DescriptionService.refreshDescription().then(function(descriptionObject) {
                     $scope.description = descriptionObject;
 
-                    $scope.descriptionToBeSent.id = $scope.description.id;
-                    $scope.descriptionToBeSent.content = $scope.description.content;
+                    updateDescriptionToBeSent();
                 });
             });
         };
+
+        updateDescriptionToBeSent();
     });
 
 });

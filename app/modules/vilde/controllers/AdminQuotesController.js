@@ -2,7 +2,39 @@ define(function() {
 
     var app = angular.module('vilde');
 
-    app.controller('AdminQuotesController', function($scope, $rootScope, QuotesService, SendObjectService) {
+    app.controller('AdminQuotesController', function($scope, $rootScope, QuotesService, QuoteSectionsService, SendObjectService) {
+
+        var quoteSectionsEndpoint = $rootScope.serverRoot + 'quotesections';
+
+        $scope.firstQuoteSectionToBeSent = {
+            id: $scope.firstQuoteSection.id,
+            quote_id: $scope.firstQuoteSection.quote_id
+        };
+
+        $scope.secondQuoteSectionToBeSent = {
+            id: $scope.secondQuoteSection.id,
+            quote_id: $scope.secondQuoteSection.quote_id
+        };
+
+        $scope.updateFirstQuoteSection = function() {
+            console.log($scope.firstQuoteSectionToBeSent);
+
+            SendObjectService.putObject(quoteSectionsEndpoint, $scope.firstQuoteSectionToBeSent, function() {
+               QuoteSectionsService.refreshFirstQuoteSection().then(function(firstQuoteSection) {
+                   $scope.firstQuoteSection = firstQuoteSection;
+               });
+            });
+        };
+
+        $scope.updateSecondQuoteSection = function() {
+            console.log($scope.secondQuoteSectionToBeSent);
+
+            SendObjectService.putObject(quoteSectionsEndpoint, $scope.secondQuoteSectionToBeSent, function() {
+                QuoteSectionsService.refreshSecondQuoteSection().then(function(secondQuoteSection) {
+                    $scope.secondQuoteSection = secondQuoteSection;
+                });
+            });
+        };
 
         $scope.quoteToBeSent = {};
 

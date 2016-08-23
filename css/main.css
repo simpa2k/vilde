@@ -358,7 +358,7 @@ blockquote::before {
 }
 #admin-quotes .selectable-container {
   padding: 1%;
-  height: 85vh;
+  height: 100vh;
   overflow-y: auto;
 }
 #admin-quotes blockquote::before {
