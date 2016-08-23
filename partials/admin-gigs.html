@@ -4,8 +4,8 @@
         <input type="text" ng-model="date" class="col-xs-6 col-xs-offset-3">
     </div>
 
-    <div id="gigs-container">
-        <div ng-repeat="gig in gigs | filter:dateFilter()" class="gig collapsed row">
+    <div id="gigs-container" class="selectable-container">
+        <div ng-repeat="gig in gigs | filter:dateFilter()" class="gig selectable collapsed row">
             <gig ng-click="setPutState(gig)"></gig>
         </div>
     </div>

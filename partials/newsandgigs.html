@@ -10,8 +10,8 @@
 
 			<div id="gigs" class="box col-sm-8">
                 <h1 class="text-center">KOMMANDE KONSERTER</h1>
-                <div id="gigs-container">
-                    <div ng-repeat="gig in gigs | filter:dateFilter()" class="gig collapsed row">
+                <div id="gigs-container" class="selectable-container">
+                    <div ng-repeat="gig in gigs | filter:dateFilter()" class="gig selectable collapsed row">
                         <gig></gig>
                     </div>
                 </div>

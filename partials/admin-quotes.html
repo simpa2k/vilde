@@ -1,17 +1,24 @@
-<h1 class="text-center">{{ heading }}</h1>
-<div class="col-sm-4">
-   <blockquote ng-repeat="quote in quotes" ng-click="setPutState(quote)">
-      <p ng-bind-html="quote.review"></p>
-      <footer>{{ quote.source }}</footer>
-   </blockquote>
-</div>
-<div class="col-sm-8">
-   <div class="col-sm-8 col-sm-offset-2">
-      <textarea class="form-control" ui-tinymce="tinymceOptions" ng-model="quoteToBeSent.review"></textarea>
-      <input type="text" class="form-control" ng-model="quoteToBeSent.source" placeholder="Källa">
+<div id="admin-quotes">
+   <div class="col-sm-4">
+      <h1 class="text-center">Citat</h1>
+      <div class="selectable-container">
+         <div class="admin-item selectable" ng-repeat="quote in quotes">
+            <blockquote ng-click="setPutState(quote)">
+               <p ng-bind-html="quote.review"></p>
+               <footer>{{ quote.source }}</footer>
+            </blockquote>
+         </div>
+      </div>
+   </div>
+   <div class="col-sm-8">
+      <h1 class="text-center">{{ heading }}</h1>
+      <div class="col-sm-8 col-sm-offset-2">
+         <textarea class="form-control" ui-tinymce="tinymceOptions" ng-model="quoteToBeSent.review"></textarea>
+         <input type="text" class="form-control" ng-model="quoteToBeSent.source" placeholder="Källa">
 
-      <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-click="sendQuote()">{{ quoteAction }}</button>
-      <button class="btn btn-danger col-sm-6 col-sm-offset-3" ng-hide="addingNewQuote" ng-click="deleteQuote()">Ta bort citat</button>
-      <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-hide="addingNewQuote" ng-click="setPostState()">Nytt citat</button>
+         <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-click="sendQuote()">{{ quoteAction }}</button>
+         <button class="btn btn-danger col-sm-6 col-sm-offset-3" ng-hide="addingNewQuote" ng-click="deleteQuote()">Ta bort citat</button>
+         <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-hide="addingNewQuote" ng-click="setPostState()">Nytt citat</button>
+      </div>
    </div>
 </div>
