@@ -66,7 +66,7 @@ define(function() {
             },
             refreshDescription: function() {
                 promise = $http.get(descriptionEndpoint).then(function(response) {
-                    return buildDescriptionObject(response.data[0].content);
+                    return buildDescriptionObject(response.data[0]);
                 });
                 return promise;
             }

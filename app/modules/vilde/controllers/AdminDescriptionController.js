@@ -17,6 +17,9 @@ define(function() {
             SendObjectService.putObject($rootScope.serverRoot + 'description', $scope.descriptionToBeSent, function() {
                 DescriptionService.refreshDescription().then(function(descriptionObject) {
                     $scope.description = descriptionObject;
+
+                    $scope.descriptionToBeSent.id = $scope.description.id;
+                    $scope.descriptionToBeSent.content = $scope.description.content;
                 });
             });
         };
