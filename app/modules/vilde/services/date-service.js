@@ -5,7 +5,7 @@ define(function() {
    app.service('DateService', ['$filter', function($filter) {
       var self = this;
 
-      self.getCurrentDate = function(callback) {
+      self.getCurrentDatetime = function(callback) {
          var date = new Date();
          callback(date);
       };

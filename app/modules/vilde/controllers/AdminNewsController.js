@@ -6,13 +6,30 @@ define(function() {
                                                    $rootScope,
                                                    $http,
                                                    NewsService,
+                                                   DateService,
                                                    SendObjectService,
-                                                   GetDateService) {
+                                                   DateService) {
 
         var refreshNews = function() {
             NewsService.refreshNews().then(function(news) {
                 $scope.news = news;
             });
+        };
+
+        $scope.datetime;
+
+        $scope.newsItemDatePopup = {
+            opened: false
+        };
+
+        $scope.openNewsItemDatePopup = function() {
+            $scope.newsItemDatePopup.opened = true;
+        };
+
+        $scope.dateFilter = function() {
+            return function(newsItem) {
+                return DateService.compareYearMonthDay(newsItem.date, $scope.datetime);
+            }
         };
 
         $scope.newsItemToBeSent = {};
@@ -32,7 +49,7 @@ define(function() {
 
         $scope.setPostState = function() {
             $scope.newsItemToBeSent = {};
-            GetDateService.getCurrentDate(function(currentDate) {
+            DateService.getCurrentDatetime(function(currentDate) {
                 $scope.newsItemToBeSent.date = currentDate;
             });
 

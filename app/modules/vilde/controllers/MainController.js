@@ -20,8 +20,8 @@ define(function() {
       $scope.dateFormat = 'd/M, yyyy';
       $scope.timeFormat = 'HH:mm';
 
-      DateService.getCurrentDate(function(currentDate) {
-          $scope.currentDate = currentDate;
+      DateService.getCurrentDatetime(function(currentDatetime) {
+          $scope.currentDate = currentDatetime;
       });
 
       $scope.description = {};
