@@ -6,7 +6,7 @@ define(function() {
                                              $rootScope,
                                              $http,
                                              parallaxHelper,
-                                             GetDateService,
+                                             DateService,
                                              DescriptionService,
                                              QuotesService,
                                              QuoteSectionsService,
@@ -17,7 +17,10 @@ define(function() {
       $scope.background = parallaxHelper.createAnimator(-0.3, 300, -250);
       $scope.foreground = parallaxHelper.createAnimator(-0.1, 150, -150);
 
-      GetDateService.getCurrentDate(function(currentDate) {
+      $scope.dateFormat = 'd/M, yyyy';
+      $scope.timeFormat = 'HH:mm';
+
+      DateService.getCurrentDate(function(currentDate) {
           $scope.currentDate = currentDate;
       });
 

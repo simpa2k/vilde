@@ -3,6 +3,7 @@ require.config({
     paths: {
         'jquery': '/bower_components/jquery/dist/jquery.min',
         'angular': '/bower_components/angular/angular.min',
+        'angular-bootstrap': '/bower_components/angular-bootstrap/ui-bootstrap-tpls.min',
         'ui-router': '/bower_components/angular-ui-router/release/angular-ui-router.min',
         'angular-scroll': '/bower_components/angular-scroll/angular-scroll.min',
         'ng-parallax': '/bower_components/ng-parallax/angular-parallax.min',
@@ -16,7 +17,10 @@ require.config({
     shim: {
        'angular': {
            deps: ['jquery']
-       }, 
+       },
+       'angular-bootstrap': {
+            deps: ['angular']
+       },
        'ui-router': {
            deps: ['angular']
        }, 
@@ -36,7 +40,12 @@ require.config({
            deps: ['angular']
        }, 
        'vilde': {
-           deps: ['ui-router', 'ng-parallax', 'angular-ui-tinymce', 'angular-sanitize', 'authentication-module']
+           deps: ['angular-bootstrap',
+                  'ui-router',
+                  'ng-parallax',
+                  'angular-ui-tinymce',
+                  'angular-sanitize',
+                  'authentication-module']
        }
     }
     

@@ -1,6 +1,6 @@
 define(['modules/vilde/runners/authenticationRunner', 'modules/vilde/runners/rootScopeRunner'], function(authenticationRunner, rootScopeRunner) {
 
-   var app = angular.module('vilde', ['ui.router', 'duParallax', 'ui.tinymce', 'ngSanitize', 'AuthenticationModule']);
+   var app = angular.module('vilde', ['ui.bootstrap', 'ui.router', 'duParallax', 'ui.tinymce', 'ngSanitize', 'AuthenticationModule']);
 
    app.factory('sessionInjector', ['$injector', function($injector) {
        var sessionInjector = {

@@ -5,7 +5,9 @@ define(function() {
     app.controller('AdminGigsController', function($scope,
                                                    $rootScope,
                                                    $http,
+                                                   $filter,
                                                    GigsService,
+                                                   DateService,
                                                    SendObjectService) {
 
         var refreshGigs = function() {
@@ -23,11 +25,27 @@ define(function() {
             });
         };
 
-        $scope.date = $scope.currentDate;
+        $scope.gigsListDatePopup = {
+            opened: false
+        };
+
+        $scope.gigFormDatePopup = {
+            opened: false
+        };
+
+        $scope.openGigsListDatePopup = function() {
+            $scope.gigsListDatePopup.opened = true;
+        };
+
+        $scope.openGigFormDatePopup = function() {
+            $scope.gigFormDatePopup.opened = true;
+        };
+
+        $scope.datetime = $scope.currentDate;
 
         $scope.dateFilter = function() {
             return function(gig) {
-                return gig.date >= $scope.date;
+                return DateService.compareYearMonthDay(gig.datetime, $scope.datetime);
             }
         };
 
@@ -66,8 +84,7 @@ define(function() {
 
         $scope.setPutState = function(gig) {
             $scope.gigToBeSent.id = gig.id;
-            $scope.gigToBeSent.date = gig.date;
-            $scope.gigToBeSent.time = gig.time;
+            $scope.gigToBeSent.datetime = gig.datetime;
             $scope.gigToBeSent.ticketlink = gig.ticketlink;
             $scope.gigToBeSent.info = gig.info;
             $scope.gigToBeSent.venue_name = gig.venue_name;
@@ -83,6 +100,7 @@ define(function() {
 
         $scope.setPostState = function() {
             $scope.gigToBeSent = {};
+            $scope.gigToBeSent.datetime = $scope.currentDate
 
             $scope.heading = 'Lägg till nytt gig';
             $scope.gigAction = 'Lägg till gig';
@@ -112,9 +130,14 @@ define(function() {
             }
         };
 
+        var convertDateTime = function() {
+            $scope.gigToBeSent.datetime = $filter('date')($scope.gigToBeSent.datetime, 'yyyy-MM-dd HH:mm:00');
+        };
+
         var gigsEndpoint = $rootScope.serverRoot + 'gigs';
 
         $scope.putGig = function() {
+            convertDateTime();
             sendVenue();
             SendObjectService.putObject(gigsEndpoint, $scope.gigToBeSent, function() {
                 refreshGigs();
@@ -122,6 +145,7 @@ define(function() {
         };
 
         $scope.postGig = function() {
+            convertDateTime();
             sendVenue();
             SendObjectService.postObject(gigsEndpoint, $scope.gigToBeSent, function() {
                 refreshGigs();
@@ -130,6 +154,7 @@ define(function() {
         };
 
         $scope.deleteGig = function() {
+            convertDateTime();
             SendObjectService.deleteObject(gigsEndpoint, $scope.gigToBeSent, function() {
                 refreshGigs();
                 $scope.setPostState();

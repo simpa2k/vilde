@@ -2,7 +2,7 @@ define(function() {
 
     var app = angular.module('vilde');
 
-    app.controller('HomeController', function($scope) {
+    app.controller('HomeController', function($scope, DateService) {
 
         $scope.headings = [
             {
@@ -26,7 +26,7 @@ define(function() {
 
        $scope.dateFilter = function() {
            return function(gig) {
-               return gig.date >= $scope.currentDate;
+               return DateService.compareYearMonthDay(gig.datetime, $scope.currentDate);
            }
        };
 
