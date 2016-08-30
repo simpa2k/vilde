@@ -1,14 +1,14 @@
 <div id="news" class="box selectable-container col-sm-4">
     <h1 class="text-center">NYHETER</h1>
-    <!--<div class="row">
+    <div class="row">
         <p class="input-group col-xs-6 col-xs-offset-3">
             <input type="text" class="form-control" uib-datepicker-popup="{{ dateFormat }}" ng-model="datetime" is-open="newsItemDatePopup.opened" close-text="Stäng" >
             <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="openNewsItemDatePopup()"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>
         </p>
-    </div>-->
-    <p class="admin-item selectable" ng-repeat="newsItem in news" ng-click="setPutState(newsItem)"><span class="red">{{ newsItem.date }}</span>: <span ng-bind-html="newsItem.content"></span></p>
+    </div>
+    <p class="admin-item selectable" ng-repeat="newsItem in news | filter:newsDateFilter()" ng-click="setPutState(newsItem)"><span class="red">{{ newsItem.date | date:dateFormat }}</span>: <span ng-bind-html="newsItem.content"></span></p>
 </div>
 <div class="col-sm-8">
     <div class="col-sm-6 col-sm-offset-3">

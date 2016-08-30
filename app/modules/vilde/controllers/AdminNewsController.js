@@ -15,7 +15,8 @@ define(function() {
             });
         };
 
-        /*$scope.datetime;
+
+        $scope.datetime = NewsService.getEarliestNewsItemDate($scope.news);
 
         $scope.newsItemDatePopup = {
             opened: false
@@ -27,9 +28,9 @@ define(function() {
 
         $scope.newsDateFilter = function() {
             return function(newsItem) {
-                //return DateService.compareYearMonthDay(newsItem.date, $scope.datetime);
+                return DateService.compareYearMonthDay(newsItem.date, $scope.datetime);
             }
-        };*/
+        };
 
         $scope.newsItemToBeSent = {};
 

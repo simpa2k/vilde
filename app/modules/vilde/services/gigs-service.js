@@ -3,36 +3,6 @@ define(function() {
     var app = angular.module('vilde');
 
     app.factory('GigsService', ['$http', '$rootScope', 'DateService', function($http, $rootScope, DateService) {
-        /*var parseDate = function(date) {
-            var splitDate = date.split('-');
-            var year = splitDate[0];
-            var month = parseInt(splitDate[1]) - 1; // Since JavaScript counts months from 0-11
-            var day = splitDate[2];
-
-            date = {
-                'year': year,
-                'month': month,
-                'day': day
-            };
-
-            return date;
-
-        };
-
-        var parseTime = function(time) {
-            var splitTime = time.split(':');
-            var hours = splitTime[0];
-            var minutes = splitTime[1];
-
-            time = {
-                'hours': hours,
-                'minutes': minutes
-            };
-
-            return time;
-
-        };*/
-
         var instantiateGigDate = function(gig) {
             var splitDateTime = gig.datetime.split(' ');
             var date = splitDateTime[0];
