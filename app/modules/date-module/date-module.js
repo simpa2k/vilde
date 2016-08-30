@@ -63,6 +63,10 @@ define(function() {
 
         };
 
+        self.stringifyDate = function(date, format) {
+            return $filter('date')(date, format);
+        };
+
     }]);
 
 });

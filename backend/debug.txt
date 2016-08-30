@@ -1,1 +1,7 @@
-'verified'
+array (
+  'date' => '2016-08-30',
+  'id' => '4',
+  'content' => '<p>test igen</p>',
+  'username' => 'admin',
+  'token' => '5d37078a9f81a02e42d2f4fdf6b9ffca',
+)

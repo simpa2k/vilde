@@ -130,14 +130,15 @@ define(function() {
             }
         };
 
-        var convertDateTime = function() {
-            $scope.gigToBeSent.datetime = $filter('date')($scope.gigToBeSent.datetime, 'yyyy-MM-dd HH:mm:00');
-        };
-
         var gigsEndpoint = $rootScope.serverRoot + 'gigs';
 
+        $scope.makeRequest = function() {
+            $scope.gigToBeSent.datetime = DateService.stringifyDate($scope.gigToBeSent.datetime, 'yyyy-MM-dd HH:mm:00');
+
+            $scope.sendGig();
+        };
+
         $scope.putGig = function() {
-            convertDateTime();
             sendVenue();
             SendObjectService.putObject(gigsEndpoint, $scope.gigToBeSent, function() {
                 refreshGigs();
@@ -145,7 +146,6 @@ define(function() {
         };
 
         $scope.postGig = function() {
-            convertDateTime();
             sendVenue();
             SendObjectService.postObject(gigsEndpoint, $scope.gigToBeSent, function() {
                 refreshGigs();
@@ -154,7 +154,6 @@ define(function() {
         };
 
         $scope.deleteGig = function() {
-            convertDateTime();
             SendObjectService.deleteObject(gigsEndpoint, $scope.gigToBeSent, function() {
                 refreshGigs();
                 $scope.setPostState();

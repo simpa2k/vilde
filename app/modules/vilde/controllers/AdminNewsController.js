@@ -61,6 +61,13 @@ define(function() {
 
         var newsEndpoint = $rootScope.serverRoot + 'news';
 
+        $scope.makeRequest = function() {
+            $scope.newsItemToBeSent.date = DateService.stringifyDate($scope.newsItemToBeSent.date, 'yyyy-MM-dd');
+            console.log($scope.newsItemToBeSent);
+
+            $scope.sendNewsItem();
+        };
+
         $scope.putNewsItem = function() {
             SendObjectService.putObject(newsEndpoint, $scope.newsItemToBeSent, function() {
                 refreshNews();

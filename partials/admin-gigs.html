@@ -1,8 +1,9 @@
 <div id="gigs" class="box col-sm-4">
     <h1 class="text-center">KONSERTER</h1>
     <div class="row">
+        <label for="gigDateFilter" class="col-sm-6 col-sm-offset-3">Visar alla efter:</label>
         <p class="input-group col-xs-6 col-xs-offset-3">
-            <input type="text" class="form-control" uib-datepicker-popup="{{ dateFormat }}" ng-model="datetime" is-open="gigsListDatePopup.opened" close-text="Stäng" >
+            <input id="gigDateFilter" type="text" class="form-control" uib-datepicker-popup="{{ dateFormat }}" ng-model="datetime" is-open="gigsListDatePopup.opened" close-text="Stäng" >
             <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="openGigsListDatePopup()"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>
@@ -47,7 +48,7 @@
         </div>
 
 
-        <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-click="sendGig()">{{ gigAction }}</button>
+        <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-click="makeRequest()">{{ gigAction }}</button>
         <button class="btn btn-danger col-sm-6 col-sm-offset-3" ng-hide="addingNewGig" ng-click="deleteGig()">Ta bort gig</button>
         <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-hide="addingNewGig" ng-click="setPostState()">Nytt gig</button>
     </div>

@@ -1,8 +1,9 @@
 <div id="news" class="box selectable-container col-sm-4">
     <h1 class="text-center">NYHETER</h1>
     <div class="row">
+        <label for="newsItemDateFilter" class="col-sm-6 col-sm-offset-3">Visar alla efter:</label>
         <p class="input-group col-xs-6 col-xs-offset-3">
-            <input type="text" class="form-control" uib-datepicker-popup="{{ dateFormat }}" ng-model="datetime" is-open="newsItemDatePopup.opened" close-text="Stäng" >
+            <input id="newsItemDateFilter" type="text" class="form-control" uib-datepicker-popup="{{ dateFormat }}" ng-model="datetime" is-open="newsItemDatePopup.opened" close-text="Stäng" >
             <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="openNewsItemDatePopup()"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>
@@ -15,7 +16,7 @@
         <h1 class="text-center">{{ heading }}</h1>
         <textarea class="form-control" ui-tinymce ng-model="newsItemToBeSent.content"></textarea>
 
-        <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-click="sendNewsItem()">{{ newsItemAction}}</button>
+        <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-click="makeRequest()">{{ newsItemAction}}</button>
         <button class="btn btn-danger col-sm-6 col-sm-offset-3" ng-hide="addingNewNewsItem" ng-click="deleteNewsItem()">Ta bort nyhet</button>
         <button class="btn btn-primary col-sm-6 col-sm-offset-3" ng-hide="addingNewNewsItem" ng-click="setPostState()">Ny nyhet</button>
     </div>
