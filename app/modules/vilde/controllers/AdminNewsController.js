@@ -7,8 +7,7 @@ define(function() {
                                                    $http,
                                                    NewsService,
                                                    DateService,
-                                                   SendObjectService,
-                                                   DateService) {
+                                                   SendObjectService) {
 
         var refreshNews = function() {
             NewsService.refreshNews().then(function(news) {
@@ -16,7 +15,7 @@ define(function() {
             });
         };
 
-        $scope.datetime;
+        /*$scope.datetime;
 
         $scope.newsItemDatePopup = {
             opened: false
@@ -26,11 +25,11 @@ define(function() {
             $scope.newsItemDatePopup.opened = true;
         };
 
-        $scope.dateFilter = function() {
+        $scope.newsDateFilter = function() {
             return function(newsItem) {
-                return DateService.compareYearMonthDay(newsItem.date, $scope.datetime);
+                //return DateService.compareYearMonthDay(newsItem.date, $scope.datetime);
             }
-        };
+        };*/
 
         $scope.newsItemToBeSent = {};
 

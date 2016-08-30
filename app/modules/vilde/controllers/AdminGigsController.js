@@ -45,7 +45,9 @@ define(function() {
 
         $scope.dateFilter = function() {
             return function(gig) {
-                return DateService.compareYearMonthDay(gig.datetime, $scope.datetime);
+                var result = DateService.compareYearMonthDay(gig.datetime, $scope.datetime);
+                console.log(gig.datetime, $scope.datetime, result);
+                return result;
             }
         };
 

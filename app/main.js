@@ -11,6 +11,7 @@ require.config({
         'angular-ui-tinymce': '/bower_components/angular-ui-tinymce/dist/tinymce.min',
         'angular-sanitize': '/bower_components/angular-sanitize/angular-sanitize.min',
         'authentication-module': 'modules/authentication-module/authentication-module',
+        'date-module': 'modules/date-module/date-module',
         'vilde': 'modules/vilde/vilde'
     },
     
@@ -38,14 +39,18 @@ require.config({
        }, 
        'authentication-module': {
            deps: ['angular']
-       }, 
+       },
+       'date-module': {
+            deps: ['angular']
+       },
        'vilde': {
            deps: ['angular-bootstrap',
                   'ui-router',
                   'ng-parallax',
                   'angular-ui-tinymce',
                   'angular-sanitize',
-                  'authentication-module']
+                  'authentication-module',
+                  'date-module']
        }
     }
     
