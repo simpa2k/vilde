@@ -1,9 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand:300,400,700&subset=latin-ext,latin);
-
 @import url(https://fonts.googleapis.com/css?family=Great+Vibes&subset=latin,latin-ext);
-
 @import url(https://fonts.googleapis.com/css?family=Rosarivo&subset=latin,latin-ext);
-
 @import url(https://fonts.googleapis.com/css?family=Julius+Sans+One);
 .selectable-container:hover > .selectable {
   transform: scale(0.95);
@@ -37,7 +34,6 @@
       background-color: @dark-grey;
 
   }*/
-
 }
 #navbar .navbar-brand {
   padding-top: 1px;
@@ -423,12 +419,11 @@ blockquote::before {
     display: initial;
     width: 100%;
     /*#members-background {
-  			display: initial;
-  			position: relative;
-  			width: 100%;
-  			z-index: 0;
-  		}*/
-  
+			display: initial;
+			position: relative;
+			width: 100%;
+			z-index: 0;
+		}*/
   }
   #member-section #members {
     z-index: 1;
@@ -500,7 +495,6 @@ blockquote::before {
 	 * each other on smaller screens.
 	 *
 	 */
-
   padding-top: 1%;
   z-index: 1;
   position: relative;
