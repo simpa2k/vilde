@@ -11,5 +11,5 @@
 
 * Sökning på venues är case sensitive - ska den vara det?
 
-* Lös sessionhantering med hjälp av en interceptor
+* DateServices getEarliest kan inte hantera fall där arrayen är tom - fixa.
 
