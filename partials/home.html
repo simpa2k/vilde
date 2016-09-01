@@ -1,19 +1,12 @@
 <div ng-controller="HomeController">
     <div id="background" du-parallax y="background">
-        <img id="logo" src="../images/logga.png" du-parallax y="foreground">
+        <img id="logo" src="/staging/images/logga.png" du-parallax y="foreground">
     </div>
-
     <sticky-navbar headings="headings" element-to-stick-to="main" socialmedia="socialmedia"></sticky-navbar>
-
     <div id="main">
-
         <ng-include src="'partials/aboutandquotes.html'"></ng-include>
-
         <ng-include src="'partials/members.html'"></ng-include>
-
         <ng-include src="'partials/newsandgigs.html'"></ng-include>
-
-
         <div id="quote-section">
             <div class="container-fluid">
                 <div class="row">
@@ -24,14 +17,9 @@
                 </div>
             </div>
         </div>
-
         <ng-include src="'partials/media.html'"></ng-include>
-
         <div id="big-image" du-parallax y="background"></div>
-
         <ng-include src="'partials/contact.html'"></ng-include>
-
         <ng-include src="'partials/footer.html'"></ng-include>
-
     </div>
 </div>

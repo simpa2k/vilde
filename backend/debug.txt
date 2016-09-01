@@ -1,7 +1,6 @@
 array (
-  'date' => '2016-08-30',
-  'id' => '4',
-  'content' => '<p>test igen</p>',
+  'id' => '2',
+  'quote_id' => '1',
   'username' => 'admin',
-  'token' => '5d37078a9f81a02e42d2f4fdf6b9ffca',
+  'token' => '28adacbb5e0490de71bb4989c82c0305',
 )

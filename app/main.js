@@ -1,15 +1,15 @@
 require.config({
 
     paths: {
-        'jquery': '/bower_components/jquery/dist/jquery.min',
-        'angular': '/bower_components/angular/angular.min',
-        'angular-bootstrap': '/bower_components/angular-bootstrap/ui-bootstrap-tpls.min',
-        'ui-router': '/bower_components/angular-ui-router/release/angular-ui-router.min',
-        'angular-scroll': '/bower_components/angular-scroll/angular-scroll.min',
-        'ng-parallax': '/bower_components/ng-parallax/angular-parallax.min',
-        'tinymce': '/bower_components/tinymce-dist/tinymce.min',
-        'angular-ui-tinymce': '/bower_components/angular-ui-tinymce/dist/tinymce.min',
-        'angular-sanitize': '/bower_components/angular-sanitize/angular-sanitize.min',
+        'jquery': '../bower_components/jquery/dist/jquery.min',
+        'angular': '../bower_components/angular/angular.min',
+        'angular-bootstrap': '../bower_components/angular-bootstrap/ui-bootstrap-tpls.min',
+        'ui-router': '../bower_components/angular-ui-router/release/angular-ui-router.min',
+        'angular-scroll': '../bower_components/angular-scroll/angular-scroll.min',
+        'ng-parallax': '../bower_components/ng-parallax/angular-parallax.min',
+        'tinymce': '../bower_components/tinymce-dist/tinymce.min',
+        'angular-ui-tinymce': '../bower_components/angular-ui-tinymce/dist/tinymce.min',
+        'angular-sanitize': '../bower_components/angular-sanitize/angular-sanitize.min',
         'authentication-module': 'modules/authentication-module/authentication-module',
         'date-module': 'modules/date-module/date-module',
         'vilde': 'modules/vilde/vilde'
