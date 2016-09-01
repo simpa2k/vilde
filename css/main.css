@@ -60,6 +60,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
   display: inline-block;
+  float: left;
 }
 #navbar .social-media {
   margin-left: 10px;
@@ -111,6 +112,7 @@
 @media (min-width: 500px) {
   #navbar ul {
     padding-left: 10%;
+    float: left;
   }
 }
 @media (min-width: 931px) {
