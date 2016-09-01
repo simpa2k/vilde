@@ -290,7 +290,7 @@ body {
   top: 0;
   left: 0;
   z-index: 0;
-  background-image: url("https://vildeland.se/staging/images/mobile_background3.jpg");
+  background-image: url("../images/mobile_background3.jpg");
   background-size: cover !important;
 }
 #background img {
@@ -302,7 +302,7 @@ body {
 }
 @media (min-width: 560px) {
   #background {
-    background-image: url("https://vildeland.se/staging/images/background.jpg");
+    background-image: url("../images/background.jpg");
     background-position: center top;
   }
   #background img {
@@ -428,7 +428,7 @@ blockquote::before {
   }
   #member-section #members {
     z-index: 1;
-    background-image: url('https://vildeland.se/staging/images/allatre.jpg');
+    background-image: url('../images/allatre.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
