@@ -290,7 +290,7 @@ body {
   top: 0;
   left: 0;
   z-index: 0;
-  background-image: url("/images/mobile_background3.jpg");
+  background-image: url("staging/images/mobile_background3.jpg");
   background-size: cover !important;
 }
 #background img {
@@ -302,7 +302,7 @@ body {
 }
 @media (min-width: 560px) {
   #background {
-    background-image: url("/images/background.jpg");
+    background-image: url("/staging/images/background.jpg");
     background-position: center top;
   }
   #background img {
@@ -326,6 +326,7 @@ body {
   top: 100vh;
   z-index: 1;
   background: transparent;
+  width: 100%;
 }
 .box {
   padding: 5% 5% 5% 5% !important;
@@ -427,7 +428,7 @@ blockquote::before {
   }
   #member-section #members {
     z-index: 1;
-    background-image: url('/images/allatre.jpg');
+    background-image: url('/staging/images/allatre.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
@@ -511,7 +512,7 @@ asynch-iframe iframe {
 }
 #big-image {
   height: 100vh !important;
-  background-image: url('/images/vidbil.jpg');
+  background-image: url('/staging/images/vidbil.jpg');
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center bottom;

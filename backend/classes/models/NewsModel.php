@@ -6,6 +6,9 @@
  * Date: 2016-05-16
  * Time: 16:43
  */
+
+require_once('core/init.php');
+
 class NewsModel extends BaseModel {
 
     public function get($where) {

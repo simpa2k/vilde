@@ -9,7 +9,7 @@ $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 $db = DB::getInstance();
 
 try {
-    $db->insert('users', array(
+    $db->insert('user', array(
 
         'username' => $username,
         'password' => $hashedPassword,

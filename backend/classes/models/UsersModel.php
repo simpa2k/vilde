@@ -10,7 +10,7 @@ class UsersModel extends BaseModel
 {
     public function get($where)
     {
-        return $this->getDB()->get('users', $where)->first();
+        return $this->getDB()->get('user', $where)->first();
     }
 
     public function getAll()
@@ -20,7 +20,7 @@ class UsersModel extends BaseModel
     
     public function updateToken($id, $token) {
         $fields = array('token' => $token);
-        $this->getDB()->update('users', $id, $fields); 
+        $this->getDB()->update('user', $id, $fields); 
     }
 
 }

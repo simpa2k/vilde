@@ -6,6 +6,9 @@
  * Date: 2016-05-16
  * Time: 16:43
  */
+
+require_once('core/init.php');
+
 class NewsController extends BaseController {
 
     public function __construct($model) {
@@ -23,9 +26,6 @@ class NewsController extends BaseController {
     }
     
     public function post($request) {
-        $debug = fopen('debugfile.txt', 'w');
-        fwrite($debug, var_export($request->parameters, true));
-        fclose($debug);
         $this->getModel()->insert($request->parameters);
     }
     
