@@ -16,7 +16,9 @@ define(function() {
         };
 
 
-        $scope.datetime = NewsService.getEarliestNewsItemDate($scope.news);
+        if($scope.news.length > 0) {
+            $scope.datetime = NewsService.getEarliestNewsItemDate($scope.news);
+        }
 
         $scope.newsItemDatePopup = {
             opened: false
