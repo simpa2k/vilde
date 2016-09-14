@@ -16,7 +16,7 @@ define(function() {
         };
 
 
-        if($scope.news.length > 0) {
+        if($scope.news == null || $scope.news.length > 0) {
             $scope.datetime = NewsService.getEarliestNewsItemDate($scope.news);
         }
 
