@@ -20,7 +20,8 @@ define(function() {
         'modules/vilde/directives/gig',
         'modules/vilde/directives/sticky-navbar/sticky-navbar',
         'modules/vilde/directives/youtube',
-        'modules/vilde/directives/asynch-iframe'
+        'modules/vilde/directives/asynch-iframe',
+        'modules/vilde/filters/priceFilter'
 
     ]
 

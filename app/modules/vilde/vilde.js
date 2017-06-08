@@ -22,8 +22,8 @@ define(['modules/vilde/runners/authenticationRunner', 'modules/vilde/runners/roo
        };
        return sessionInjector;
    }]);
-    
-   app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+
+   app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $httpProvider) {
        $urlRouterProvider.otherwise('/home');
 
        $stateProvider
@@ -85,7 +85,7 @@ define(['modules/vilde/runners/authenticationRunner', 'modules/vilde/runners/roo
            });
 
        $httpProvider.interceptors.push('sessionInjector');
-   });
+   }]);
 
    app.run(authenticationRunner);
    app.run(rootScopeRunner);

@@ -5,7 +5,7 @@ define(function() {
     app.service('SendObjectService', ['$http', function($http) {
         var self = this;
 
-        function countNumberOfProperties(object) {
+        /*function countNumberOfProperties(object) {
             var counter = 0;
 
             angular.forEach(object, function() {
@@ -13,9 +13,37 @@ define(function() {
             });
 
             return counter;
-        }
+        }*/
 
         function constructUriFromObject(object) {
+
+            let uri = '';
+            let first = true;
+
+            angular.forEach(object, function(value, key) {
+
+                if(first) {
+                    first = false;
+                } else {
+                    uri += '&';
+                }
+
+                uri += key;
+
+                if(value != null && value.hasOwnProperty('length') && value.length > 0) {
+
+                    let encodedValue = encodeURIComponent(value);
+                    uri += '=' + encodedValue;
+
+                }
+
+            });
+
+            return uri;
+
+        };
+
+        /*function constructUriFromObject(object) {
             var uri = '';
             var numberOfIterations = countNumberOfProperties(object);
             var counter = 0;
@@ -29,7 +57,7 @@ define(function() {
                 }
             });
             return uri;
-        };
+        };*/
 
         self.appendToUri = function(uri, object) {
             return uri + '&' + constructUriFromObject(object);
